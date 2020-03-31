@@ -1,0 +1,29 @@
+<RCC>
+    <qresource prefix="/">
+        <file>res/cards.png</file>
+        <file>res/homepage.png</file>
+        <file>res/configure.png</file>
+        <file>res/double-left.png</file>
+        <file>res/double-right.png</file>
+        <file>res/excel.png</file>
+        <file>res/left-arrow.png</file>
+        <file>res/print.png</file>
+        <file>res/right-arrow.png</file>
+        <file>res/zoom-in.png</file>
+        <file>res/zoom-out.png</file>
+        <file>res/login.png</file>
+        <file>res/partner.png</file>
+        <file>res/new.png</file>
+        <file>res/cancel.png</file>
+        <file>res/ok.png</file>
+        <file>res/refresh.png</file>
+        <file>res/register.png</file>
+        <file>res/tickets.png</file>
+        <file>res/pass.png</file>
+        <file>res/logout.png</file>
+        <file>res/complete.png</file>
+        <file>FlashCards.qm</file>
+        <file>res/edit.png</file>
+        <file>res/filter.png</file>
+    </qresource>
+</RCC>
