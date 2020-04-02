@@ -6,6 +6,7 @@ WdbPartner::WdbPartner(QWidget *parent) :
     ui(new Ui::WdbPartner)
 {
     ui->setupUi(this);
+    ui->wc->enumLineEdit();
 }
 
 WdbPartner::~WdbPartner()

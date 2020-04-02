@@ -12,13 +12,12 @@ WdtCardTypes::WdtCardTypes(const QIcon &icon, const QString &label, QWidget *par
 
 void WdtCardTypes::newCardType()
 {
-    DbDialog::createDialog<WdbTicketType>();
+    newElement<WdbTicketType>();
 }
 
 void WdtCardTypes::editTicketType()
 {
-    int id = rowId();
-    DbDialog::createDialog<WdbTicketType>(id);
+    editElement<WdbTicketType>();
 }
 
 bool WdtCardTypes::tblDoubleClicked(int row, int column, const QList<QVariant> &values)
@@ -26,7 +25,6 @@ bool WdtCardTypes::tblDoubleClicked(int row, int column, const QList<QVariant> &
     Q_UNUSED(row);
     Q_UNUSED(column);
     Q_UNUSED(values);
-    int id = rowId();
-    DbDialog::createDialog<WdbTicketType>(id);
+    editElement<WdbTicketType>();
     return true;
 }

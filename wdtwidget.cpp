@@ -57,9 +57,10 @@ void WdtWidget::exportToExcel()
 
 }
 
-void WdtWidget::addAction(QList<QAction *> &list, const QString &icon, const QString &title, QObject *receiver, const char *slot)
+QAction *WdtWidget::addAction(QList<QAction *> &list, const QString &icon, const QString &title, QObject *receiver, const char *slot)
 {
     QAction *a = new QAction(QIcon(icon), title);
     connect(a, SIGNAL(triggered()), receiver, slot);
     list.append(a);
+    return a;
 }

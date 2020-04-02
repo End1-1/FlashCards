@@ -28,6 +28,14 @@ private slots:
 
     void on_btnRegisterUsed_clicked();
 
+    void on_btnFuel_clicked();
+
+    void on_btnAllTickets2_clicked();
+
+    void on_btnAllTickets2_2_clicked();
+
+    void on_btnPartnersTicket2_clicked();
+
 private:
     Ui::WdtHome *ui;
 };

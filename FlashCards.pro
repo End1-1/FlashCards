@@ -63,6 +63,7 @@ SOURCES += \
         dbdialog.cpp \
         dialog.cpp \
         filteralltickets.cpp \
+        filterpartner1.cpp \
         homewindows.cpp \
         keyvaluelineedit.cpp \
         login.cpp \
@@ -70,14 +71,19 @@ SOURCES += \
         passticketsdialog.cpp \
         registerticketdialog.cpp \
         registeruseddialog.cpp \
+        wdbfuel.cpp \
         wdbpartner.cpp \
         wdbtickettype.cpp \
         wdbwidget.cpp \
         wdtalltickets.cpp \
+        wdtalltickets2.cpp \
         wdtcardtypes.cpp \
         wdtcontainer.cpp \
+        wdtfuel.cpp \
         wdthome.cpp \
         wdtpartners.cpp \
+        wdtreppartners2.cpp \
+        wdtreppartners1.cpp \
         wdtwidget.cpp
 
 HEADERS += \
@@ -119,6 +125,7 @@ HEADERS += \
     dbdialog.h \
     dialog.h \
     filteralltickets.h \
+    filterpartner1.h \
     homewindows.h \
     keyvaluelineedit.h \
     login.h \
@@ -126,14 +133,19 @@ HEADERS += \
     registerticketdialog.h \
     registeruseddialog.h \
     res.rc \
+    wdbfuel.h \
     wdbpartner.h \
     wdbtickettype.h \
     wdbwidget.h \
     wdtalltickets.h \
+    wdtalltickets2.h \
     wdtcardtypes.h \
     wdtcontainer.h \
+    wdtfuel.h \
     wdthome.h \
     wdtpartners.h \
+    wdtreppartners2.h \
+    wdtreppartners1.h \
     wdtwidget.h
 
 FORMS += \
@@ -146,11 +158,13 @@ FORMS += \
     c5selector.ui \
     dbdialog.ui \
     filteralltickets.ui \
+    filterpartner1.ui \
     homewindows.ui \
     login.ui \
     passticketsdialog.ui \
     registerticketdialog.ui \
     registeruseddialog.ui \
+    wdbfuel.ui \
     wdbpartner.ui \
     wdbtickettype.ui \
     wdthome.ui

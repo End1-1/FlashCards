@@ -6,78 +6,162 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>302</width>
-    <height>96</height>
+    <width>475</width>
+    <height>116</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Form</string>
   </property>
-  <layout class="QFormLayout" name="formLayout">
-   <item row="0" column="0">
-    <widget class="QLabel" name="label">
-     <property name="text">
-      <string>Code</string>
-     </property>
-    </widget>
-   </item>
-   <item row="0" column="1">
-    <widget class="C5LineEdit" name="lineEdit">
-     <property name="focusPolicy">
-      <enum>Qt::NoFocus</enum>
-     </property>
-     <property name="readOnly">
-      <bool>true</bool>
-     </property>
-     <property name="id" stdset="0">
-      <bool>true</bool>
-     </property>
-     <property name="type" stdset="0">
-      <number>0</number>
-     </property>
-     <property name="field" stdset="0">
-      <string>:fid</string>
-     </property>
-    </widget>
-   </item>
-   <item row="1" column="0">
-    <widget class="QLabel" name="label_2">
-     <property name="text">
-      <string>Name</string>
-     </property>
-    </widget>
-   </item>
-   <item row="1" column="1">
-    <widget class="C5LineEdit" name="lineEdit_2">
-     <property name="field" stdset="0">
-      <string>:fname</string>
-     </property>
-     <property name="type" stdset="0">
-      <number>1</number>
-     </property>
-     <property name="noempty" stdset="0">
-      <string>Name</string>
-     </property>
-    </widget>
-   </item>
-   <item row="2" column="0">
-    <widget class="QLabel" name="label_3">
-     <property name="text">
-      <string>Quantity</string>
-     </property>
-    </widget>
-   </item>
-   <item row="2" column="1">
-    <widget class="C5LineEdit" name="lineEdit_3">
-     <property name="field" stdset="0">
-      <string>:fmeas</string>
-     </property>
-     <property name="type" stdset="0">
-      <number>0</number>
-     </property>
-     <property name="noempty" stdset="0">
-      <string>Quantity</string>
-     </property>
+  <layout class="QGridLayout" name="gridLayout">
+   <property name="leftMargin">
+    <number>0</number>
+   </property>
+   <property name="topMargin">
+    <number>0</number>
+   </property>
+   <property name="rightMargin">
+    <number>0</number>
+   </property>
+   <property name="bottomMargin">
+    <number>0</number>
+   </property>
+   <item row="2" column="2">
+    <widget class="WdtContainer" name="wc" native="true">
+     <layout class="QGridLayout" name="gridLayout_2">
+      <item row="0" column="0">
+       <widget class="QLabel" name="label">
+        <property name="text">
+         <string>Code</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="1">
+       <widget class="C5LineEdit" name="lineEdit">
+        <property name="minimumSize">
+         <size>
+          <width>80</width>
+          <height>0</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>80</width>
+          <height>16777215</height>
+         </size>
+        </property>
+        <property name="focusPolicy">
+         <enum>Qt::NoFocus</enum>
+        </property>
+        <property name="readOnly">
+         <bool>true</bool>
+        </property>
+        <property name="id" stdset="0">
+         <bool>true</bool>
+        </property>
+        <property name="type" stdset="0">
+         <number>0</number>
+        </property>
+        <property name="field" stdset="0">
+         <string>:fid</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="0">
+       <widget class="QLabel" name="label_4">
+        <property name="text">
+         <string>Fuel</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="1">
+       <widget class="C5LineEdit" name="lineEdit_4">
+        <property name="minimumSize">
+         <size>
+          <width>80</width>
+          <height>0</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>80</width>
+          <height>16777215</height>
+         </size>
+        </property>
+        <property name="lkey" stdset="0">
+         <string>fuel</string>
+        </property>
+        <property name="field" stdset="0">
+         <string>:ffuel</string>
+        </property>
+        <property name="type" stdset="0">
+         <number>0</number>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="2">
+       <widget class="C5LineEdit" name="lineEdit_5">
+        <property name="lvalue" stdset="0">
+         <string>fuel</string>
+        </property>
+        <property name="noempty" stdset="0">
+         <string>Fuel</string>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="0">
+       <widget class="QLabel" name="label_2">
+        <property name="text">
+         <string>Name</string>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="1" colspan="2">
+       <widget class="C5LineEdit" name="lineEdit_2">
+        <property name="field" stdset="0">
+         <string>:fname</string>
+        </property>
+        <property name="type" stdset="0">
+         <number>1</number>
+        </property>
+        <property name="noempty" stdset="0">
+         <string>Name</string>
+        </property>
+       </widget>
+      </item>
+      <item row="3" column="0">
+       <widget class="QLabel" name="label_3">
+        <property name="text">
+         <string>Quantity</string>
+        </property>
+       </widget>
+      </item>
+      <item row="3" column="1">
+       <widget class="C5LineEdit" name="lineEdit_3">
+        <property name="minimumSize">
+         <size>
+          <width>80</width>
+          <height>0</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>80</width>
+          <height>16777215</height>
+         </size>
+        </property>
+        <property name="field" stdset="0">
+         <string>:fmeas</string>
+        </property>
+        <property name="type" stdset="0">
+         <number>0</number>
+        </property>
+        <property name="noempty" stdset="0">
+         <string>Quantity</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
     </widget>
    </item>
   </layout>
@@ -87,6 +171,12 @@
    <class>C5LineEdit</class>
    <extends>QLineEdit</extends>
    <header location="global">c5lineedit.h</header>
+  </customwidget>
+  <customwidget>
+   <class>WdtContainer</class>
+   <extends>QWidget</extends>
+   <header location="global">wdtcontainer.h</header>
+   <container>1</container>
   </customwidget>
  </customwidgets>
  <resources/>

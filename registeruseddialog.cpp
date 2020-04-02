@@ -11,9 +11,7 @@ RegisterUsedDialog::RegisterUsedDialog() :
 {
     ui->setupUi(this);
     ui->wc->enumLineEdit();
-    QShortcut *sh = new QShortcut(QKeySequence(Qt::Key_Control, Qt::Key_Enter), this);
-    connect(sh, SIGNAL(activated()), this, SLOT(on_btnWrite_clicked()));
-    sh = new QShortcut(QKeySequence(Qt::Key_Control, Qt::Key_Return), this);
+    QShortcut *sh = new QShortcut(QKeySequence("Ctrl+Return"), this);
     connect(sh, SIGNAL(activated()), this, SLOT(on_btnWrite_clicked()));
     fTicketId = 0;
 }

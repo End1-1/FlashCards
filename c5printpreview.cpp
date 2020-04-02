@@ -81,7 +81,7 @@ void C5PrintPreview::on_btnPrint_clicked()
 
 void C5PrintPreview::on_cbPrinters_currentIndexChanged(const QString &arg1)
 {
-
+    Q_UNUSED(arg1);
 }
 
 void C5PrintPreview::on_btnNext_clicked()

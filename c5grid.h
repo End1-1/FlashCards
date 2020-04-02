@@ -18,7 +18,7 @@ class C5Grid;
 }
 
 class C5FilterWidget;
-class CE5Editor;
+class WdbWidget;
 class C5LineEdit;
 class C5TableWidget;
 
@@ -60,7 +60,6 @@ protected:
     QString fGroupCondition;
     QString fOrderCondition;
     C5FilterWidget *fFilterWidget;
-    CE5Editor *fEditor;
     C5LineEdit *fFilterLineEdit;
     QWidget *widget();
     QHBoxLayout *hl();
@@ -77,6 +76,20 @@ protected:
     virtual QMenu *buildTableViewContextMenu(const QPoint &point);
     virtual bool tblDoubleClicked(int row, int column, const QList<QVariant> &values);
     virtual void buildReport(const QString &name);
+    virtual void insertNewRow(WdbWidget *w);
+    virtual void updateRow(WdbWidget *w);
+
+    template<typename T>
+    void newElement() {
+        T *t = new T();
+        insertNewRow(t);
+    }
+
+    template<typename T>
+    void editElement() {
+        T *t = new T();
+        updateRow(t);
+    }
 
 private:
     Ui::C5Grid *ui;
@@ -92,7 +105,6 @@ protected slots:
     virtual void copySelection();
     virtual void copyAll();
     virtual void saveDataChanges();
-    virtual int newRow();
     bool currentRow(int &row);
     virtual void editRow(int columnWidthId = 0);
     virtual void removeRow(int columnWithId = 0);
@@ -101,6 +113,7 @@ protected slots:
     virtual void clearFilter();
     virtual void refreshData();
     virtual void setSearchParameters();
+    virtual void resetSearchParameters();
     virtual void tableViewContextMenuRequested(const QPoint &point);
     virtual void tableViewHeaderContextMenuRequested(const QPoint &point);
     virtual void tableViewHeaderClicked(int index);

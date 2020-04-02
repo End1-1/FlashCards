@@ -101,6 +101,8 @@ void WdbWidget::buildFieldsValues(QWidget *parent)
         if (le) {
             if (le->property("id").toBool()) {
                 fLineID = le;
+                fLineID->setReadOnly(true);
+                fLineID->setFocusPolicy(Qt::NoFocus);
             }
             if (le->property("field").isValid()) {
                 switch (le->property("type").toInt()) {
@@ -142,7 +144,11 @@ void WdbWidget::buildFieldsForEdit(QMap<QString, QWidget*> &fields, QWidget *par
     for (QObject *o: ol) {
         le = dynamic_cast<C5LineEdit *>(o);
         if (le) {
-            qDebug() << le->property("field") << le->property("id") << le->property("type");
+            if (le->property("id").toBool()) {
+                fLineID = le;
+                fLineID->setReadOnly(true);
+                fLineID->setFocusPolicy(Qt::NoFocus);
+            }
             if (le->property("field").isValid()) {
                 QString fieldName = le->property("field").toString();
                 fields[fieldName] = le;

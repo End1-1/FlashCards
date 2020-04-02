@@ -25,5 +25,8 @@
         <file>FlashCards.qm</file>
         <file>res/edit.png</file>
         <file>res/filter.png</file>
+        <file>res/fuel.png</file>
+        <file>res/gasoline.png</file>
+        <file>res/back.png</file>
     </qresource>
 </RCC>

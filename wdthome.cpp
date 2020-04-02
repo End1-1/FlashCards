@@ -3,6 +3,10 @@
 #include "wdtcardtypes.h"
 #include "wdtpartners.h"
 #include "wdtalltickets.h"
+#include "wdtalltickets2.h"
+#include "wdtreppartners1.h"
+#include "wdtreppartners2.h"
+#include "wdtfuel.h"
 #include "config.h"
 #include "registerticketdialog.h"
 #include "passticketsdialog.h"
@@ -54,4 +58,24 @@ void WdtHome::on_btnRegisterUsed_clicked()
     RegisterUsedDialog *d = new RegisterUsedDialog();
     d->exec();
     delete d;
+}
+
+void WdtHome::on_btnFuel_clicked()
+{
+    __parent->addWidget<WdtFuel>(static_cast<QToolButton *>(sender()));
+}
+
+void WdtHome::on_btnAllTickets2_clicked()
+{
+    __parent->addWidget<WdtAllTickets2>(static_cast<QToolButton *>(sender()));
+}
+
+void WdtHome::on_btnAllTickets2_2_clicked()
+{
+    __parent->addWidget<WdtRepPartners1>(static_cast<QToolButton *>(sender()));
+}
+
+void WdtHome::on_btnPartnersTicket2_clicked()
+{
+    __parent->addWidget<WdtRepPartners2>(static_cast<QToolButton *>(sender()));
 }

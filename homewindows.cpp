@@ -65,12 +65,16 @@ void HomeWindows::setMenuState(bool v)
             menu.at(i)->setEnabled(!v);
             continue;
         }
+        if (i == 1) {
+            continue;
+        }
         if (i == menu.count() - 1) {
             continue;
         }
         menu.at(i)->setEnabled(v);
     }
     ui->menuEdit->setEnabled(v);
+    ui->menuReport->setEnabled(v);
 }
 
 void HomeWindows::closeEvent(QCloseEvent *event)

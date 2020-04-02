@@ -20,5 +20,8 @@ QString FilterAllTickets::condition()
     if (!ui->leState->isEmpty()) {
         where += " and c.fstate in (" + ui->leState->text() + ") ";
     }
+    if (!ui->leFuel->isEmpty()) {
+        where += " and ct.ffuel in (" + ui->leFuel->text() + ") ";
+    }
     return where;
 }

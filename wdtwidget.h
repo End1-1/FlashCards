@@ -27,7 +27,7 @@ protected:
     QString fLabel;
     QList<QAction *> fEditActions;
     QList<QAction *> fReportActions;
-    void addAction(QList<QAction *> &list, const QString &icon, const QString &title, QObject *receiver, const char *slot);
+    QAction *addAction(QList<QAction *> &list, const QString &icon, const QString &title, QObject *receiver, const char *slot);
 
 protected slots:
 

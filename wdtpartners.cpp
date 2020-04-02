@@ -12,13 +12,13 @@ WdtPartners::WdtPartners(const QIcon &icon, const QString &label, QWidget *paren
 
 void WdtPartners::newPartner()
 {
-    DbDialog::createDialog<WdbPartner>();
+    newElement<WdbPartner>();
 }
 
 void WdtPartners::editPartner()
 {
-    int id = rowId();
-    DbDialog::createDialog<WdbPartner>(id);
+    editElement<WdbPartner>();
+
 }
 
 bool WdtPartners::tblDoubleClicked(int row, int column, const QList<QVariant> &values)
@@ -26,7 +26,6 @@ bool WdtPartners::tblDoubleClicked(int row, int column, const QList<QVariant> &v
     Q_UNUSED(row);
     Q_UNUSED(column);
     Q_UNUSED(values);
-    int id = rowId();
-    DbDialog::createDialog<WdbPartner>(id);
+    editElement<WdbPartner>();
     return true;
 }

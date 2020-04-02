@@ -14,9 +14,9 @@ public:
     virtual bool save(QWidget *parent);
     virtual void setId(int id);
     virtual int id();
+    virtual QString tableName() const = 0;
 
 protected:
-    virtual QString tableName() const = 0;
     virtual QString editQuery() const;
     QMap<QString, QVariant> fValues;
 

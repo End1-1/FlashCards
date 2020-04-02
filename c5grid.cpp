@@ -8,6 +8,7 @@
 #include "c5gridgilter.h"
 #include "c5lineedit.h"
 #include "xlsxall.h"
+#include "dbdialog.h"
 #include <QMenu>
 #include <QLabel>
 #include <QScrollBar>
@@ -34,7 +35,6 @@ C5Grid::C5Grid(const QIcon &icon, const QString &label, QWidget *parent) :
     connect(fTableView, SIGNAL(customContextMenuRequested(QPoint)), this, SLOT(tableViewContextMenuRequested(QPoint)));
     connect(ui->tblTotal->horizontalScrollBar(), SIGNAL(valueChanged(int)), this, SLOT(tblValueChanged(int)));
     fFilterWidget = nullptr;
-    fEditor = nullptr;
     ui->tblTotal->setVisible(false);
     ui->tblView->resizeRowsToContents();
     QShortcut *s = new QShortcut(QKeySequence(Qt::CTRL + Qt::Key_Enter), this);
@@ -60,9 +60,6 @@ C5Grid::~C5Grid()
 {
     if (fFilterWidget) {
         delete fFilterWidget;
-    }
-    if (fEditor) {
-        delete fEditor;
     }
     delete ui;
 }
@@ -363,6 +360,33 @@ void C5Grid::buildReport(const QString &name)
     buildQuery();
 }
 
+void C5Grid::insertNewRow(WdbWidget *w)
+{
+    int id = DbDialog::createDialog(w);
+    if (id > 0) {
+        QString q = fSqlQuery + " where " + w->tableName() + ".fid=" + QString::number(id);
+        C5Database db(__dbhost, __dbschema, __dbusername, __dbpassword);
+        db.exec(q);
+        if (db.nextRow()) {
+            fModel->addRowValues(db.row());
+        }
+    }
+    w->deleteLater();
+}
+
+void C5Grid::updateRow(WdbWidget *w)
+{
+    int r = 0, c = 0;
+    int id = rowId(r, c);
+    id = DbDialog::createDialog(w, id);
+    QString q = fSqlQuery + " where " + w->tableName() + ".fid=" + QString::number(id);
+    C5Database db(__dbhost, __dbschema, __dbusername, __dbpassword);
+    db.exec(q);
+    if (db.nextRow()) {
+        fModel->replaceRowValues(r, db.row());
+    }
+}
+
 void C5Grid::insertJoinTable(QStringList &joins, QMap<QString, QString> &joinsMap, const QString &table, const QString &mainTable)
 {
     QString j;
@@ -501,14 +525,6 @@ void C5Grid::removeFilterForColumn()
 void C5Grid::tblValueChanged(int pos)
 {
     fTableView->horizontalScrollBar()->setValue(pos);
-}
-
-int C5Grid::newRow()
-{
-    if (fEditor == nullptr) {
-        return -1;
-    }
-    return 0;
 }
 
 bool C5Grid::currentRow(int &row)
@@ -744,6 +760,14 @@ void C5Grid::setSearchParameters()
             }
             buildQuery();
         }
+    }
+}
+
+void C5Grid::resetSearchParameters()
+{
+    if (fFilterWidget) {
+        fFilterWidget->clearFilter(fFilterWidget);
+        buildQuery();
     }
 }
 

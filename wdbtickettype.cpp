@@ -6,6 +6,7 @@ WdbTicketType::WdbTicketType(QWidget *parent) :
     ui(new Ui::WdbTicketType)
 {
     ui->setupUi(this);
+    ui->wc->enumLineEdit();
 }
 
 WdbTicketType::~WdbTicketType()

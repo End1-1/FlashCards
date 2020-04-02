@@ -127,50 +127,50 @@
         <translation>Արտահանել Excel</translation>
     </message>
     <message>
-        <location filename="c5grid.cpp" line="215"/>
-        <location filename="c5grid.cpp" line="225"/>
-        <location filename="c5grid.cpp" line="519"/>
+        <location filename="c5grid.cpp" line="212"/>
+        <location filename="c5grid.cpp" line="222"/>
+        <location filename="c5grid.cpp" line="535"/>
         <source>Nothing was selected</source>
         <translation>Ոչինչ նշված չէ</translation>
     </message>
     <message>
-        <location filename="c5grid.cpp" line="342"/>
+        <location filename="c5grid.cpp" line="339"/>
         <source>Filter</source>
         <translation>Ֆիլտր</translation>
     </message>
     <message>
-        <location filename="c5grid.cpp" line="344"/>
+        <location filename="c5grid.cpp" line="341"/>
         <source>Copy selection</source>
         <translation>Պատճենել նշվածը</translation>
     </message>
     <message>
-        <location filename="c5grid.cpp" line="345"/>
+        <location filename="c5grid.cpp" line="342"/>
         <source>Copy all</source>
         <translation>Պատճենել բոլորը</translation>
     </message>
     <message>
-        <location filename="c5grid.cpp" line="617"/>
-        <location filename="c5grid.cpp" line="651"/>
+        <location filename="c5grid.cpp" line="633"/>
+        <location filename="c5grid.cpp" line="667"/>
         <source>Printed</source>
         <translation>Տպված է</translation>
     </message>
     <message>
-        <location filename="c5grid.cpp" line="681"/>
+        <location filename="c5grid.cpp" line="697"/>
         <source>Empty report!</source>
         <translation>Դատարկ հաշվետվություն</translation>
     </message>
     <message>
-        <location filename="c5grid.cpp" line="762"/>
+        <location filename="c5grid.cpp" line="786"/>
         <source>Set filter</source>
         <translation>Ֆիլտր</translation>
     </message>
     <message>
-        <location filename="c5grid.cpp" line="763"/>
+        <location filename="c5grid.cpp" line="787"/>
         <source>Remove filter</source>
         <translation>Հեռացնել ֆիլտրը</translation>
     </message>
     <message>
-        <location filename="c5grid.cpp" line="764"/>
+        <location filename="c5grid.cpp" line="788"/>
         <source>Autofit columns widths</source>
         <translation>Ավտոմատ սյունի լայնություն</translation>
     </message>
@@ -351,15 +351,79 @@
         <translation></translation>
     </message>
     <message>
-        <location filename="filteralltickets.ui" line="38"/>
+        <location filename="filteralltickets.ui" line="85"/>
+        <location filename="filteralltickets.ui" line="88"/>
+        <location filename="filteralltickets.ui" line="116"/>
+        <source>fuel</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="filteralltickets.ui" line="102"/>
+        <source>Fuel</source>
+        <translation>Վառելիք</translation>
+    </message>
+    <message>
+        <location filename="filteralltickets.ui" line="109"/>
         <source>State</source>
         <translation>Վիճակ</translation>
     </message>
     <message>
-        <location filename="filteralltickets.ui" line="57"/>
-        <location filename="filteralltickets.ui" line="60"/>
-        <location filename="filteralltickets.ui" line="67"/>
+        <location filename="filteralltickets.ui" line="50"/>
+        <location filename="filteralltickets.ui" line="53"/>
+        <location filename="filteralltickets.ui" line="95"/>
         <source>state</source>
+        <translation></translation>
+    </message>
+</context>
+<context>
+    <name>FilterPartner1</name>
+    <message>
+        <location filename="filterpartner1.ui" line="14"/>
+        <source>Form</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="filterpartner1.ui" line="35"/>
+        <location filename="filterpartner1.ui" line="103"/>
+        <location filename="filterpartner1.ui" line="106"/>
+        <source>fuel</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="filterpartner1.ui" line="42"/>
+        <location filename="filterpartner1.ui" line="71"/>
+        <source>ticket_type</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="filterpartner1.ui" line="49"/>
+        <source>Ticket</source>
+        <translation>Կտրոն</translation>
+    </message>
+    <message>
+        <location filename="filterpartner1.ui" line="68"/>
+        <source>state</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="filterpartner1.ui" line="113"/>
+        <source>Fuel</source>
+        <translation>Վառելիք</translation>
+    </message>
+    <message>
+        <location filename="filterpartner1.ui" line="120"/>
+        <source>Partner</source>
+        <translation>Գործընկեր</translation>
+    </message>
+    <message>
+        <location filename="filterpartner1.ui" line="139"/>
+        <source>partner</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="filterpartner1.ui" line="142"/>
+        <location filename="filterpartner1.ui" line="149"/>
+        <source>partners</source>
         <translation></translation>
     </message>
 </context>
@@ -421,7 +485,7 @@
         <translation>Տուն</translation>
     </message>
     <message>
-        <location filename="homewindows.cpp" line="78"/>
+        <location filename="homewindows.cpp" line="82"/>
         <source>Are you sure to close application?</source>
         <translation>Դուրս գալ ծրագրից՞</translation>
     </message>
@@ -709,29 +773,63 @@
         <translation>Փակել</translation>
     </message>
     <message>
-        <location filename="registeruseddialog.cpp" line="34"/>
+        <location filename="registeruseddialog.cpp" line="32"/>
         <source>Please, enter the code of the ticked</source>
         <translation>Մուտքագրեք կտրոնի կոդը</translation>
     </message>
     <message>
-        <location filename="registeruseddialog.cpp" line="64"/>
+        <location filename="registeruseddialog.cpp" line="62"/>
         <source>Ticket was issued, but not registered to partner</source>
         <translation>Կտրոնը գրանցված է, բայց բաշխում չի անցել</translation>
     </message>
     <message>
-        <location filename="registeruseddialog.cpp" line="67"/>
+        <location filename="registeruseddialog.cpp" line="65"/>
         <source>Ticket already marked as used</source>
         <translation>Կտրոնը արդեն գրանցված է ինչես օգտագործված</translation>
     </message>
     <message>
-        <location filename="registeruseddialog.cpp" line="70"/>
+        <location filename="registeruseddialog.cpp" line="68"/>
         <source>Unknow ticket state.</source>
         <translation>Անհայտ կտրոնի վիճակ</translation>
     </message>
     <message>
-        <location filename="registeruseddialog.cpp" line="84"/>
+        <location filename="registeruseddialog.cpp" line="82"/>
         <source>Unknown code</source>
         <translation>Ահայտ կոդ</translation>
+    </message>
+</context>
+<context>
+    <name>WdbFuel</name>
+    <message>
+        <location filename="wdbfuel.ui" line="14"/>
+        <source>Form</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="wdbfuel.ui" line="47"/>
+        <source>Code</source>
+        <translation>Կոդ</translation>
+    </message>
+    <message>
+        <location filename="wdbfuel.ui" line="54"/>
+        <source>:fid</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="wdbfuel.ui" line="67"/>
+        <location filename="wdbfuel.ui" line="80"/>
+        <source>Name</source>
+        <translation>Վառելիք</translation>
+    </message>
+    <message>
+        <location filename="wdbfuel.ui" line="74"/>
+        <source>:fname</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="wdbfuel.ui" line="77"/>
+        <source>1</source>
+        <translation></translation>
     </message>
 </context>
 <context>
@@ -742,24 +840,24 @@
         <translation></translation>
     </message>
     <message>
-        <location filename="wdbpartner.ui" line="20"/>
+        <location filename="wdbpartner.ui" line="35"/>
         <source>Code</source>
         <translation>Կոդ</translation>
     </message>
     <message>
-        <location filename="wdbpartner.ui" line="50"/>
+        <location filename="wdbpartner.ui" line="45"/>
         <source>:fid</source>
         <oldsource>:fidf</oldsource>
         <translation></translation>
     </message>
     <message>
-        <location filename="wdbpartner.ui" line="27"/>
-        <location filename="wdbpartner.ui" line="40"/>
+        <location filename="wdbpartner.ui" line="55"/>
+        <location filename="wdbpartner.ui" line="68"/>
         <source>Name</source>
         <translation>Գործընկեր</translation>
     </message>
     <message>
-        <location filename="wdbpartner.ui" line="34"/>
+        <location filename="wdbpartner.ui" line="62"/>
         <source>:fname</source>
         <translation></translation>
     </message>
@@ -772,34 +870,51 @@
         <translation></translation>
     </message>
     <message>
-        <location filename="wdbtickettype.ui" line="20"/>
+        <location filename="wdbtickettype.ui" line="35"/>
         <source>Code</source>
         <translation>Կոդ</translation>
     </message>
     <message>
-        <location filename="wdbtickettype.ui" line="39"/>
+        <location filename="wdbtickettype.ui" line="66"/>
         <source>:fid</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="wdbtickettype.ui" line="46"/>
-        <location filename="wdbtickettype.ui" line="59"/>
+        <location filename="wdbtickettype.ui" line="73"/>
+        <location filename="wdbtickettype.ui" line="108"/>
+        <source>Fuel</source>
+        <translation>Վառելիք</translation>
+    </message>
+    <message>
+        <location filename="wdbtickettype.ui" line="92"/>
+        <location filename="wdbtickettype.ui" line="105"/>
+        <source>fuel</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="wdbtickettype.ui" line="95"/>
+        <source>:ffuel</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="wdbtickettype.ui" line="115"/>
+        <location filename="wdbtickettype.ui" line="128"/>
         <source>Name</source>
         <translation>Կտրոնի տեսակ</translation>
     </message>
     <message>
-        <location filename="wdbtickettype.ui" line="53"/>
+        <location filename="wdbtickettype.ui" line="122"/>
         <source>:fname</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="wdbtickettype.ui" line="66"/>
-        <location filename="wdbtickettype.ui" line="79"/>
+        <location filename="wdbtickettype.ui" line="135"/>
+        <location filename="wdbtickettype.ui" line="160"/>
         <source>Quantity</source>
         <translation>Քանակ</translation>
     </message>
     <message>
-        <location filename="wdbtickettype.ui" line="73"/>
+        <location filename="wdbtickettype.ui" line="154"/>
         <source>:fmeas</source>
         <translation></translation>
     </message>
@@ -812,7 +927,7 @@
         <translation>Պահպանված է</translation>
     </message>
     <message>
-        <location filename="wdbwidget.cpp" line="117"/>
+        <location filename="wdbwidget.cpp" line="119"/>
         <source>cannot be null</source>
         <translation>նշված չէ</translation>
     </message>
@@ -820,19 +935,57 @@
 <context>
     <name>WdtAllTickets</name>
     <message>
-        <location filename="wdtalltickets.cpp" line="8"/>
+        <location filename="wdtalltickets.cpp" line="10"/>
         <source>Filter</source>
         <translation>Ֆիլտր</translation>
     </message>
     <message>
-        <location filename="wdtalltickets.cpp" line="10"/>
+        <location filename="wdtalltickets.cpp" line="7"/>
         <source>Qty</source>
         <translation>քանակ</translation>
     </message>
     <message>
-        <location filename="wdtalltickets.cpp" line="11"/>
+        <location filename="wdtalltickets.cpp" line="8"/>
         <source>Litr</source>
         <translation>լիտր</translation>
+    </message>
+</context>
+<context>
+    <name>WdtAllTickets2</name>
+    <message>
+        <location filename="wdtalltickets2.cpp" line="6"/>
+        <source>Qty, issue</source>
+        <translation>քնկ, թող․</translation>
+    </message>
+    <message>
+        <location filename="wdtalltickets2.cpp" line="7"/>
+        <source>Litr, issue</source>
+        <translation>լիտր, թող․</translation>
+    </message>
+    <message>
+        <location filename="wdtalltickets2.cpp" line="8"/>
+        <source>Qty, partner</source>
+        <translation>քնկ, բաշխ․</translation>
+    </message>
+    <message>
+        <location filename="wdtalltickets2.cpp" line="9"/>
+        <source>Litr, partner</source>
+        <translation>լիտր, բաշխ․</translation>
+    </message>
+    <message>
+        <location filename="wdtalltickets2.cpp" line="10"/>
+        <source>Qty, used</source>
+        <translation>քնկ․, օգտ․</translation>
+    </message>
+    <message>
+        <location filename="wdtalltickets2.cpp" line="11"/>
+        <source>Litr, used</source>
+        <translation>լիտր, օգտ․</translation>
+    </message>
+    <message>
+        <location filename="wdtalltickets2.cpp" line="13"/>
+        <source>Filter</source>
+        <translation>Ֆիլտր</translation>
     </message>
 </context>
 <context>
@@ -849,6 +1002,19 @@
     </message>
 </context>
 <context>
+    <name>WdtFuel</name>
+    <message>
+        <location filename="wdtfuel.cpp" line="9"/>
+        <source>New fuel type</source>
+        <translation>Նոր վառելիքի տեսակ</translation>
+    </message>
+    <message>
+        <location filename="wdtfuel.cpp" line="10"/>
+        <source>Edit fuel type</source>
+        <translation>Խմբագրել վառելիքի տեսակը</translation>
+    </message>
+</context>
+<context>
     <name>WdtHome</name>
     <message>
         <location filename="wdthome.ui" line="14"/>
@@ -862,19 +1028,40 @@
     </message>
     <message>
         <location filename="wdthome.ui" line="38"/>
+        <source>Fuel</source>
+        <translation>Վառելիք</translation>
+    </message>
+    <message>
+        <location filename="wdthome.ui" line="64"/>
         <source>Tickets types</source>
         <translation>Կտրոնների տեսակ</translation>
     </message>
     <message>
-        <location filename="wdthome.ui" line="64"/>
+        <location filename="wdthome.ui" line="90"/>
         <source>Partners</source>
         <translation>Գործընկերներ</translation>
     </message>
     <message>
-        <location filename="wdthome.ui" line="90"/>
         <location filename="wdthome.ui" line="222"/>
-        <source>All tickets</source>
-        <translation>Բոլոր կտրոնների</translation>
+        <source>All tickets 1</source>
+        <oldsource>All tickets</oldsource>
+        <translation>Բոլոր կտրոնների 1</translation>
+    </message>
+    <message>
+        <location filename="wdthome.ui" line="248"/>
+        <source>All tickets 2</source>
+        <translation>Բոլոր կտրոնների 2</translation>
+    </message>
+    <message>
+        <location filename="wdthome.ui" line="274"/>
+        <source>Partners ticket 1</source>
+        <oldsource>Partners ticket</oldsource>
+        <translation>Գործընկերներ 1</translation>
+    </message>
+    <message>
+        <location filename="wdthome.ui" line="300"/>
+        <source>Partners ticket 2</source>
+        <translation>Գործընկերներ 2</translation>
     </message>
     <message>
         <location filename="wdthome.ui" line="116"/>
@@ -893,8 +1080,9 @@
     </message>
     <message>
         <location filename="wdthome.ui" line="210"/>
-        <source>Regular</source>
-        <translation></translation>
+        <source>Reports</source>
+        <oldsource>Regular</oldsource>
+        <translation>Հաշվետվություններ</translation>
     </message>
 </context>
 <context>
@@ -908,6 +1096,77 @@
         <location filename="wdtpartners.cpp" line="10"/>
         <source>Edit partner</source>
         <translation>Խմբագրել գործընկերը</translation>
+    </message>
+</context>
+<context>
+    <name>WdtRepPartners1</name>
+    <message>
+        <location filename="wdtreppartners1.cpp" line="7"/>
+        <source>Qty, partner</source>
+        <translation>քնկ, բաշխ․</translation>
+    </message>
+    <message>
+        <location filename="wdtreppartners1.cpp" line="8"/>
+        <source>Litr, partner</source>
+        <translation>լիտր, բաշխ․</translation>
+    </message>
+    <message>
+        <location filename="wdtreppartners1.cpp" line="9"/>
+        <source>Qty, used</source>
+        <translation>քնկ․, օգտ․</translation>
+    </message>
+    <message>
+        <location filename="wdtreppartners1.cpp" line="10"/>
+        <source>Litr, used</source>
+        <translation>լիտր, օգտ․</translation>
+    </message>
+    <message>
+        <location filename="wdtreppartners1.cpp" line="11"/>
+        <source>Qty, total</source>
+        <translation>քնկ․, ընդ․</translation>
+    </message>
+    <message>
+        <location filename="wdtreppartners1.cpp" line="12"/>
+        <source>Litr, total</source>
+        <translation>լիտր․, ընդ․</translation>
+    </message>
+    <message>
+        <location filename="wdtreppartners1.cpp" line="14"/>
+        <source>Filter</source>
+        <translation>Ֆիլտր</translation>
+    </message>
+    <message>
+        <location filename="wdtreppartners1.cpp" line="15"/>
+        <source>Reset filter</source>
+        <translation>Մաքրել ֆիլտրը</translation>
+    </message>
+</context>
+<context>
+    <name>WdtRepPartners2</name>
+    <message>
+        <location filename="wdtreppartners2.cpp" line="6"/>
+        <source>Qty, partner</source>
+        <translation>քնկ, բաշխ․</translation>
+    </message>
+    <message>
+        <location filename="wdtreppartners2.cpp" line="7"/>
+        <source>Litr, partner</source>
+        <translation>լիտր, բաշխ․</translation>
+    </message>
+    <message>
+        <location filename="wdtreppartners2.cpp" line="8"/>
+        <source>Qty, used</source>
+        <translation>քնկ․, օգտ․</translation>
+    </message>
+    <message>
+        <location filename="wdtreppartners2.cpp" line="9"/>
+        <source>Litr, used</source>
+        <translation>լիտր, օգտ․</translation>
+    </message>
+    <message>
+        <location filename="wdtreppartners2.cpp" line="11"/>
+        <source>Filter</source>
+        <translation>Ֆիլտր</translation>
     </message>
 </context>
 </TS>

@@ -102,9 +102,6 @@ void C5FilterWidget::clearFilter(QWidget *parent)
     C5DateEdit *de;
     C5CheckBox *ce;
     foreach (QObject *o, ol) {
-        if (o->children().count() > 0) {
-            clearFilter(static_cast<QWidget*>(o));
-        }
         if ((le = isKeyValueEdit(o))) {
             keyValue(le)->setKey("");
             continue;
@@ -116,6 +113,10 @@ void C5FilterWidget::clearFilter(QWidget *parent)
         if ((ce = isCheckBox(o))) {
             ce->setChecked(false);
             continue;
+        }
+
+        if (o->children().count() > 0) {
+            clearFilter(static_cast<QWidget*>(o));
         }
     }
 }

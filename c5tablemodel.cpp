@@ -119,7 +119,7 @@ QVariant C5TableModel::headerData(int section, Qt::Orientation orientation, int 
         if (orientation == Qt::Vertical) {
             return section + 1;
         } else {
-            return fTranslateColumn.contains(fColumnIndexName[section]) ? fTranslateColumn[fColumnIndexName[section]] : fColumnIndexName[section];
+            return fTranslateColumn.contains(fColumnIndexName[section]) ? fTranslateColumn[fColumnIndexName[section]].isEmpty() ? fColumnIndexName[section] : fTranslateColumn[fColumnIndexName[section]] : fColumnIndexName[section];
         }
     case Qt::DecorationRole:
         if (orientation == Qt::Horizontal) {
@@ -286,6 +286,24 @@ void C5TableModel::removeRow(int row, const QModelIndex &parent)
     beginRemoveRows(parent, row, row);
     fRawData.removeAt(fProxyData.at(row));
     endRemoveRows();
+}
+
+void C5TableModel::addRowValues(const QList<QVariant> &v)
+{
+    beginInsertRows(QModelIndex(), rowCount() - 1, rowCount() - 1);
+    fRawData.insert(rowCount(), v);
+    fProxyData.clear();
+    for (int i = 0, count = fRawData.count(); i < count; i++) {
+        fProxyData << i;
+    }
+    endInsertRows();
+}
+
+void C5TableModel::replaceRowValues(int row, const QList<QVariant> &v)
+{
+    int realRow = fProxyData.at(row);
+    fRawData[realRow] = v;
+    emit dataChanged(index(row, 0), index(row, columnCount() - 1));
 }
 
 QList<QVariant> C5TableModel::getRowValues(int row)

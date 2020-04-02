@@ -59,6 +59,10 @@ public:
 
     void removeRow(int row, const QModelIndex &parent = QModelIndex());
 
+    void addRowValues(const QList<QVariant> &v);
+
+    void replaceRowValues(int row, const QList<QVariant> &v);
+
     QList<QVariant> getRowValues(int row);
 
     void saveDataChanges();

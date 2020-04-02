@@ -17,7 +17,7 @@ KeyValueLineEdit::KeyValueLineEdit(C5LineEdit *lkey, C5LineEdit *lvalue, const Q
     connect(lkey, SIGNAL(returnPressed()), this, SLOT(returnPressed()));
     connect(lkey, SIGNAL(doubleClicked()), this, SLOT(doubleClicked()));
     if (lvalue) {
-        lvalue->setReadOnly(false);
+        lvalue->setReadOnly(true);
         lvalue->setFocusPolicy(Qt::NoFocus);
     }
 }

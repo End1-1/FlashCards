@@ -16,6 +16,18 @@ public:
     explicit DbDialog();
     ~DbDialog();
 
+
+    static int createDialog(WdbWidget *w, int id = 0) {
+        DbDialog *d = new DbDialog();
+        w->setId(id);
+        d->setWidget(w);
+        d->exec();
+        int result = d->fWidget->id();
+        w->setParent(nullptr);
+        delete d;
+        return result;
+    }
+
     template<typename T>
     static int createDialog(int id = 0) {
         DbDialog *d = new DbDialog();
