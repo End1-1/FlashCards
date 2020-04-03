@@ -82,6 +82,7 @@ void PassTicketsDialog::getListOfTickets(QString &err, bool process)
         ui->progressBar->setMinimum(startNumber);
         ui->progressBar->setMaximum(endNumber - 1);
         C5Database db(__dbhost, __dbschema, __dbusername, __dbpassword);
+        db.startTransaction();
         int notPassed = 0;
         QStringList notPassedList;
         for (int i = startNumber; i < endNumber; i++) {
@@ -98,6 +99,7 @@ void PassTicketsDialog::getListOfTickets(QString &err, bool process)
             qApp->processEvents();
         }
         if (notPassed > 0) {
+            db.rollback();
             notPassedList.insert(0, "\r\n");
             notPassedList.insert(0, QString("%1: %2").arg(tr("Not passed")).arg(notPassed));
             QDir d;
@@ -108,6 +110,8 @@ void PassTicketsDialog::getListOfTickets(QString &err, bool process)
                 f.close();
                 QDesktopServices::openUrl(QUrl(fileName));
             }
+        } else {
+            db.commit();
         }
     }
 }

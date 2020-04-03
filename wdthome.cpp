@@ -6,6 +6,7 @@
 #include "wdtalltickets2.h"
 #include "wdtreppartners1.h"
 #include "wdtreppartners2.h"
+#include "wdtreppartners3.h"
 #include "wdtfuel.h"
 #include "config.h"
 #include "registerticketdialog.h"
@@ -78,4 +79,9 @@ void WdtHome::on_btnAllTickets2_2_clicked()
 void WdtHome::on_btnPartnersTicket2_clicked()
 {
     __parent->addWidget<WdtRepPartners2>(static_cast<QToolButton *>(sender()));
+}
+
+void WdtHome::on_btnPartnersTicket3_clicked()
+{
+    __parent->addWidget<WdtRepPartners3>(static_cast<QToolButton *>(sender()));
 }

@@ -7,6 +7,8 @@ WdtRepPartners2::WdtRepPartners2(const QIcon &icon, const QString &label, QWidge
     fColumnsSum.append(tr("Litr, partner"));
     fColumnsSum.append(tr("Qty, used"));
     fColumnsSum.append(tr("Litr, used"));
+    fColumnsSum.append(tr("Qty, total"));
+    fColumnsSum.append(tr("Litr, total"));
     buildReport("rep_partner2");
     addAction(fReportActions, ":/res/filter.png", tr("Filter"), this, SLOT(setSearchParameters()));
 }

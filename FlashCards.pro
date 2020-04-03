@@ -63,7 +63,9 @@ SOURCES += \
         dbdialog.cpp \
         dialog.cpp \
         filteralltickets.cpp \
+        filteralltickets2.cpp \
         filterpartner1.cpp \
+        filterpartner3.cpp \
         homewindows.cpp \
         keyvaluelineedit.cpp \
         login.cpp \
@@ -84,6 +86,7 @@ SOURCES += \
         wdtpartners.cpp \
         wdtreppartners2.cpp \
         wdtreppartners1.cpp \
+        wdtreppartners3.cpp \
         wdtwidget.cpp
 
 HEADERS += \
@@ -125,7 +128,9 @@ HEADERS += \
     dbdialog.h \
     dialog.h \
     filteralltickets.h \
+    filteralltickets2.h \
     filterpartner1.h \
+    filterpartner3.h \
     homewindows.h \
     keyvaluelineedit.h \
     login.h \
@@ -146,6 +151,7 @@ HEADERS += \
     wdtpartners.h \
     wdtreppartners2.h \
     wdtreppartners1.h \
+    wdtreppartners3.h \
     wdtwidget.h
 
 FORMS += \
@@ -158,7 +164,9 @@ FORMS += \
     c5selector.ui \
     dbdialog.ui \
     filteralltickets.ui \
+    filteralltickets2.ui \
     filterpartner1.ui \
+    filterpartner3.ui \
     homewindows.ui \
     login.ui \
     passticketsdialog.ui \

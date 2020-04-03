@@ -36,6 +36,8 @@ private slots:
 
     void on_btnPartnersTicket2_clicked();
 
+    void on_btnPartnersTicket3_clicked();
+
 private:
     Ui::WdtHome *ui;
 };

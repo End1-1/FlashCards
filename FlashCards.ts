@@ -376,6 +376,26 @@
     </message>
 </context>
 <context>
+    <name>FilterAllTickets2</name>
+    <message>
+        <location filename="filteralltickets2.ui" line="14"/>
+        <source>Form</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="filteralltickets2.ui" line="48"/>
+        <location filename="filteralltickets2.ui" line="67"/>
+        <location filename="filteralltickets2.ui" line="70"/>
+        <source>fuel</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="filteralltickets2.ui" line="77"/>
+        <source>Fuel</source>
+        <translation>Վառելիք</translation>
+    </message>
+</context>
+<context>
     <name>FilterPartner1</name>
     <message>
         <location filename="filterpartner1.ui" line="14"/>
@@ -423,6 +443,58 @@
     <message>
         <location filename="filterpartner1.ui" line="142"/>
         <location filename="filterpartner1.ui" line="149"/>
+        <source>partners</source>
+        <translation></translation>
+    </message>
+</context>
+<context>
+    <name>FilterPartner3</name>
+    <message>
+        <location filename="filterpartner3.ui" line="14"/>
+        <source>Form</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="filterpartner3.ui" line="35"/>
+        <location filename="filterpartner3.ui" line="103"/>
+        <location filename="filterpartner3.ui" line="106"/>
+        <source>fuel</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="filterpartner3.ui" line="42"/>
+        <location filename="filterpartner3.ui" line="71"/>
+        <source>ticket_type</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="filterpartner3.ui" line="49"/>
+        <source>Ticket</source>
+        <translation>Կտրոն</translation>
+    </message>
+    <message>
+        <location filename="filterpartner3.ui" line="68"/>
+        <source>state</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="filterpartner3.ui" line="113"/>
+        <source>Fuel</source>
+        <translation>Վառելիք</translation>
+    </message>
+    <message>
+        <location filename="filterpartner3.ui" line="120"/>
+        <source>Partner</source>
+        <translation>Գործընկեր</translation>
+    </message>
+    <message>
+        <location filename="filterpartner3.ui" line="139"/>
+        <source>partner</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="filterpartner3.ui" line="142"/>
+        <location filename="filterpartner3.ui" line="149"/>
         <source>partners</source>
         <translation></translation>
     </message>
@@ -623,12 +695,12 @@
         <translation>Արաջին համարը մեծ է վերջին համարից</translation>
     </message>
     <message>
-        <location filename="passticketsdialog.cpp" line="102"/>
+        <location filename="passticketsdialog.cpp" line="104"/>
         <source>Not passed</source>
         <translation>Գրանցված չէ</translation>
     </message>
     <message>
-        <location filename="passticketsdialog.cpp" line="123"/>
+        <location filename="passticketsdialog.cpp" line="127"/>
         <source>Tickets issued</source>
         <translation>Գրանցումը ավարտվեց</translation>
     </message>
@@ -953,39 +1025,44 @@
 <context>
     <name>WdtAllTickets2</name>
     <message>
-        <location filename="wdtalltickets2.cpp" line="6"/>
+        <location filename="wdtalltickets2.cpp" line="7"/>
         <source>Qty, issue</source>
         <translation>քնկ, թող․</translation>
     </message>
     <message>
-        <location filename="wdtalltickets2.cpp" line="7"/>
+        <location filename="wdtalltickets2.cpp" line="8"/>
         <source>Litr, issue</source>
         <translation>լիտր, թող․</translation>
     </message>
     <message>
-        <location filename="wdtalltickets2.cpp" line="8"/>
+        <location filename="wdtalltickets2.cpp" line="9"/>
         <source>Qty, partner</source>
         <translation>քնկ, բաշխ․</translation>
     </message>
     <message>
-        <location filename="wdtalltickets2.cpp" line="9"/>
+        <location filename="wdtalltickets2.cpp" line="10"/>
         <source>Litr, partner</source>
         <translation>լիտր, բաշխ․</translation>
     </message>
     <message>
-        <location filename="wdtalltickets2.cpp" line="10"/>
+        <location filename="wdtalltickets2.cpp" line="11"/>
         <source>Qty, used</source>
         <translation>քնկ․, օգտ․</translation>
     </message>
     <message>
-        <location filename="wdtalltickets2.cpp" line="11"/>
+        <location filename="wdtalltickets2.cpp" line="12"/>
         <source>Litr, used</source>
         <translation>լիտր, օգտ․</translation>
     </message>
     <message>
-        <location filename="wdtalltickets2.cpp" line="13"/>
+        <location filename="wdtalltickets2.cpp" line="14"/>
         <source>Filter</source>
         <translation>Ֆիլտր</translation>
+    </message>
+    <message>
+        <location filename="wdtalltickets2.cpp" line="15"/>
+        <source>Reset filter</source>
+        <translation>Մաքրել ֆիլտրը</translation>
     </message>
 </context>
 <context>
@@ -1064,6 +1141,11 @@
         <translation>Գործընկերներ 2</translation>
     </message>
     <message>
+        <location filename="wdthome.ui" line="326"/>
+        <source>Partners ticket 3</source>
+        <translation>Գործընկերներ 3</translation>
+    </message>
+    <message>
         <location filename="wdthome.ui" line="116"/>
         <source>Register tickets</source>
         <translation>Գրանցել կտրոններ</translation>
@@ -1128,7 +1210,7 @@
     <message>
         <location filename="wdtreppartners1.cpp" line="12"/>
         <source>Litr, total</source>
-        <translation>լիտր․, ընդ․</translation>
+        <translation>լիտր, ընդ․</translation>
     </message>
     <message>
         <location filename="wdtreppartners1.cpp" line="14"/>
@@ -1164,9 +1246,62 @@
         <translation>լիտր, օգտ․</translation>
     </message>
     <message>
+        <location filename="wdtreppartners2.cpp" line="10"/>
+        <source>Qty, total</source>
+        <translation>քնկ․, ընդ․</translation>
+    </message>
+    <message>
         <location filename="wdtreppartners2.cpp" line="11"/>
+        <source>Litr, total</source>
+        <translation>լիտր, ընդ․</translation>
+    </message>
+    <message>
+        <location filename="wdtreppartners2.cpp" line="13"/>
         <source>Filter</source>
         <translation>Ֆիլտր</translation>
+    </message>
+</context>
+<context>
+    <name>WdtRepPartners3</name>
+    <message>
+        <location filename="wdtreppartners3.cpp" line="7"/>
+        <source>Qty, partner</source>
+        <translation>քնկ, բաշխ․</translation>
+    </message>
+    <message>
+        <location filename="wdtreppartners3.cpp" line="8"/>
+        <source>Litr, partner</source>
+        <translation>լիտր, բաշխ․</translation>
+    </message>
+    <message>
+        <location filename="wdtreppartners3.cpp" line="9"/>
+        <source>Qty, used</source>
+        <translation>քնկ․, օգտ․</translation>
+    </message>
+    <message>
+        <location filename="wdtreppartners3.cpp" line="10"/>
+        <source>Litr, used</source>
+        <translation>լիտր, օգտ․</translation>
+    </message>
+    <message>
+        <location filename="wdtreppartners3.cpp" line="11"/>
+        <source>Qty, total</source>
+        <translation>քնկ․, ընդ․</translation>
+    </message>
+    <message>
+        <location filename="wdtreppartners3.cpp" line="12"/>
+        <source>Litr, total</source>
+        <translation>լիտր, ընդ․</translation>
+    </message>
+    <message>
+        <location filename="wdtreppartners3.cpp" line="14"/>
+        <source>Filter</source>
+        <translation>Ֆիլտր</translation>
+    </message>
+    <message>
+        <location filename="wdtreppartners3.cpp" line="15"/>
+        <source>Reset filter</source>
+        <translation>Մաքրել ֆիլտրը</translation>
     </message>
 </context>
 </TS>
