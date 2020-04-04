@@ -117,6 +117,42 @@
         </property>
        </widget>
       </item>
+      <item row="1" column="0">
+       <widget class="QLabel" name="label_3">
+        <property name="text">
+         <string>Ticket</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="1">
+       <widget class="C5LineEdit" name="leTicket">
+        <property name="minimumSize">
+         <size>
+          <width>80</width>
+          <height>0</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>80</width>
+          <height>16777215</height>
+         </size>
+        </property>
+        <property name="FilterName" stdset="0">
+         <string>ticket_type</string>
+        </property>
+        <property name="lkey" stdset="0">
+         <string>ticket_type</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="3">
+       <widget class="C5LineEdit" name="lineEdit_4">
+        <property name="lvalue" stdset="0">
+         <string>ticket_type</string>
+        </property>
+       </widget>
+      </item>
      </layout>
     </widget>
    </item>

@@ -6,6 +6,7 @@
 #include "c5message.h"
 #include <QShortcut>
 #include <QCloseEvent>
+#include <QDebug>
 
 HomeWindows::HomeWindows(QWidget *parent) :
     QMainWindow(parent),
@@ -55,6 +56,16 @@ void HomeWindows::buildReportMenu(QList<QAction *> actions)
     ui->menuReport->clear();
     ui->menuReport->setEnabled(actions.count() > 0);
     ui->menuReport->insertActions(nullptr, actions);
+}
+
+void HomeWindows::buildOtherMenu(QList<QMenu *> menu)
+{
+    while (ui->menubar->actions().count() > 3) {
+        ui->menubar->removeAction(ui->menubar->actions().at(3));
+    }
+    for (QMenu *m: menu) {
+        ui->menubar->addMenu(m);
+    }
 }
 
 void HomeWindows::setMenuState(bool v)
@@ -142,6 +153,7 @@ void HomeWindows::on_tabWidget_currentChanged(int index)
     if (w) {
         buildEditMenu(w->editMenu());
         buildReportMenu(w->reportMenu());
+        buildOtherMenu(w->otherMenu());
     }
 }
 

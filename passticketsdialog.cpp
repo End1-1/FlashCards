@@ -3,6 +3,7 @@
 #include "c5database.h"
 #include "config.h"
 #include "c5message.h"
+#include "c5selector.h"
 #include <QFile>
 #include <QDir>
 #include <QUrl>
@@ -29,12 +30,49 @@ void PassTicketsDialog::on_btnCancel_clicked()
 
 void PassTicketsDialog::on_leStartCode_returnPressed()
 {
+    if (ui->leStartCode->text().length() < 5) {
+        C5Selector *s = new C5Selector();
+        QString sql  = QString("select ct.fname, s.fissuedate, s.fcode "
+                               "from cards s left "
+                               "join cards_types ct on ct.fid=s.ftype "
+                               "where s.fstate=1 and cast(right(s.fcode, 4) as unsigned) >= 1").arg(ui->leStartCode->text().toInt(), 4, 10, QChar('0'));
+        if (!ui->leTicket->isEmpty()) {
+            sql += " and s.ftype=" + ui->leTicket->text();
+        }
+        QList<QVariant> v;
+        QMap<QString, QString> t;
+        t["fname"] = tr("Ticket");
+        t["fissuedate"] = tr("Issue");
+        t["fcode"] = tr("Code");
+        if (s->getValues(sql, v, t)) {
+            ui->leStartCode->setText(v.at(3).toString());
+            on_leStartCode_returnPressed();
+        }
+        return;
+    }
     QString err;
     getListOfTickets(err);
 }
 
 void PassTicketsDialog::on_leEndCode_returnPressed()
 {
+    if (ui->leEndCode->text().length() < 5) {
+        C5Selector *s = new C5Selector();
+        QString sql  = QString("select ct.fname, s.fissuedate, s.fcode from cards s left join cards_types ct on ct.fid=s.ftype where s.fstate=1 and s.fcode like '%%1'").arg(ui->leEndCode->text().toInt(), 4, 10, QChar('0'));
+        if (!ui->leTicket->isEmpty()) {
+            sql += " and s.ftype=" + ui->leTicket->text();
+        }
+        QList<QVariant> v;
+        QMap<QString, QString> t;
+        t["fname"] = tr("Ticket");
+        t["fissuedate"] = tr("Issue");
+        t["fcode"] = tr("Code");
+        if (s->getValues(sql, v, t)) {
+            ui->leEndCode->setText(v.at(3).toString());
+            on_leStartCode_returnPressed();
+        }
+        return;
+    }
     QString err;
     getListOfTickets(err);
 }
@@ -58,6 +96,9 @@ void PassTicketsDialog::getListOfTickets(QString &err, bool process)
         err += tr("End code has invalid lenght") + "<br>";
     }
     QDate issueDate1 = QDate::fromString(ui->leStartCode->text().mid(0, 8), "yyyyMMdd");
+    if (issueDate1.isValid()) {
+        ui->deDate->setDate(issueDate1);
+    }
     int ticketType1 = ui->leStartCode->text().mid(8, 2).toInt();
     int startNumber = ui->leStartCode->text().mid(10, 4).toInt();
     QDate issueDate2 = QDate::fromString(ui->leEndCode->text().mid(0, 8), "yyyyMMdd");

@@ -11,6 +11,7 @@ public:
 
 private slots:
     void filterFuel();
+    void filterTicket();
 };
 
 #endif // WDTREPPARTNERS3_H

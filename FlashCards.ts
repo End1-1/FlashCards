@@ -368,6 +368,18 @@
         <translation>Վիճակ</translation>
     </message>
     <message>
+        <location filename="filteralltickets.ui" line="123"/>
+        <source>Ticket</source>
+        <translation>Կտրոն</translation>
+    </message>
+    <message>
+        <location filename="filteralltickets.ui" line="142"/>
+        <location filename="filteralltickets.ui" line="145"/>
+        <location filename="filteralltickets.ui" line="152"/>
+        <source>ticket_type</source>
+        <translation></translation>
+    </message>
+    <message>
         <location filename="filteralltickets.ui" line="50"/>
         <location filename="filteralltickets.ui" line="53"/>
         <location filename="filteralltickets.ui" line="95"/>
@@ -552,12 +564,12 @@
         <translation>Ելք</translation>
     </message>
     <message>
-        <location filename="homewindows.cpp" line="36"/>
+        <location filename="homewindows.cpp" line="37"/>
         <source>Home</source>
         <translation>Տուն</translation>
     </message>
     <message>
-        <location filename="homewindows.cpp" line="82"/>
+        <location filename="homewindows.cpp" line="93"/>
         <source>Are you sure to close application?</source>
         <translation>Դուրս գալ ծրագրից՞</translation>
     </message>
@@ -603,104 +615,127 @@
         <translation>Կտրոնների բաշխում</translation>
     </message>
     <message>
-        <location filename="passticketsdialog.ui" line="35"/>
+        <location filename="passticketsdialog.ui" line="61"/>
         <source>End code</source>
         <translation>Վերջին համար</translation>
     </message>
     <message>
-        <location filename="passticketsdialog.ui" line="42"/>
+        <location filename="passticketsdialog.ui" line="227"/>
         <source>Partner</source>
         <translation>Գործընկեր</translation>
     </message>
     <message>
-        <location filename="passticketsdialog.ui" line="49"/>
+        <location filename="passticketsdialog.ui" line="75"/>
         <source>Start code</source>
         <translation>Արաջին համար</translation>
     </message>
     <message>
-        <location filename="passticketsdialog.ui" line="68"/>
-        <location filename="passticketsdialog.ui" line="152"/>
+        <location filename="passticketsdialog.ui" line="47"/>
+        <location filename="passticketsdialog.ui" line="275"/>
         <source>ticket_type</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="passticketsdialog.ui" line="75"/>
+        <location filename="passticketsdialog.ui" line="54"/>
         <source>Ticket type</source>
         <translation>Կտրոնների տեսակ</translation>
     </message>
     <message>
-        <location filename="passticketsdialog.ui" line="126"/>
-        <location filename="passticketsdialog.ui" line="193"/>
+        <location filename="passticketsdialog.ui" line="94"/>
+        <location filename="passticketsdialog.ui" line="256"/>
         <source>partners</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="passticketsdialog.ui" line="133"/>
+        <location filename="passticketsdialog.ui" line="282"/>
+        <source>Issue date</source>
+        <translation>Թողարկման ամսաթիվ</translation>
+    </message>
+    <message>
+        <location filename="passticketsdialog.ui" line="68"/>
         <source>Count</source>
         <translation>Քանակ</translation>
     </message>
     <message>
-        <location filename="passticketsdialog.ui" line="171"/>
+        <location filename="passticketsdialog.ui" line="217"/>
         <source>0</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="passticketsdialog.ui" line="231"/>
+        <location filename="passticketsdialog.ui" line="164"/>
         <source>Pass</source>
         <translation>Գրանցել</translation>
     </message>
     <message>
-        <location filename="passticketsdialog.ui" line="245"/>
+        <location filename="passticketsdialog.ui" line="178"/>
         <source>Cancel</source>
         <translation>Ոչ</translation>
     </message>
     <message>
-        <location filename="passticketsdialog.cpp" line="45"/>
+        <location filename="passticketsdialog.cpp" line="41"/>
+        <location filename="passticketsdialog.cpp" line="64"/>
+        <source>Ticket</source>
+        <translation>Կտրոն</translation>
+    </message>
+    <message>
+        <location filename="passticketsdialog.cpp" line="42"/>
+        <location filename="passticketsdialog.cpp" line="65"/>
+        <source>Issue</source>
+        <translation>Թողարկման ամսաթիվ</translation>
+    </message>
+    <message>
+        <location filename="passticketsdialog.cpp" line="43"/>
+        <location filename="passticketsdialog.cpp" line="66"/>
+        <source>Code</source>
+        <translation>Կոդ</translation>
+    </message>
+    <message>
+        <location filename="passticketsdialog.cpp" line="80"/>
         <source>Partner is null</source>
         <translation>Գործընկերը նշված չէ</translation>
     </message>
     <message>
-        <location filename="passticketsdialog.cpp" line="49"/>
+        <location filename="passticketsdialog.cpp" line="84"/>
         <source>Start code is empty</source>
         <translation>Արաջին համարը նշված չէ</translation>
     </message>
     <message>
-        <location filename="passticketsdialog.cpp" line="52"/>
+        <location filename="passticketsdialog.cpp" line="87"/>
         <source>End code is empty</source>
         <translation>Վերջին համարը նշված չէ</translation>
     </message>
     <message>
-        <location filename="passticketsdialog.cpp" line="55"/>
+        <location filename="passticketsdialog.cpp" line="90"/>
         <source>Start code has invalid lenght</source>
         <translation>Արաջին համարը սխալ է</translation>
     </message>
     <message>
-        <location filename="passticketsdialog.cpp" line="58"/>
+        <location filename="passticketsdialog.cpp" line="93"/>
         <source>End code has invalid lenght</source>
         <translation>Վերջին համարը սխալ է</translation>
     </message>
     <message>
-        <location filename="passticketsdialog.cpp" line="67"/>
+        <location filename="passticketsdialog.cpp" line="105"/>
         <source>The range of the tickets has different date of issues</source>
         <translation>Արաջին և վերջին կտրոնների թողարկման ամսաթիվը տարբեր է</translation>
     </message>
     <message>
-        <location filename="passticketsdialog.cpp" line="70"/>
+        <location filename="passticketsdialog.cpp" line="108"/>
         <source>The type of beginning ticket and the type of end ticket is not same</source>
         <translation>Արաջին և վերջին կտրոնների տեսակը տարբեր է</translation>
     </message>
     <message>
-        <location filename="passticketsdialog.cpp" line="73"/>
+        <location filename="passticketsdialog.cpp" line="111"/>
         <source> The starting number is greater than the ending</source>
         <translation>Արաջին համարը մեծ է վերջին համարից</translation>
     </message>
     <message>
-        <location filename="passticketsdialog.cpp" line="104"/>
+        <location filename="passticketsdialog.cpp" line="142"/>
         <source>Not passed</source>
         <translation>Գրանցված չէ</translation>
     </message>
     <message>
-        <location filename="passticketsdialog.cpp" line="127"/>
+        <location filename="passticketsdialog.cpp" line="165"/>
         <source>Tickets issued</source>
         <translation>Գրանցումը ավարտվեց</translation>
     </message>
@@ -1021,6 +1056,26 @@
         <source>Litr</source>
         <translation>լիտր</translation>
     </message>
+    <message>
+        <location filename="wdtalltickets.cpp" line="11"/>
+        <source>Reset filter</source>
+        <translation>Մաքրել ֆիլտրը</translation>
+    </message>
+    <message>
+        <location filename="wdtalltickets.cpp" line="14"/>
+        <source>Fuel</source>
+        <translation>Վառելիք</translation>
+    </message>
+    <message>
+        <location filename="wdtalltickets.cpp" line="20"/>
+        <source>Tickets</source>
+        <translation>Կտրոն</translation>
+    </message>
+    <message>
+        <location filename="wdtalltickets.cpp" line="26"/>
+        <source>State</source>
+        <translation>Վիճակ</translation>
+    </message>
 </context>
 <context>
     <name>WdtAllTickets2</name>
@@ -1063,6 +1118,11 @@
         <location filename="wdtalltickets2.cpp" line="15"/>
         <source>Reset filter</source>
         <translation>Մաքրել ֆիլտրը</translation>
+    </message>
+    <message>
+        <location filename="wdtalltickets2.cpp" line="17"/>
+        <source>Fuel</source>
+        <translation>Վառելիք</translation>
     </message>
 </context>
 <context>
@@ -1222,6 +1282,11 @@
         <source>Reset filter</source>
         <translation>Մաքրել ֆիլտրը</translation>
     </message>
+    <message>
+        <location filename="wdtreppartners1.cpp" line="17"/>
+        <source>Tickets</source>
+        <translation>Կտրոն</translation>
+    </message>
 </context>
 <context>
     <name>WdtRepPartners2</name>
@@ -1302,6 +1367,16 @@
         <location filename="wdtreppartners3.cpp" line="15"/>
         <source>Reset filter</source>
         <translation>Մաքրել ֆիլտրը</translation>
+    </message>
+    <message>
+        <location filename="wdtreppartners3.cpp" line="18"/>
+        <source>Fuel</source>
+        <translation>Վառելիք</translation>
+    </message>
+    <message>
+        <location filename="wdtreppartners3.cpp" line="24"/>
+        <source>Tickets</source>
+        <translation>Կտրոն</translation>
     </message>
 </context>
 </TS>

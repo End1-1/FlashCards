@@ -21,6 +21,7 @@ public:
     void logout();
     void buildEditMenu(QList<QAction *> actions);
     void buildReportMenu(QList<QAction *> actions);
+    void buildOtherMenu(QList<QMenu *> menu);
     void setMenuState(bool v);
     virtual void closeEvent(QCloseEvent *event) override;
 

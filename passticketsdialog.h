@@ -19,7 +19,6 @@ private slots:
     void on_btnCancel_clicked();
     void on_leStartCode_returnPressed();
     void on_leEndCode_returnPressed();
-
     void on_btnSave_clicked();
 
 private:

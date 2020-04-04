@@ -14,11 +14,13 @@ WdtRepPartners1::WdtRepPartners1(const QIcon &icon, const QString &label, QWidge
     addAction(fReportActions, ":/res/filter.png", tr("Filter"), this, SLOT(setSearchParameters()));
     addAction(fReportActions, ":/res/back.png", tr("Reset filter"), this, SLOT(resetSearchParameters()));
     C5Database db(__dbhost, __dbschema, __dbusername, __dbpassword);
-    db.exec("select * from cards_types order by fid");
+    QMenu *mTickets = new QMenu(tr("Tickets"));
+    db.exec("select * from cards_types order by ffuel, fname");
     while (db.nextRow()) {
-        QAction *a = addAction(fReportActions, ":/res/fuel.png", db.getString("fname"), this, SLOT(filterFuel()));
+        QAction *a = mTickets->addAction(QIcon(":/res/fuel.png"), db.getString("fname"), this, SLOT(filterFuel()));
         a->setProperty("id", db.getString("fid"));
     }
+    fOtherMenu.append(mTickets);
     fFilterWidget = new FilterPartner1();
 }
 

@@ -4,6 +4,7 @@
 #include <QWidget>
 #include <QIcon>
 #include <QAction>
+#include <QMenu>
 
 class WdtWidget : public QWidget
 {
@@ -17,6 +18,7 @@ public:
     virtual void hkEscape();
     virtual QList<QAction *> editMenu() const;
     virtual QList<QAction *> reportMenu() const;
+    virtual QList<QMenu *> otherMenu() const;
 
 public slots:
     virtual void print();
@@ -27,6 +29,7 @@ protected:
     QString fLabel;
     QList<QAction *> fEditActions;
     QList<QAction *> fReportActions;
+    QList<QMenu *> fOtherMenu;
     QAction *addAction(QList<QAction *> &list, const QString &icon, const QString &title, QObject *receiver, const char *slot);
 
 protected slots:

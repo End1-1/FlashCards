@@ -14,11 +14,13 @@ WdtAllTickets2::WdtAllTickets2(const QIcon &icon, const QString &label, QWidget 
     addAction(fReportActions, ":/res/filter.png", tr("Filter"), this, SLOT(setSearchParameters()));
     addAction(fReportActions, ":/res/back.png", tr("Reset filter"), this, SLOT(resetSearchParameters()));
     C5Database db(__dbhost, __dbschema, __dbusername, __dbpassword);
+    QMenu *mFuel = new QMenu(tr("Fuel"));
     db.exec("select * from fuel order by fid");
     while (db.nextRow()) {
-        QAction *a = addAction(fReportActions, ":/res/fuel.png", db.getString("fname"), this, SLOT(filterFuel()));
+        QAction *a = mFuel->addAction(QIcon(":/res/fuel.png"), db.getString("fname"), this, SLOT(filterFuel()));
         a->setProperty("id", db.getString("fid"));
     }
+    fOtherMenu.append(mFuel);
     fFilterWidget = new FilterAllTickets2();
 }
 

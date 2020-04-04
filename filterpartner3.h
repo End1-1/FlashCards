@@ -16,6 +16,7 @@ public:
     ~FilterPartner3();
     virtual QString condition() override;
     void setFuelFilter(const QString &v);
+    void setTicketFilter(const QString &v);
 
 private:
     Ui::FilterPartner3 *ui;

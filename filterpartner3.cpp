@@ -32,4 +32,11 @@ QString FilterPartner3::condition()
 void FilterPartner3::setFuelFilter(const QString &v)
 {
     ui->wc->setKey(ui->leFuel, v);
+    ui->wc->setKey(ui->leTicket, "");
+}
+
+void FilterPartner3::setTicketFilter(const QString &v)
+{
+    ui->wc->setKey(ui->leFuel, "");
+    ui->wc->setKey(ui->leTicket, v);
 }

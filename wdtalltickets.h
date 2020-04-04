@@ -8,6 +8,11 @@ class WdtAllTickets : public C5Grid
     Q_OBJECT
 public:
     WdtAllTickets(const QIcon &icon, const QString &label, QWidget *parent = nullptr);
+
+private slots:
+    void filterFuel();
+    void filterTicket();
+    void filterState();
 };
 
 #endif // WDTALLTICKETS_H

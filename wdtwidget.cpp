@@ -15,6 +15,12 @@ WdtWidget::~WdtWidget()
     for (QAction *a: fReportActions) {
         a->deleteLater();
     }
+    for (QMenu *a: fOtherMenu) {
+        for (QAction *b: a->actions()) {
+            b->deleteLater();
+        }
+        a->deleteLater();
+    }
 }
 
 QIcon WdtWidget::icon() const
@@ -45,6 +51,11 @@ QList<QAction *> WdtWidget::editMenu() const
 QList<QAction *> WdtWidget::reportMenu() const
 {
     return fReportActions;
+}
+
+QList<QMenu *> WdtWidget::otherMenu() const
+{
+    return fOtherMenu;
 }
 
 void WdtWidget::print()
