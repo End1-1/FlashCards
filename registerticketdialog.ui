@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>470</width>
-    <height>223</height>
+    <height>224</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -40,13 +40,13 @@
        <widget class="C5LineEdit" name="leTicket">
         <property name="minimumSize">
          <size>
-          <width>100</width>
+          <width>120</width>
           <height>0</height>
          </size>
         </property>
         <property name="maximumSize">
          <size>
-          <width>100</width>
+          <width>120</width>
           <height>16777215</height>
          </size>
         </property>
@@ -76,13 +76,13 @@
        <widget class="C5LineEdit" name="lePartner">
         <property name="minimumSize">
          <size>
-          <width>100</width>
+          <width>120</width>
           <height>0</height>
          </size>
         </property>
         <property name="maximumSize">
          <size>
-          <width>100</width>
+          <width>120</width>
           <height>16777215</height>
          </size>
         </property>
@@ -112,13 +112,13 @@
        <widget class="C5DateEdit" name="deDate">
         <property name="minimumSize">
          <size>
-          <width>100</width>
+          <width>120</width>
           <height>0</height>
          </size>
         </property>
         <property name="maximumSize">
          <size>
-          <width>100</width>
+          <width>120</width>
           <height>16777215</height>
          </size>
         </property>
@@ -133,6 +133,18 @@
       </item>
       <item row="3" column="1">
        <widget class="QSpinBox" name="sbDigits">
+        <property name="minimumSize">
+         <size>
+          <width>120</width>
+          <height>0</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>120</width>
+          <height>16777215</height>
+         </size>
+        </property>
         <property name="suffix">
          <string/>
         </property>
@@ -152,13 +164,13 @@
        <widget class="C5LineEdit" name="leNumberStart">
         <property name="minimumSize">
          <size>
-          <width>100</width>
+          <width>120</width>
           <height>0</height>
          </size>
         </property>
         <property name="maximumSize">
          <size>
-          <width>100</width>
+          <width>120</width>
           <height>16777215</height>
          </size>
         </property>
@@ -175,13 +187,13 @@
        <widget class="C5LineEdit" name="leNumberEnd">
         <property name="minimumSize">
          <size>
-          <width>100</width>
+          <width>120</width>
           <height>0</height>
          </size>
         </property>
         <property name="maximumSize">
          <size>
-          <width>100</width>
+          <width>120</width>
           <height>16777215</height>
          </size>
         </property>
@@ -198,13 +210,13 @@
        <widget class="C5LineEdit" name="leCount">
         <property name="minimumSize">
          <size>
-          <width>100</width>
+          <width>120</width>
           <height>0</height>
          </size>
         </property>
         <property name="maximumSize">
          <size>
-          <width>100</width>
+          <width>120</width>
           <height>16777215</height>
          </size>
         </property>
@@ -293,15 +305,15 @@
    <header location="global">c5lineedit.h</header>
   </customwidget>
   <customwidget>
-   <class>C5DateEdit</class>
-   <extends>QLineEdit</extends>
-   <header location="global">c5dateedit.h</header>
-  </customwidget>
-  <customwidget>
    <class>WdtContainer</class>
    <extends>QWidget</extends>
    <header location="global">wdtcontainer.h</header>
    <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>C5DateEdit</class>
+   <extends>QLineEdit</extends>
+   <header location="global">c5dateedit.h</header>
   </customwidget>
  </customwidgets>
  <resources/>

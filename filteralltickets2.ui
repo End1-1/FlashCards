@@ -53,13 +53,13 @@
        <widget class="C5LineEdit" name="leFuel">
         <property name="minimumSize">
          <size>
-          <width>80</width>
+          <width>120</width>
           <height>0</height>
          </size>
         </property>
         <property name="maximumSize">
          <size>
-          <width>80</width>
+          <width>120</width>
           <height>16777215</height>
          </size>
         </property>
@@ -96,6 +96,10 @@
    <container>1</container>
   </customwidget>
  </customwidgets>
+ <tabstops>
+  <tabstop>leFuel</tabstop>
+  <tabstop>lineEdit_3</tabstop>
+ </tabstops>
  <resources/>
  <connections/>
 </ui>

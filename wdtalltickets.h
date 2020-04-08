@@ -12,7 +12,6 @@ public:
 private slots:
     void filterFuel();
     void filterTicket();
-    void filterState();
 };
 
 #endif // WDTALLTICKETS_H

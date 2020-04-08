@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>463</width>
-    <height>199</height>
+    <width>483</width>
+    <height>251</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -29,46 +29,6 @@
       <property name="bottomMargin">
        <number>0</number>
       </property>
-      <item row="2" column="2">
-       <widget class="C5LineEdit" name="leTicketName">
-        <property name="minimumSize">
-         <size>
-          <width>300</width>
-          <height>0</height>
-         </size>
-        </property>
-        <property name="maximumSize">
-         <size>
-          <width>16777215</width>
-          <height>16777215</height>
-         </size>
-        </property>
-        <property name="lvalue" stdset="0">
-         <string>ticket_type</string>
-        </property>
-       </widget>
-      </item>
-      <item row="2" column="0">
-       <widget class="QLabel" name="label_2">
-        <property name="text">
-         <string>Ticket type</string>
-        </property>
-       </widget>
-      </item>
-      <item row="5" column="0">
-       <widget class="QLabel" name="label_4">
-        <property name="text">
-         <string>End code</string>
-        </property>
-       </widget>
-      </item>
-      <item row="6" column="0">
-       <widget class="QLabel" name="label_5">
-        <property name="text">
-         <string>Count</string>
-        </property>
-       </widget>
-      </item>
       <item row="4" column="0">
        <widget class="QLabel" name="label_3">
         <property name="text">
@@ -76,58 +36,7 @@
         </property>
        </widget>
       </item>
-      <item row="0" column="2">
-       <widget class="C5LineEdit" name="lineEdit_2">
-        <property name="minimumSize">
-         <size>
-          <width>300</width>
-          <height>0</height>
-         </size>
-        </property>
-        <property name="maximumSize">
-         <size>
-          <width>16777215</width>
-          <height>16777215</height>
-         </size>
-        </property>
-        <property name="lvalue" stdset="0">
-         <string>partners</string>
-        </property>
-       </widget>
-      </item>
-      <item row="4" column="1" colspan="2">
-       <widget class="C5LineEdit" name="leStartCode">
-        <property name="minimumSize">
-         <size>
-          <width>0</width>
-          <height>0</height>
-         </size>
-        </property>
-        <property name="maximumSize">
-         <size>
-          <width>16777215</width>
-          <height>16777215</height>
-         </size>
-        </property>
-       </widget>
-      </item>
-      <item row="5" column="1" colspan="2">
-       <widget class="C5LineEdit" name="leEndCode">
-        <property name="minimumSize">
-         <size>
-          <width>0</width>
-          <height>0</height>
-         </size>
-        </property>
-        <property name="maximumSize">
-         <size>
-          <width>16777215</width>
-          <height>16777215</height>
-         </size>
-        </property>
-       </widget>
-      </item>
-      <item row="7" column="0" colspan="3">
+      <item row="10" column="0" colspan="3">
        <widget class="QWidget" name="widget" native="true">
         <layout class="QHBoxLayout" name="horizontalLayout">
          <property name="leftMargin">
@@ -170,6 +79,17 @@
           </widget>
          </item>
          <item>
+          <widget class="QPushButton" name="btnRollback">
+           <property name="text">
+            <string>Rollback</string>
+           </property>
+           <property name="icon">
+            <iconset resource="res.qrc">
+             <normaloff>:/res/back.png</normaloff>:/res/back.png</iconset>
+           </property>
+          </widget>
+         </item>
+         <item>
           <widget class="QPushButton" name="btnCancel">
            <property name="focusPolicy">
             <enum>Qt::NoFocus</enum>
@@ -199,42 +119,17 @@
         </layout>
        </widget>
       </item>
-      <item row="6" column="1">
-       <widget class="C5LineEdit" name="leCount">
-        <property name="minimumSize">
-         <size>
-          <width>80</width>
-          <height>0</height>
-         </size>
-        </property>
-        <property name="maximumSize">
-         <size>
-          <width>80</width>
-          <height>16777215</height>
-         </size>
-        </property>
+      <item row="2" column="0">
+       <widget class="QLabel" name="label_2">
         <property name="text">
-         <string>0</string>
-        </property>
-        <property name="readOnly">
-         <bool>true</bool>
+         <string>Ticket type</string>
         </property>
        </widget>
       </item>
-      <item row="0" column="0">
-       <widget class="QLabel" name="label">
+      <item row="7" column="0">
+       <widget class="QLabel" name="label_5">
         <property name="text">
-         <string>Partner</string>
-        </property>
-       </widget>
-      </item>
-      <item row="6" column="2">
-       <widget class="QProgressBar" name="progressBar">
-        <property name="minimum">
-         <number>0</number>
-        </property>
-        <property name="value">
-         <number>0</number>
+         <string>Count</string>
         </property>
        </widget>
       </item>
@@ -242,13 +137,13 @@
        <widget class="C5LineEdit" name="lePartner">
         <property name="minimumSize">
          <size>
-          <width>100</width>
+          <width>120</width>
           <height>0</height>
          </size>
         </property>
         <property name="maximumSize">
          <size>
-          <width>100</width>
+          <width>120</width>
           <height>16777215</height>
          </size>
         </property>
@@ -257,21 +152,43 @@
         </property>
        </widget>
       </item>
-      <item row="2" column="1">
-       <widget class="C5LineEdit" name="leTicket">
+      <item row="9" column="1">
+       <widget class="C5LineEdit" name="lePrice">
         <property name="minimumSize">
          <size>
-          <width>100</width>
+          <width>120</width>
           <height>0</height>
          </size>
         </property>
         <property name="maximumSize">
          <size>
-          <width>100</width>
+          <width>120</width>
           <height>16777215</height>
          </size>
         </property>
-        <property name="lkey" stdset="0">
+        <property name="text">
+         <string>0</string>
+        </property>
+        <property name="readOnly">
+         <bool>false</bool>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="2">
+       <widget class="C5LineEdit" name="leTicketName">
+        <property name="minimumSize">
+         <size>
+          <width>300</width>
+          <height>0</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>16777215</width>
+          <height>16777215</height>
+         </size>
+        </property>
+        <property name="lvalue" stdset="0">
          <string>ticket_type</string>
         </property>
        </widget>
@@ -283,19 +200,196 @@
         </property>
        </widget>
       </item>
-      <item row="3" column="1">
-       <widget class="C5DateEdit" name="deDate">
+      <item row="0" column="0">
+       <widget class="QLabel" name="label">
+        <property name="text">
+         <string>Partner</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="2">
+       <widget class="C5LineEdit" name="lineEdit_2">
         <property name="minimumSize">
          <size>
-          <width>100</width>
+          <width>300</width>
           <height>0</height>
          </size>
         </property>
         <property name="maximumSize">
          <size>
-          <width>100</width>
+          <width>16777215</width>
           <height>16777215</height>
          </size>
+        </property>
+        <property name="lvalue" stdset="0">
+         <string>partners</string>
+        </property>
+       </widget>
+      </item>
+      <item row="5" column="0">
+       <widget class="QLabel" name="label_4">
+        <property name="text">
+         <string>End code</string>
+        </property>
+       </widget>
+      </item>
+      <item row="3" column="1">
+       <widget class="C5DateEdit" name="deDate">
+        <property name="minimumSize">
+         <size>
+          <width>120</width>
+          <height>0</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>120</width>
+          <height>16777215</height>
+         </size>
+        </property>
+       </widget>
+      </item>
+      <item row="8" column="0">
+       <widget class="QLabel" name="label_7">
+        <property name="text">
+         <string>Quantity</string>
+        </property>
+       </widget>
+      </item>
+      <item row="9" column="0">
+       <widget class="QLabel" name="label_8">
+        <property name="text">
+         <string>Price</string>
+        </property>
+       </widget>
+      </item>
+      <item row="5" column="1" colspan="2">
+       <widget class="C5LineEdit" name="leEndCode">
+        <property name="minimumSize">
+         <size>
+          <width>0</width>
+          <height>0</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>16777215</width>
+          <height>16777215</height>
+         </size>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="1">
+       <widget class="C5LineEdit" name="leTicket">
+        <property name="minimumSize">
+         <size>
+          <width>120</width>
+          <height>0</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>120</width>
+          <height>16777215</height>
+         </size>
+        </property>
+        <property name="lkey" stdset="0">
+         <string>ticket_type</string>
+        </property>
+       </widget>
+      </item>
+      <item row="7" column="1">
+       <widget class="C5LineEdit" name="leCount">
+        <property name="minimumSize">
+         <size>
+          <width>120</width>
+          <height>0</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>120</width>
+          <height>16777215</height>
+         </size>
+        </property>
+        <property name="text">
+         <string>0</string>
+        </property>
+        <property name="readOnly">
+         <bool>false</bool>
+        </property>
+       </widget>
+      </item>
+      <item row="9" column="2">
+       <widget class="QProgressBar" name="progressBar">
+        <property name="minimum">
+         <number>0</number>
+        </property>
+        <property name="value">
+         <number>0</number>
+        </property>
+       </widget>
+      </item>
+      <item row="8" column="1">
+       <widget class="C5LineEdit" name="leQty">
+        <property name="minimumSize">
+         <size>
+          <width>120</width>
+          <height>0</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>120</width>
+          <height>16777215</height>
+         </size>
+        </property>
+        <property name="text">
+         <string>0</string>
+        </property>
+        <property name="readOnly">
+         <bool>false</bool>
+        </property>
+       </widget>
+      </item>
+      <item row="4" column="1" colspan="2">
+       <widget class="C5LineEdit" name="leStartCode">
+        <property name="minimumSize">
+         <size>
+          <width>0</width>
+          <height>0</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>16777215</width>
+          <height>16777215</height>
+         </size>
+        </property>
+       </widget>
+      </item>
+      <item row="7" column="2">
+       <widget class="C5LineEdit" name="leCountGive">
+        <property name="minimumSize">
+         <size>
+          <width>120</width>
+          <height>0</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>120</width>
+          <height>16777215</height>
+         </size>
+        </property>
+        <property name="focusPolicy">
+         <enum>Qt::NoFocus</enum>
+        </property>
+        <property name="text">
+         <string>0</string>
+        </property>
+        <property name="readOnly">
+         <bool>false</bool>
         </property>
        </widget>
       </item>
@@ -311,27 +405,29 @@
    <header location="global">c5lineedit.h</header>
   </customwidget>
   <customwidget>
-   <class>C5DateEdit</class>
-   <extends>QLineEdit</extends>
-   <header location="global">c5dateedit.h</header>
-  </customwidget>
-  <customwidget>
    <class>WdtContainer</class>
    <extends>QWidget</extends>
    <header location="global">wdtcontainer.h</header>
    <container>1</container>
   </customwidget>
+  <customwidget>
+   <class>C5DateEdit</class>
+   <extends>QLineEdit</extends>
+   <header location="global">c5dateedit.h</header>
+  </customwidget>
  </customwidgets>
  <tabstops>
   <tabstop>lePartner</tabstop>
   <tabstop>leTicket</tabstop>
+  <tabstop>deDate</tabstop>
   <tabstop>leStartCode</tabstop>
   <tabstop>leEndCode</tabstop>
   <tabstop>leCount</tabstop>
-  <tabstop>btnSave</tabstop>
-  <tabstop>btnCancel</tabstop>
-  <tabstop>lineEdit_2</tabstop>
+  <tabstop>leQty</tabstop>
+  <tabstop>lePrice</tabstop>
   <tabstop>leTicketName</tabstop>
+  <tabstop>lineEdit_2</tabstop>
+  <tabstop>leCountGive</tabstop>
  </tabstops>
  <resources>
   <include location="res.qrc"/>

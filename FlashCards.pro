@@ -65,6 +65,7 @@ SOURCES += \
         filteralltickets.cpp \
         filteralltickets2.cpp \
         filterpartner1.cpp \
+        filterpartner2.cpp \
         filterpartner3.cpp \
         homewindows.cpp \
         keyvaluelineedit.cpp \
@@ -130,6 +131,7 @@ HEADERS += \
     filteralltickets.h \
     filteralltickets2.h \
     filterpartner1.h \
+    filterpartner2.h \
     filterpartner3.h \
     homewindows.h \
     keyvaluelineedit.h \
@@ -166,6 +168,7 @@ FORMS += \
     filteralltickets.ui \
     filteralltickets2.ui \
     filterpartner1.ui \
+    filterpartner2.ui \
     filterpartner3.ui \
     homewindows.ui \
     login.ui \

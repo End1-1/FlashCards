@@ -10,6 +10,11 @@ C5FilterWidget::C5FilterWidget(QWidget *parent) :
 
 }
 
+C5FilterWidget::~C5FilterWidget()
+{
+    saveFilter(this);
+}
+
 void C5FilterWidget::saveFilter(QWidget *parent)
 {
     QSettings s(_ORGANIZATION_, QString("%1\\%2\\reportfilter\\%3")
@@ -22,10 +27,14 @@ void C5FilterWidget::saveFilter(QWidget *parent)
     C5DateEdit *de;
     C5CheckBox *ce;
     foreach (QObject *o, ol) {
-        if (o->children().count() > 0) {
-            saveFilter(static_cast<QWidget*>(o));
-        }
         if ((le = isKeyValueEdit(o))) {
+            value = le->property("FilterName");
+            if (value.isValid()) {
+                s.setValue(value.toString(), le->text());
+            }
+            continue;
+        }
+        if ((le = isLineEdit(o))) {
             value = le->property("FilterName");
             if (value.isValid()) {
                 s.setValue(value.toString(), le->text());
@@ -46,6 +55,9 @@ void C5FilterWidget::saveFilter(QWidget *parent)
             }
             continue;
         }
+        if (o->children().count() > 0) {
+            saveFilter(static_cast<QWidget*>(o));
+        }
     }
 }
 
@@ -62,9 +74,6 @@ void C5FilterWidget::restoreFilter(QWidget *parent)
     C5DateEdit *de;
     C5CheckBox *ce;
     foreach (QObject *o, ol) {
-        if (o->children().count() > 0) {
-            saveFilter(static_cast<QWidget*>(o));
-        }
         if ((le = isKeyValueEdit(o))) {
             filterName = le->property("FilterName").toString();
             if (filterName.isEmpty()) {
@@ -72,6 +81,15 @@ void C5FilterWidget::restoreFilter(QWidget *parent)
             }
             value = s.value(filterName, "");
             keyValue(le)->setKey(value.toString());
+            continue;
+        }
+        if ((le = isLineEdit(o))) {
+            filterName = le->property("FilterName").toString();
+            if (filterName.isEmpty()) {
+                continue;
+            }
+            value = s.value(filterName, "");
+            le->setText(value.toString());
             continue;
         }
         if ((de = isDateEdit(o))) {
@@ -92,6 +110,9 @@ void C5FilterWidget::restoreFilter(QWidget *parent)
             ce->setChecked(value.toBool());
             continue;
         }
+        if (o->children().count() > 0) {
+            restoreFilter(static_cast<QWidget*>(o));
+        }
     }
 }
 
@@ -104,6 +125,10 @@ void C5FilterWidget::clearFilter(QWidget *parent)
     foreach (QObject *o, ol) {
         if ((le = isKeyValueEdit(o))) {
             keyValue(le)->setKey("");
+            continue;
+        }
+        if ((le = isLineEdit(o))) {
+            le->clear();
             continue;
         }
         if ((de = isDateEdit(o))) {
@@ -119,6 +144,7 @@ void C5FilterWidget::clearFilter(QWidget *parent)
             clearFilter(static_cast<QWidget*>(o));
         }
     }
+    saveFilter(this);
 }
 
 C5LineEdit *C5FilterWidget::isKeyValueEdit(QObject *o)

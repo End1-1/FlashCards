@@ -17,14 +17,14 @@ FilterAllTickets::~FilterAllTickets()
 QString FilterAllTickets::condition()
 {
     QString where = "where c.fid>0 ";
-    if (!ui->leState->isEmpty()) {
-        where += " and c.fstate in (" + ui->leState->text() + ") ";
-    }
     if (!ui->leFuel->isEmpty()) {
         where += " and ct.ffuel in (" + ui->leFuel->text() + ") ";
     }
     if (!ui->leTicket->isEmpty()) {
         where += " and ct.fid in (" + ui->leTicket->text() + ") ";
+    }
+    if (!ui->leYear->isEmpty()) {
+        where += " and year(c.fissuedate) in (" + ui->leYear->text() + ") ";
     }
     return where;
 }
@@ -33,19 +33,12 @@ void FilterAllTickets::setFuelFilter(const QString &v)
 {
     ui->wc->setKey(ui->leFuel, v);
     ui->wc->setKey(ui->leTicket, "");
-    ui->wc->setKey(ui->leState, "");
+    ui->leYear->clear();
 }
 
 void FilterAllTickets::setTicketFilter(const QString &v)
 {
     ui->wc->setKey(ui->leFuel, "");
     ui->wc->setKey(ui->leTicket, v);
-    ui->wc->setKey(ui->leState, "");
-}
-
-void FilterAllTickets::setStateFilter(const QString &v)
-{
-    ui->wc->setKey(ui->leFuel, "");
-    ui->wc->setKey(ui->leTicket, "");
-    ui->wc->setKey(ui->leState, v);
+    ui->leYear->clear();
 }

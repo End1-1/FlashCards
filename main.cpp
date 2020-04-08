@@ -3,10 +3,12 @@
 #include "c5connection.h"
 #include <QApplication>
 #include <QTranslator>
+#include <QStyleFactory>
 
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
+    a.setStyle(QStyleFactory::create("fusion"));
     QTranslator t;
     t.load(":/FlashCards.qm");
     a.installTranslator(&t);
@@ -26,6 +28,7 @@ int main(int argc, char *argv[])
     w.showMaximized();
     a.processEvents();
     w.login();
+
 
     return a.exec();
 }

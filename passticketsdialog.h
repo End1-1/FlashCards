@@ -20,9 +20,14 @@ private slots:
     void on_leStartCode_returnPressed();
     void on_leEndCode_returnPressed();
     void on_btnSave_clicked();
+    void on_leCount_returnPressed();
+    void on_leQty_returnPressed();
+
+    void on_btnRollback_clicked();
 
 private:
     Ui::PassTicketsDialog *ui;
+    QString fTransaction;
     void getListOfTickets(QString &err, bool process = false);
 };
 

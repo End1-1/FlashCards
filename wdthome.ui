@@ -219,7 +219,7 @@
          </sizepolicy>
         </property>
         <property name="text">
-         <string>All tickets 1</string>
+         <string>Free tickets</string>
         </property>
         <property name="icon">
          <iconset resource="res.qrc">

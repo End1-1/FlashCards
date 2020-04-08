@@ -11,6 +11,7 @@ class C5FilterWidget : public QWidget
 
 public:
     explicit C5FilterWidget(QWidget *parent = nullptr);
+    ~C5FilterWidget();
     virtual QString condition() = 0;
     virtual void saveFilter(QWidget *parent);
     virtual void restoreFilter(QWidget *parent);

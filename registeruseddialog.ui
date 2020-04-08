@@ -54,13 +54,13 @@
        <widget class="C5LineEdit" name="leTicket">
         <property name="minimumSize">
          <size>
-          <width>100</width>
+          <width>120</width>
           <height>0</height>
          </size>
         </property>
         <property name="maximumSize">
          <size>
-          <width>100</width>
+          <width>120</width>
           <height>16777215</height>
          </size>
         </property>
@@ -102,13 +102,13 @@
        <widget class="C5LineEdit" name="lePartner">
         <property name="minimumSize">
          <size>
-          <width>100</width>
+          <width>120</width>
           <height>0</height>
          </size>
         </property>
         <property name="maximumSize">
          <size>
-          <width>100</width>
+          <width>120</width>
           <height>16777215</height>
          </size>
         </property>
@@ -150,13 +150,13 @@
        <widget class="C5DateEdit" name="deIssue">
         <property name="minimumSize">
          <size>
-          <width>100</width>
+          <width>120</width>
           <height>0</height>
          </size>
         </property>
         <property name="maximumSize">
          <size>
-          <width>100</width>
+          <width>120</width>
           <height>16777215</height>
          </size>
         </property>
@@ -176,13 +176,13 @@
        <widget class="C5DateEdit" name="dePassed">
         <property name="minimumSize">
          <size>
-          <width>100</width>
+          <width>120</width>
           <height>0</height>
          </size>
         </property>
         <property name="maximumSize">
          <size>
-          <width>100</width>
+          <width>120</width>
           <height>16777215</height>
          </size>
         </property>
@@ -202,13 +202,13 @@
        <widget class="C5DateEdit" name="deUsed">
         <property name="minimumSize">
          <size>
-          <width>100</width>
+          <width>120</width>
           <height>0</height>
          </size>
         </property>
         <property name="maximumSize">
          <size>
-          <width>100</width>
+          <width>120</width>
           <height>16777215</height>
          </size>
         </property>
@@ -304,15 +304,15 @@
    <header location="global">c5lineedit.h</header>
   </customwidget>
   <customwidget>
-   <class>C5DateEdit</class>
-   <extends>QLineEdit</extends>
-   <header location="global">c5dateedit.h</header>
-  </customwidget>
-  <customwidget>
    <class>WdtContainer</class>
    <extends>QWidget</extends>
    <header location="global">wdtcontainer.h</header>
    <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>C5DateEdit</class>
+   <extends>QLineEdit</extends>
+   <header location="global">c5dateedit.h</header>
   </customwidget>
  </customwidgets>
  <tabstops>

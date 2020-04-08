@@ -5,6 +5,7 @@
 WdtCardTypes::WdtCardTypes(const QIcon &icon, const QString &label, QWidget *parent) :
     C5Grid(icon, label, parent)
 {
+    fColorColumn = 4;
     buildReport("cards_types");
     addAction(fEditActions, ":/res/new.png", tr("New ticket type"), this, SLOT(newCardType()));
     addAction(fEditActions, ":/res/edit.png", tr("Edit ticket type"), this, SLOT(editTicketType()));

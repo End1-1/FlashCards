@@ -32,25 +32,17 @@
    <item>
     <widget class="WdtContainer" name="wc" native="true">
      <layout class="QGridLayout" name="gridLayout">
-      <item row="2" column="1">
-       <widget class="C5LineEdit" name="leState">
-        <property name="minimumSize">
-         <size>
-          <width>80</width>
-          <height>0</height>
-         </size>
+      <item row="1" column="3">
+       <widget class="C5LineEdit" name="lineEdit_4">
+        <property name="lvalue" stdset="0">
+         <string>ticket_type</string>
         </property>
-        <property name="maximumSize">
-         <size>
-          <width>80</width>
-          <height>16777215</height>
-         </size>
-        </property>
-        <property name="FilterName" stdset="0">
-         <string>state</string>
-        </property>
-        <property name="lkey" stdset="0">
-         <string>state</string>
+       </widget>
+      </item>
+      <item row="0" column="3">
+       <widget class="C5LineEdit" name="lineEdit_3">
+        <property name="lvalue" stdset="0">
+         <string>fuel</string>
         </property>
        </widget>
       </item>
@@ -67,17 +59,46 @@
         </property>
        </spacer>
       </item>
-      <item row="0" column="1">
-       <widget class="C5LineEdit" name="leFuel">
+      <item row="1" column="1">
+       <widget class="C5LineEdit" name="leTicket">
         <property name="minimumSize">
          <size>
-          <width>80</width>
+          <width>120</width>
           <height>0</height>
          </size>
         </property>
         <property name="maximumSize">
          <size>
-          <width>80</width>
+          <width>120</width>
+          <height>16777215</height>
+         </size>
+        </property>
+        <property name="FilterName" stdset="0">
+         <string>ticket_type</string>
+        </property>
+        <property name="lkey" stdset="0">
+         <string>ticket_type</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="0">
+       <widget class="QLabel" name="label_3">
+        <property name="text">
+         <string>Ticket</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="1">
+       <widget class="C5LineEdit" name="leFuel">
+        <property name="minimumSize">
+         <size>
+          <width>120</width>
+          <height>0</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>120</width>
           <height>16777215</height>
          </size>
         </property>
@@ -86,13 +107,6 @@
         </property>
         <property name="lkey" stdset="0">
          <string>fuel</string>
-        </property>
-       </widget>
-      </item>
-      <item row="2" column="3">
-       <widget class="C5LineEdit" name="lineEdit_2">
-        <property name="lvalue" stdset="0">
-         <string>state</string>
         </property>
        </widget>
       </item>
@@ -104,52 +118,28 @@
        </widget>
       </item>
       <item row="2" column="0">
-       <widget class="QLabel" name="label">
+       <widget class="QLabel" name="label_4">
         <property name="text">
-         <string>State</string>
+         <string>Issue year</string>
         </property>
        </widget>
       </item>
-      <item row="0" column="3">
-       <widget class="C5LineEdit" name="lineEdit_3">
-        <property name="lvalue" stdset="0">
-         <string>fuel</string>
-        </property>
-       </widget>
-      </item>
-      <item row="1" column="0">
-       <widget class="QLabel" name="label_3">
-        <property name="text">
-         <string>Ticket</string>
-        </property>
-       </widget>
-      </item>
-      <item row="1" column="1">
-       <widget class="C5LineEdit" name="leTicket">
+      <item row="2" column="1">
+       <widget class="C5LineEdit" name="leYear">
         <property name="minimumSize">
          <size>
-          <width>80</width>
+          <width>120</width>
           <height>0</height>
          </size>
         </property>
         <property name="maximumSize">
          <size>
-          <width>80</width>
+          <width>120</width>
           <height>16777215</height>
          </size>
         </property>
         <property name="FilterName" stdset="0">
-         <string>ticket_type</string>
-        </property>
-        <property name="lkey" stdset="0">
-         <string>ticket_type</string>
-        </property>
-       </widget>
-      </item>
-      <item row="1" column="3">
-       <widget class="C5LineEdit" name="lineEdit_4">
-        <property name="lvalue" stdset="0">
-         <string>ticket_type</string>
+         <string>year</string>
         </property>
        </widget>
       </item>
@@ -173,9 +163,10 @@
  </customwidgets>
  <tabstops>
   <tabstop>leFuel</tabstop>
-  <tabstop>leState</tabstop>
-  <tabstop>lineEdit_2</tabstop>
+  <tabstop>leTicket</tabstop>
+  <tabstop>leYear</tabstop>
   <tabstop>lineEdit_3</tabstop>
+  <tabstop>lineEdit_4</tabstop>
  </tabstops>
  <resources/>
  <connections/>

@@ -4,12 +4,15 @@
 WdtAllTickets2::WdtAllTickets2(const QIcon &icon, const QString &label, QWidget *parent) :
     C5Grid(icon, label, parent)
 {
+    fColorColumn = 8;
     fColumnsSum.append(tr("Qty, issue"));
     fColumnsSum.append(tr("Litr, issue"));
     fColumnsSum.append(tr("Qty, partner"));
     fColumnsSum.append(tr("Litr, partner"));
     fColumnsSum.append(tr("Qty, used"));
     fColumnsSum.append(tr("Litr, used"));
+    fFilterWidget = new FilterAllTickets2();
+    fFilterWidget->restoreFilter(fFilterWidget);
     buildReport("all_tickets2");
     addAction(fReportActions, ":/res/filter.png", tr("Filter"), this, SLOT(setSearchParameters()));
     addAction(fReportActions, ":/res/back.png", tr("Reset filter"), this, SLOT(resetSearchParameters()));
@@ -21,7 +24,6 @@ WdtAllTickets2::WdtAllTickets2(const QIcon &icon, const QString &label, QWidget 
         a->setProperty("id", db.getString("fid"));
     }
     fOtherMenu.append(mFuel);
-    fFilterWidget = new FilterAllTickets2();
 }
 
 void WdtAllTickets2::filterFuel()
@@ -29,5 +31,6 @@ void WdtAllTickets2::filterFuel()
     QAction *a = static_cast<QAction*>(sender());
     QString id = a->property("id").toString();
     static_cast<FilterAllTickets2*>(fFilterWidget)->setFuelFilter(id);
+    fFilterWidget->saveFilter(fFilterWidget);
     buildQuery();
 }

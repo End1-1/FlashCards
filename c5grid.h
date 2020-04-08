@@ -61,6 +61,7 @@ protected:
     QString fOrderCondition;
     C5FilterWidget *fFilterWidget;
     C5LineEdit *fFilterLineEdit;
+    int fColorColumn;
     QWidget *widget();
     QHBoxLayout *hl();
     int rowId();
@@ -78,6 +79,8 @@ protected:
     virtual void buildReport(const QString &name);
     virtual void insertNewRow(WdbWidget *w);
     virtual void updateRow(WdbWidget *w);
+    virtual void postRefreshData(int row = -1);
+    void setColor(int row, int color);
 
     template<typename T>
     void newElement() {

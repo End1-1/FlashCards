@@ -54,6 +54,7 @@ C5Grid::C5Grid(const QIcon &icon, const QString &label, QWidget *parent) :
     addAction(fReportActions, ":/res/refresh.png", tr("Refresh"), this, SLOT(buildQuery()));
     addAction(fReportActions, ":/res/print.png", tr("Print"), this, SLOT(print()));
     addAction(fReportActions, ":/res/excel.png", tr("Export to Excel"), this, SLOT(exportToExcel()));
+    fColorColumn = -1;
 }
 
 C5Grid::~C5Grid()
@@ -369,6 +370,10 @@ void C5Grid::insertNewRow(WdbWidget *w)
         db.exec(q);
         if (db.nextRow()) {
             fModel->addRowValues(db.row());
+            if (fColorColumn > -1) {
+                setColor(fModel->rowCount() - 1, fColorColumn);
+            }
+            postRefreshData(fModel->rowCount() - 1);
         }
     }
     w->deleteLater();
@@ -384,7 +389,29 @@ void C5Grid::updateRow(WdbWidget *w)
     db.exec(q);
     if (db.nextRow()) {
         fModel->replaceRowValues(r, db.row());
+        if (fColorColumn > -1) {
+            setColor(r, fColorColumn);
+        }
+        postRefreshData(r);
     }
+}
+
+void C5Grid::postRefreshData(int row)
+{
+    Q_UNUSED(row);
+}
+
+void C5Grid::setColor(int row, int colorColumn)
+{
+    if (row < 0) {
+        for (int i = 0; i < fModel->rowCount(); i++) {
+            fModel->setRowColor(i, QColor::fromRgb(fModel->data(i, colorColumn, Qt::EditRole).toInt()));
+        }
+    } else {
+        fModel->setRowColor(row, QColor::fromRgb(fModel->data(row, colorColumn, Qt::EditRole).toInt()));
+    }
+    fTableView->setColumnWidth(colorColumn, 0);
+    fTableTotal->setColumnWidth(colorColumn, 0);
 }
 
 void C5Grid::insertJoinTable(QStringList &joins, QMap<QString, QString> &joinsMap, const QString &table, const QString &mainTable)
@@ -709,13 +736,23 @@ void C5Grid::exportToExcel()
         s->addCell(1, i + 1, fModel->headerData(i, Qt::Horizontal, Qt::DisplayRole).toString(), d.style()->styleNum("header"));
         s->setColumnWidth(i + 1, fTableView->columnWidth(i) / 7);
     }
-    //e.setHorizontalAlignment(e.address(0, 0), e.address(0, colCount - 1), Excel::hCenter);
+
     /* BODY */
+    QMap<int, QString> bgFill;
     QFont bodyFont(qApp->font());
     d.style()->addFont("body", bodyFont);
+    d.style()->addBackgrounFill("body", QColor(Qt::white));
+    bgFill[QColor(Qt::white).rgb()] = "body";
     for (int j = 0; j < rowCount; j++) {
         for (int i = 0; i < colCount; i++) {
-            s->addCell(j + 2, i + 1, fModel->data(j, i, Qt::EditRole), d.style()->styleNum("body"));
+            int bgColor = fModel->data(j, i, Qt::BackgroundColorRole).value<QColor>().rgb();
+            if (!bgFill.contains(bgColor)) {
+                d.style()->addFont(QString::number(bgColor), bodyFont);
+                d.style()->addBackgrounFill(QString::number(bgColor), QColor::fromRgb(bgColor));
+                bgFill[bgColor] = QString::number(bgColor);
+            }
+            QString bgStyle = bgFill[bgColor];
+            s->addCell(j + 2, i + 1, fModel->data(j, i, Qt::EditRole), d.style()->styleNum(bgStyle));
         }
     }
     /* TOTALS ROWS */
@@ -866,6 +903,10 @@ void C5Grid::refreshData()
     if (!ui->tblTotal->isVisible()) {
         ui->tblView->setHorizontalScrollBarPolicy(Qt::ScrollBarAsNeeded);
     }
+    if (fColorColumn > -1) {
+        setColor(-1, fColorColumn);
+    }
+    postRefreshData();
 }
 
 void C5Grid::on_tblView_clicked(const QModelIndex &index)

@@ -42,11 +42,11 @@ void RegisterTicketDialog::on_btnRegister_clicked()
     ui->progressBar->setMaximum(end);
     for (int i = start; i < end + 1; i++) {
         QString code = QString("%1%2%3")
-                .arg(ui->deDate->date().toString("yyyyMMyy"))
+                .arg(ui->deDate->date().toString("yyyyMMdd"))
                 .arg(ui->leTicket->getInteger(), 2, 10, QChar('0'))
                 .arg(i, ui->sbDigits->value(), 10, QChar('0'));
         db[":fstate"] = 1;
-        db[":ftransaction"] = transaction;
+        db[":fissuetrans"] = transaction;
         db[":fissuedate"] = ui->deDate->date();
         db[":fregisterdate"] = QDate::currentDate();
         db[":fregistertime"] = QTime::currentTime();

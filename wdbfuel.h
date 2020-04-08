@@ -16,6 +16,11 @@ public:
     ~WdbFuel();
     virtual QString tableName() const;
 
+private slots:
+    void on_btnSetColor_clicked();
+
+    void on_leColor_textChanged(const QString &arg1);
+
 private:
     Ui::WdbFuel *ui;
 };
