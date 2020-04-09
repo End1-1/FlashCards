@@ -28,5 +28,6 @@
         <file>res/fuel.png</file>
         <file>res/gasoline.png</file>
         <file>res/back.png</file>
+        <file>res/money.png</file>
     </qresource>
 </RCC>

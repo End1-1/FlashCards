@@ -22,8 +22,8 @@ private slots:
     void on_btnSave_clicked();
     void on_leCount_returnPressed();
     void on_leQty_returnPressed();
-
     void on_btnRollback_clicked();
+    void on_lePrice_textEdited(const QString &arg1);
 
 private:
     Ui::PassTicketsDialog *ui;

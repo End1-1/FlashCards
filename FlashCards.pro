@@ -64,6 +64,8 @@ SOURCES += \
         dialog.cpp \
         filteralltickets.cpp \
         filteralltickets2.cpp \
+        filteramount1.cpp \
+        filteramount2.cpp \
         filterpartner1.cpp \
         filterpartner2.cpp \
         filterpartner3.cpp \
@@ -80,6 +82,8 @@ SOURCES += \
         wdbwidget.cpp \
         wdtalltickets.cpp \
         wdtalltickets2.cpp \
+        wdtamount1.cpp \
+        wdtamount2.cpp \
         wdtcardtypes.cpp \
         wdtcontainer.cpp \
         wdtfuel.cpp \
@@ -130,6 +134,8 @@ HEADERS += \
     dialog.h \
     filteralltickets.h \
     filteralltickets2.h \
+    filteramount1.h \
+    filteramount2.h \
     filterpartner1.h \
     filterpartner2.h \
     filterpartner3.h \
@@ -146,6 +152,8 @@ HEADERS += \
     wdbwidget.h \
     wdtalltickets.h \
     wdtalltickets2.h \
+    wdtamount1.h \
+    wdtamount2.h \
     wdtcardtypes.h \
     wdtcontainer.h \
     wdtfuel.h \
@@ -167,6 +175,8 @@ FORMS += \
     dbdialog.ui \
     filteralltickets.ui \
     filteralltickets2.ui \
+    filteramount1.ui \
+    filteramount2.ui \
     filterpartner1.ui \
     filterpartner2.ui \
     filterpartner3.ui \

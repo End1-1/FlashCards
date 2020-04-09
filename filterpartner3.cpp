@@ -36,12 +36,10 @@ void FilterPartner3::setFuelFilter(const QString &v)
 {
     ui->wc->setKey(ui->leFuel, v);
     ui->wc->setKey(ui->leTicket, "");
-    ui->deIssue->clear();
 }
 
 void FilterPartner3::setTicketFilter(const QString &v)
 {
     ui->wc->setKey(ui->leFuel, "");
     ui->wc->setKey(ui->leTicket, v);
-    ui->deIssue->clear();
 }

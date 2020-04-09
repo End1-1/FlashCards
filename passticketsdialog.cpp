@@ -252,3 +252,8 @@ void PassTicketsDialog::on_btnRollback_clicked()
     ui->btnRollback->setVisible(false);
     ui->btnSave->setEnabled(true);
 }
+
+void PassTicketsDialog::on_lePrice_textEdited(const QString &arg1)
+{
+    ui->leAmount->setDouble(arg1.toDouble() * ui->leQty->getDouble());
+}

@@ -1,6 +1,7 @@
 #include "homewindows.h"
 #include "config.h"
 #include "c5connection.h"
+#include <QFile>
 #include <QApplication>
 #include <QTranslator>
 #include <QStyleFactory>
@@ -9,6 +10,11 @@ int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
     a.setStyle(QStyleFactory::create("fusion"));
+    QFile styleSheet("./styles.qss");
+    if (styleSheet.exists()) {
+        styleSheet.open(QIODevice::ReadOnly);
+        a.setStyleSheet(styleSheet.readAll());
+    }
     QTranslator t;
     t.load(":/FlashCards.qm");
     a.installTranslator(&t);

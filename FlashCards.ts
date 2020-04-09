@@ -406,6 +406,98 @@
     </message>
 </context>
 <context>
+    <name>FilterAmount1</name>
+    <message>
+        <location filename="filteramount1.ui" line="14"/>
+        <source>Form</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="filteramount1.ui" line="35"/>
+        <source>Fuel</source>
+        <translation>Վառելիք</translation>
+    </message>
+    <message>
+        <location filename="filteramount1.ui" line="42"/>
+        <location filename="filteramount1.ui" line="61"/>
+        <location filename="filteramount1.ui" line="64"/>
+        <source>fuel</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="filteramount1.ui" line="71"/>
+        <source>Year</source>
+        <translation>Տարի</translation>
+    </message>
+    <message>
+        <location filename="filteramount1.ui" line="103"/>
+        <source>dateissue</source>
+        <translation></translation>
+    </message>
+</context>
+<context>
+    <name>FilterAmount2</name>
+    <message>
+        <location filename="filteramount2.ui" line="14"/>
+        <source>Form</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="filteramount2.ui" line="47"/>
+        <source>ticket</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="filteramount2.ui" line="50"/>
+        <location filename="filteramount2.ui" line="91"/>
+        <source>ticket_type</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="filteramount2.ui" line="57"/>
+        <location filename="filteramount2.ui" line="117"/>
+        <location filename="filteramount2.ui" line="120"/>
+        <source>fuel</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="filteramount2.ui" line="64"/>
+        <source>Fuel</source>
+        <translation>Վառելիք</translation>
+    </message>
+    <message>
+        <location filename="filteramount2.ui" line="84"/>
+        <source>Year</source>
+        <translation>Տարի</translation>
+    </message>
+    <message>
+        <location filename="filteramount2.ui" line="98"/>
+        <source>Ticket</source>
+        <translation>Կտրոն</translation>
+    </message>
+    <message>
+        <location filename="filteramount2.ui" line="139"/>
+        <source>dateissue</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="filteramount2.ui" line="146"/>
+        <source>Partner</source>
+        <translation>Գործընկեր</translation>
+    </message>
+    <message>
+        <location filename="filteramount2.ui" line="165"/>
+        <source>partner</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="filteramount2.ui" line="168"/>
+        <location filename="filteramount2.ui" line="175"/>
+        <source>partners</source>
+        <translation></translation>
+    </message>
+</context>
+<context>
     <name>FilterPartner1</name>
     <message>
         <location filename="filterpartner1.ui" line="14"/>
@@ -659,77 +751,78 @@
         <translation>Կտրոնների բաշխում</translation>
     </message>
     <message>
-        <location filename="passticketsdialog.ui" line="232"/>
+        <location filename="passticketsdialog.ui" line="57"/>
         <source>End code</source>
         <translation>Վերջին համար</translation>
     </message>
     <message>
-        <location filename="passticketsdialog.ui" line="206"/>
+        <location filename="passticketsdialog.ui" line="302"/>
         <source>Partner</source>
         <translation>Գործընկեր</translation>
     </message>
     <message>
-        <location filename="passticketsdialog.ui" line="35"/>
+        <location filename="passticketsdialog.ui" line="167"/>
         <source>Start code</source>
         <translation>Արաջին համար</translation>
     </message>
     <message>
-        <location filename="passticketsdialog.ui" line="84"/>
+        <location filename="passticketsdialog.ui" line="261"/>
         <source>Rollback</source>
         <translation>Հետ կանչել</translation>
     </message>
     <message>
-        <location filename="passticketsdialog.ui" line="192"/>
-        <location filename="passticketsdialog.ui" line="297"/>
+        <location filename="passticketsdialog.ui" line="98"/>
+        <location filename="passticketsdialog.ui" line="117"/>
         <source>ticket_type</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="passticketsdialog.ui" line="255"/>
+        <location filename="passticketsdialog.ui" line="398"/>
         <source>Quantity</source>
         <translation>Լիտր</translation>
     </message>
     <message>
-        <location filename="passticketsdialog.ui" line="262"/>
+        <location filename="passticketsdialog.ui" line="153"/>
         <source>Price</source>
         <translation>Գին</translation>
     </message>
     <message>
-        <location filename="passticketsdialog.ui" line="125"/>
+        <location filename="passticketsdialog.ui" line="174"/>
         <source>Ticket type</source>
         <translation>Կտրոնների տեսակ</translation>
     </message>
     <message>
-        <location filename="passticketsdialog.ui" line="151"/>
-        <location filename="passticketsdialog.ui" line="225"/>
+        <location filename="passticketsdialog.ui" line="146"/>
+        <location filename="passticketsdialog.ui" line="321"/>
         <source>partners</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="passticketsdialog.ui" line="199"/>
+        <location filename="passticketsdialog.ui" line="160"/>
         <source>Issue date</source>
         <translation>Թողարկման ամսաթիվ</translation>
     </message>
     <message>
-        <location filename="passticketsdialog.ui" line="132"/>
+        <location filename="passticketsdialog.ui" line="369"/>
         <source>Count</source>
         <translation>Քանակ</translation>
     </message>
     <message>
-        <location filename="passticketsdialog.ui" line="170"/>
-        <location filename="passticketsdialog.ui" line="316"/>
-        <location filename="passticketsdialog.ui" line="348"/>
-        <location filename="passticketsdialog.ui" line="389"/>
+        <location filename="passticketsdialog.ui" line="47"/>
+        <location filename="passticketsdialog.ui" line="76"/>
+        <location filename="passticketsdialog.ui" line="209"/>
+        <location filename="passticketsdialog.ui" line="343"/>
+        <location filename="passticketsdialog.ui" line="388"/>
         <source>0</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="passticketsdialog.ui" line="73"/>
+        <location filename="passticketsdialog.ui" line="250"/>
         <source>Pass</source>
         <translation>Գրանցել</translation>
     </message>
     <message>
-        <location filename="passticketsdialog.ui" line="98"/>
+        <location filename="passticketsdialog.ui" line="275"/>
         <source>Cancel</source>
         <translation>Ոչ</translation>
     </message>
@@ -1218,6 +1311,67 @@
     </message>
 </context>
 <context>
+    <name>WdtAmount1</name>
+    <message>
+        <location filename="wdtamount1.cpp" line="8"/>
+        <source>Qty</source>
+        <translation>քանակ</translation>
+    </message>
+    <message>
+        <location filename="wdtamount1.cpp" line="9"/>
+        <source>Amount</source>
+        <translation>գումար</translation>
+    </message>
+    <message>
+        <location filename="wdtamount1.cpp" line="13"/>
+        <source>Filter</source>
+        <translation>Ֆիլտր</translation>
+    </message>
+    <message>
+        <location filename="wdtamount1.cpp" line="14"/>
+        <source>Reset filter</source>
+        <translation>Մաքրել ֆիլտրը</translation>
+    </message>
+    <message>
+        <location filename="wdtamount1.cpp" line="17"/>
+        <source>Fuel</source>
+        <translation>Վառելիք</translation>
+    </message>
+</context>
+<context>
+    <name>WdtAmount2</name>
+    <message>
+        <location filename="wdtamount2.cpp" line="8"/>
+        <source>Qty</source>
+        <translation>քանակ</translation>
+    </message>
+    <message>
+        <location filename="wdtamount2.cpp" line="9"/>
+        <source>Amount</source>
+        <translation>գումար</translation>
+    </message>
+    <message>
+        <location filename="wdtamount2.cpp" line="13"/>
+        <source>Filter</source>
+        <translation>Ֆիլտր</translation>
+    </message>
+    <message>
+        <location filename="wdtamount2.cpp" line="14"/>
+        <source>Reset filter</source>
+        <translation>Մաքրել ֆիլտրը</translation>
+    </message>
+    <message>
+        <location filename="wdtamount2.cpp" line="17"/>
+        <source>Fuel</source>
+        <translation>Վառելիք</translation>
+    </message>
+    <message>
+        <location filename="wdtamount2.cpp" line="23"/>
+        <source>Tickets</source>
+        <translation>Կտրոն</translation>
+    </message>
+</context>
+<context>
     <name>WdtCardTypes</name>
     <message>
         <location filename="wdtcardtypes.cpp" line="10"/>
@@ -1296,6 +1450,16 @@
         <location filename="wdthome.ui" line="326"/>
         <source>Partners ticket 3</source>
         <translation>Գործընկերներ 3</translation>
+    </message>
+    <message>
+        <location filename="wdthome.ui" line="352"/>
+        <source>Money 1</source>
+        <translation>Գումար 1</translation>
+    </message>
+    <message>
+        <location filename="wdthome.ui" line="378"/>
+        <source>Money 2</source>
+        <translation>Գումար 2</translation>
     </message>
     <message>
         <location filename="wdthome.ui" line="116"/>
