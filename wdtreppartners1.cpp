@@ -4,7 +4,8 @@
 WdtRepPartners1::WdtRepPartners1(const QIcon &icon, const QString &label, QWidget *parent) :
     C5Grid(icon, label, parent)
 {
-    fColorColumn = 9;
+    fColorColumn = "fcolor";
+    fHiddenColumns.append("fcolor");
     fColumnsSum.append(tr("Qty, partner"));
     fColumnsSum.append(tr("Litr, partner"));
     fColumnsSum.append(tr("Qty, used"));

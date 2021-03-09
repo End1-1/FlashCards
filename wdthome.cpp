@@ -9,7 +9,10 @@
 #include "wdtreppartners3.h"
 #include "wdtamount1.h"
 #include "wdtamount2.h"
+#include "wdticketsbyone.h"
 #include "wdtfuel.h"
+#include "wdtfuelflash.h"
+#include "fuelflashmove.h"
 #include "config.h"
 #include "registerticketdialog.h"
 #include "passticketsdialog.h"
@@ -96,4 +99,33 @@ void WdtHome::on_btnMoney1_clicked()
 void WdtHome::on_btnMoney2_clicked()
 {
     __parent->addWidget<WdtAmount2>(static_cast<QToolButton *>(sender()));
+}
+
+void WdtHome::on_btnTicketsMoveIn_clicked()
+{
+    auto *t = __parent->addWidget<WdTicketsByOne>(static_cast<QToolButton *>(sender()));
+    t->setFilterMode(1);
+}
+
+void WdtHome::on_btnTicketsMoveSale_clicked()
+{
+    auto *t = __parent->addWidget<WdTicketsByOne>(static_cast<QToolButton *>(sender()));
+    t->setFilterMode(2);
+}
+
+void WdtHome::on_btnTicketsMoveBack_clicked()
+{
+    auto *t = __parent->addWidget<WdTicketsByOne>(static_cast<QToolButton *>(sender()));
+    t->setFilterMode(3);
+}
+
+void WdtHome::on_btnFuelFlash_clicked()
+{
+    __parent->addWidget<WdtFuelFlash>(static_cast<QToolButton *>(sender()));
+}
+
+void WdtHome::on_btnFlashInput_clicked()
+{
+    FuelFlashMove ffm;
+    ffm.exec();
 }

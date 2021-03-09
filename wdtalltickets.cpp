@@ -4,7 +4,8 @@
 WdtAllTickets::WdtAllTickets(const QIcon &icon, const QString &label, QWidget *parent) :
     C5Grid(icon, label, parent)
 {
-    fColorColumn = 5;
+    fColorColumn = "fcolor";
+    fHiddenColumns.append("fcolor");
     fColumnsSum.append(tr("Qty"));
     fColumnsSum.append(tr("Litr"));
     fFilterWidget = new FilterAllTickets();

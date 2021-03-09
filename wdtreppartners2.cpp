@@ -4,7 +4,8 @@
 WdtRepPartners2::WdtRepPartners2(const QIcon &icon, const QString &label, QWidget *parent) :
     C5Grid(icon, label, parent)
 {
-    fColorColumn = 8;
+    fColorColumn = "fcolor";
+    fHiddenColumns.append("fcolor");
     fColumnsSum.append(tr("Qty, partner"));
     fColumnsSum.append(tr("Litr, partner"));
     fColumnsSum.append(tr("Qty, used"));
@@ -15,6 +16,7 @@ WdtRepPartners2::WdtRepPartners2(const QIcon &icon, const QString &label, QWidge
     fFilterWidget->restoreFilter(fFilterWidget);
     buildReport("rep_partner2");
     addAction(fReportActions, ":/res/filter.png", tr("Filter"), this, SLOT(setSearchParameters()));
+    addAction(fReportActions, ":/res/back.png", tr("Reset filter"), this, SLOT(resetSearchParameters()));
     C5Database db(__dbhost, __dbschema, __dbusername, __dbpassword);
     QMenu *mFuel = new QMenu(tr("Fuel"));
     db.exec("select * from fuel order by fid");

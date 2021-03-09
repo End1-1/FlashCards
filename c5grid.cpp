@@ -370,8 +370,9 @@ void C5Grid::insertNewRow(WdbWidget *w)
         db.exec(q);
         if (db.nextRow()) {
             fModel->addRowValues(db.row());
-            if (fColorColumn > -1) {
-                setColor(fModel->rowCount() - 1, fColorColumn);
+            int colorColumn = fColorColumn.isEmpty() ? -1 : fModel->indexForColumnName(fColorColumn);
+            if (colorColumn > -1) {
+                setColor(fModel->rowCount() - 1, colorColumn);
             }
             postRefreshData(fModel->rowCount() - 1);
         }
@@ -389,8 +390,9 @@ void C5Grid::updateRow(WdbWidget *w)
     db.exec(q);
     if (db.nextRow()) {
         fModel->replaceRowValues(r, db.row());
-        if (fColorColumn > -1) {
-            setColor(r, fColorColumn);
+        int colorColumn = fColorColumn.isEmpty() ? -1 : fModel->indexForColumnName(fColorColumn);
+        if (colorColumn > -1) {
+            setColor(r, colorColumn);
         }
         postRefreshData(r);
     }
@@ -903,8 +905,13 @@ void C5Grid::refreshData()
     if (!ui->tblTotal->isVisible()) {
         ui->tblView->setHorizontalScrollBarPolicy(Qt::ScrollBarAsNeeded);
     }
-    if (fColorColumn > -1) {
-        setColor(-1, fColorColumn);
+    int colorColumn = fColorColumn.isEmpty() ? -1 : fModel->indexForColumnName(fColorColumn);
+    if (colorColumn > -1) {
+        setColor(-1, colorColumn);
+    }
+    foreach (const QString &s, fHiddenColumns) {
+        fTableTotal->setColumnWidth(fModel->indexForColumnName(s), 0);
+        fTableView->setColumnWidth(fModel->indexForColumnName(s), 0);
     }
     postRefreshData();
 }

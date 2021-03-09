@@ -18,9 +18,6 @@ int main(int argc, char *argv[])
     QTranslator t;
     t.load(":/FlashCards.qm");
     a.installTranslator(&t);
-    QFont font = a.font();
-    font.setPointSize(12);
-    a.setFont(font);
     QStringList params;
     C5Connection::readParams(params);
     if (params.count() > 3) {
@@ -28,7 +25,11 @@ int main(int argc, char *argv[])
         __dbschema = params.at(1);
         __dbusername = params.at(2);
         __dbpassword = params.at(3);
+        __appFontSize = params.at(4).toInt() > 0 ? params.at(4).toInt() : __appFontSize;
     }
+    QFont font = a.font();
+    font.setPointSize(__appFontSize);
+    a.setFont(font);
     HomeWindows w;
     __parent = &w;
     w.showMaximized();

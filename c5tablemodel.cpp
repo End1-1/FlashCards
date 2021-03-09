@@ -119,7 +119,7 @@ QVariant C5TableModel::headerData(int section, Qt::Orientation orientation, int 
         if (orientation == Qt::Vertical) {
             return section + 1;
         } else {
-            return fTranslateColumn.contains(fColumnIndexName[section]) ? fTranslateColumn[fColumnIndexName[section]].isEmpty() ? fColumnIndexName[section] : fTranslateColumn[fColumnIndexName[section]] : fColumnIndexName[section];
+            return fTranslateColumn.contains(fColumnIndexName[section]) ? fTranslateColumn[fColumnIndexName[section]].isEmpty() ? fColumnIndexName[section].toUpper() : fTranslateColumn[fColumnIndexName[section]].toUpper() : fColumnIndexName[section].toUpper();
         }
     case Qt::DecorationRole:
         if (orientation == Qt::Horizontal) {

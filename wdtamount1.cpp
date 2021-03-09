@@ -4,9 +4,12 @@
 WdtAmount1::WdtAmount1(const QIcon &icon, const QString &label, QWidget *parent) :
     C5Grid(icon, label, parent)
 {
-    fColorColumn = 4;
-    fColumnsSum.append(tr("Qty"));
-    fColumnsSum.append(tr("Amount"));
+    fColorColumn = "fcolor";
+    fHiddenColumns.append("fcolor");
+    fColumnsSum.append(tr("Qty\ntotal"));
+    fColumnsSum.append(tr("Amount\ntotal"));
+    fColumnsSum.append(tr("Qty\nremain"));
+    fColumnsSum.append(tr("Amount\nremain"));
     fFilterWidget = new FilterAmount1();
     fFilterWidget->restoreFilter(fFilterWidget);
     buildReport("rep_amount1");

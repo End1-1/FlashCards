@@ -4,13 +4,14 @@
 WdtAllTickets2::WdtAllTickets2(const QIcon &icon, const QString &label, QWidget *parent) :
     C5Grid(icon, label, parent)
 {
-    fColorColumn = 8;
+    fColorColumn = "fcolor";
+    fHiddenColumns.append("fcolor");
     fColumnsSum.append(tr("Qty, issue"));
     fColumnsSum.append(tr("Litr, issue"));
     fColumnsSum.append(tr("Qty, partner"));
     fColumnsSum.append(tr("Litr, partner"));
-    fColumnsSum.append(tr("Qty, used"));
-    fColumnsSum.append(tr("Litr, used"));
+    fColumnsSum.append(tr("Qty, free"));
+    fColumnsSum.append(tr("Litr, free"));
     fFilterWidget = new FilterAllTickets2();
     fFilterWidget->restoreFilter(fFilterWidget);
     buildReport("all_tickets2");

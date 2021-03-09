@@ -138,6 +138,7 @@ void PassTicketsDialog::getListOfTickets(QString &err, bool process)
             db[":fstate"] = 2;
             db[":fprice"] = ui->lePrice->getDouble();
             db[":fpartnertrans"] = fTransaction;
+            db[":fpaymenttype"] = ui->cbPaymentType->currentIndex() + 1;
             db.exec("update cards set fstate=:fstate, fpartner=:fpartner, fpartnerdate=current_date, fprice=:fprice, "
                     "fpartnertrans=:fpartnertrans where fcode=:fcode and fstate=1 ");
             if (db.fAffectedRows != 1) {

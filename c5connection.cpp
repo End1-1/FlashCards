@@ -20,6 +20,7 @@ C5Connection::C5Connection() :
     ui->leDatabase->setText(params.at(1));
     ui->leUsername->setText(params.at(2));
     ui->lePassword->setText(params.at(3));
+    ui->sbFont->setValue(params.at(4).toInt());
 }
 
 C5Connection::~C5Connection()
@@ -64,6 +65,8 @@ void C5Connection::writeParams()
     buf.append(__dbusername.toUtf8());
     buf.append('\r');
     buf.append(__dbpassword.toUtf8());
+    buf.append('\r');
+    buf.append(QString::number(__appFontSize).toUtf8());
     buf.append('\r');
 
     for (int i = 0; i < buf.length(); i++) {
@@ -111,6 +114,7 @@ void C5Connection::on_btnSave_clicked()
     __dbschema = ui->leDatabase->text();
     __dbusername = ui->leUsername->text();
     __dbpassword = ui->lePassword->text();
+    __appFontSize = ui->sbFont->value();
     writeParams();
     C5Message::info(tr("Saved"));
 }

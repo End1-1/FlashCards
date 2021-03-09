@@ -98,7 +98,9 @@ void C5FilterWidget::restoreFilter(QWidget *parent)
                 continue;
             }
             value = s.value(filterName, QDate::currentDate());
-            de->setDate(value.toDate());
+            if (value.isValid()) {
+                de->setDate(value.toDate());
+            }
             continue;
         }
         if ((ce = isCheckBox(o))) {

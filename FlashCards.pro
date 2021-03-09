@@ -69,6 +69,8 @@ SOURCES += \
         filterpartner1.cpp \
         filterpartner2.cpp \
         filterpartner3.cpp \
+        filterticketsbyone.cpp \
+        fuelflashmove.cpp \
         homewindows.cpp \
         keyvaluelineedit.cpp \
         login.cpp \
@@ -77,6 +79,7 @@ SOURCES += \
         registerticketdialog.cpp \
         registeruseddialog.cpp \
         wdbfuel.cpp \
+        wdbfuelflash.cpp \
         wdbpartner.cpp \
         wdbtickettype.cpp \
         wdbwidget.cpp \
@@ -87,7 +90,9 @@ SOURCES += \
         wdtcardtypes.cpp \
         wdtcontainer.cpp \
         wdtfuel.cpp \
+        wdtfuelflash.cpp \
         wdthome.cpp \
+        wdticketsbyone.cpp \
         wdtpartners.cpp \
         wdtreppartners2.cpp \
         wdtreppartners1.cpp \
@@ -139,6 +144,8 @@ HEADERS += \
     filterpartner1.h \
     filterpartner2.h \
     filterpartner3.h \
+    filterticketsbyone.h \
+    fuelflashmove.h \
     homewindows.h \
     keyvaluelineedit.h \
     login.h \
@@ -147,6 +154,7 @@ HEADERS += \
     registeruseddialog.h \
     res.rc \
     wdbfuel.h \
+    wdbfuelflash.h \
     wdbpartner.h \
     wdbtickettype.h \
     wdbwidget.h \
@@ -157,7 +165,9 @@ HEADERS += \
     wdtcardtypes.h \
     wdtcontainer.h \
     wdtfuel.h \
+    wdtfuelflash.h \
     wdthome.h \
+    wdticketsbyone.h \
     wdtpartners.h \
     wdtreppartners2.h \
     wdtreppartners1.h \
@@ -180,12 +190,15 @@ FORMS += \
     filterpartner1.ui \
     filterpartner2.ui \
     filterpartner3.ui \
+    filterticketsbyone.ui \
+    fuelflashmove.ui \
     homewindows.ui \
     login.ui \
     passticketsdialog.ui \
     registerticketdialog.ui \
     registeruseddialog.ui \
     wdbfuel.ui \
+    wdbfuelflash.ui \
     wdbpartner.ui \
     wdbtickettype.ui \
     wdthome.ui

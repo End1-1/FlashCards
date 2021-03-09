@@ -61,7 +61,8 @@ protected:
     QString fOrderCondition;
     C5FilterWidget *fFilterWidget;
     C5LineEdit *fFilterLineEdit;
-    int fColorColumn;
+    QString fColorColumn;
+    QStringList fHiddenColumns;
     QWidget *widget();
     QHBoxLayout *hl();
     int rowId();

@@ -6,7 +6,8 @@
 WdtFuel::WdtFuel(const QIcon &icon, const QString &label, QWidget *parent) :
     C5Grid(icon, label, parent)
 {
-    fColorColumn = 2;
+    fColorColumn = "fcolor";
+    fHiddenColumns.append("fcolor");
     buildReport("fuel");
     addAction(fEditActions, ":/res/new.png", tr("New fuel type"), this, SLOT(newFuelType()));
     addAction(fEditActions, ":/res/edit.png", tr("Edit fuel type"), this, SLOT(editFuelType()));

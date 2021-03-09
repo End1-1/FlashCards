@@ -110,6 +110,7 @@ void WdbWidget::buildFieldsValues(QWidget *parent)
                     fValues[le->property("field").toString()] = le->getInteger();
                     break;
                 case 1:
+                    le->setText(le->text().toUpper());
                     fValues[le->property("field").toString()] = le->text();
                     break;
                 }

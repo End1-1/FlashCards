@@ -4,7 +4,8 @@
 WdtAmount2::WdtAmount2(const QIcon &icon, const QString &label, QWidget *parent) :
     C5Grid(icon, label, parent)
 {
-    fColorColumn = 6;
+    fColorColumn = "fcolor";
+    fHiddenColumns.append("fcolor");
     fColumnsSum.append(tr("Qty"));
     fColumnsSum.append(tr("Amount"));
     fFilterWidget = new FilterAmount2();

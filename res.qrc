@@ -29,5 +29,6 @@
         <file>res/gasoline.png</file>
         <file>res/back.png</file>
         <file>res/money.png</file>
+        <file>res/biodiesel.png</file>
     </qresource>
 </RCC>

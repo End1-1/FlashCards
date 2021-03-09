@@ -18,6 +18,7 @@ extern QString __dbhost;
 extern QString __dbschema;
 extern QString __dbusername;
 extern QString __dbpassword;
+extern int __appFontSize;
 extern int __userid;
 
 #endif // CONFIG_H

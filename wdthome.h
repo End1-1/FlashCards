@@ -42,6 +42,16 @@ private slots:
 
     void on_btnMoney2_clicked();
 
+    void on_btnTicketsMoveIn_clicked();
+
+    void on_btnTicketsMoveSale_clicked();
+
+    void on_btnTicketsMoveBack_clicked();
+
+    void on_btnFuelFlash_clicked();
+
+    void on_btnFlashInput_clicked();
+
 private:
     Ui::WdtHome *ui;
 };

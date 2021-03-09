@@ -32,11 +32,16 @@ void RegisterUsedDialog::on_btnWrite_clicked()
         C5Message::error(tr("Please, enter the code of the ticked"));
         return;
     }
+    if (ui->lePrice->text().toDouble() < 0.001) {
+        C5Message::error(tr("Please, enter the current price"));
+        return;
+    }
     C5Database db(__dbhost, __dbschema, __dbusername, __dbpassword);
     db[":fcode"] = ui->leCode->text();
     db[":fstate"] = 3;
+    db[":fpriceback"] = ui->lePrice->text().toDouble();
     db[":fdate"] = QDate::currentDate();
-    db.exec("update cards set fstate=:fstate, frefunddate=:fdate where fcode=:fcode");
+    db.exec("update cards set fstate=:fstate, frefunddate=:fdate, fpriceback=:fpriceback where fcode=:fcode");
     ui->leCode->clear();
     ui->wc->setKey(ui->leTicket, "");
     ui->wc->setKey(ui->lePartner, "");
@@ -59,7 +64,7 @@ void RegisterUsedDialog::getTicketByCode()
             QString err;
             switch (db.getInt("fstate")) {
             case 1:
-                err = tr("Ticket was issued, but not registered to partner");
+                err = tr("Ticket was issued, but not sold");
                 break;
             case 3:
                 err = tr("Ticket already marked as used");
