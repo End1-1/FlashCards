@@ -173,12 +173,13 @@ CREATE TABLE `fuel_move` (
   `fstate` smallint DEFAULT NULL,
   `ffuel` int DEFAULT NULL,
   `fdate` date DEFAULT NULL,
+  `fpartner` int DEFAULT NULL,
   `fpaymenttype` smallint DEFAULT NULL,
   `fqty` decimal(14,0) DEFAULT NULL,
   `fprice` decimal(14,2) DEFAULT NULL,
   `ftotal` decimal(14,2) DEFAULT NULL,
   PRIMARY KEY (`fid`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -187,6 +188,7 @@ CREATE TABLE `fuel_move` (
 
 LOCK TABLES `fuel_move` WRITE;
 /*!40000 ALTER TABLE `fuel_move` DISABLE KEYS */;
+INSERT INTO `fuel_move` VALUES (1,1,2,'2021-03-10',5,0,200,200.00,0.00),(2,1,1,'2021-03-10',4,1,300,200.00,0.00),(3,1,4,'2021-03-10',0,0,30,0.00,0.00),(4,1,2,'2021-03-10',4,0,500,100.00,50000.00),(5,1,2,'2021-03-10',0,0,3000,360.00,1080000.00),(6,1,3,'2021-03-10',0,0,4000,390.00,1560000.00),(7,1,4,'2021-03-10',0,1,7000,410.00,2870000.00),(8,-1,3,'2021-03-10',4,1,1000,300.00,300000.00);
 /*!40000 ALTER TABLE `fuel_move` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -202,7 +204,7 @@ CREATE TABLE `key_value` (
   `fkey` tinytext,
   `fvalue` tinytext,
   PRIMARY KEY (`fid`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -211,8 +213,32 @@ CREATE TABLE `key_value` (
 
 LOCK TABLES `key_value` WRITE;
 /*!40000 ALTER TABLE `key_value` DISABLE KEYS */;
-INSERT INTO `key_value` VALUES (1,'ticket_type','select fid as `Կոդ`, fname as `Անվանում` from cards_types'),(2,'partners','select fid as `Կոդ`, fname as `Գործընկեր` from partners'),(3,'state','select fid as `Կոդ`, fname as `Վիճակ` from cards_state'),(4,'fuel','select fid as `Կոդ`, fname as `Վառելիք` from fuel');
+INSERT INTO `key_value` VALUES (1,'ticket_type','select fid as `Կոդ`, fname as `Անվանում` from cards_types'),(2,'partners','select fid as `Կոդ`, fname as `Գործընկեր` from partners'),(3,'state','select fid as `Կոդ`, fname as `Վիճակ` from cards_state'),(4,'fuel','select fid as `Կոդ`, fname as `Վառելիք` from fuel'),(5,'move','select fid as `Կոդ`, fname as `Վիճակ` from move'),(6,'payment','select fid as `Կոդ`, fname as `Վճարում` from payment_types');
 /*!40000 ALTER TABLE `key_value` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `move`
+--
+
+DROP TABLE IF EXISTS `move`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `move` (
+  `fid` int NOT NULL,
+  `fname` tinytext,
+  PRIMARY KEY (`fid`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `move`
+--
+
+LOCK TABLES `move` WRITE;
+/*!40000 ALTER TABLE `move` DISABLE KEYS */;
+INSERT INTO `move` VALUES (-1,'Ելք'),(1,'Մուտք');
+/*!40000 ALTER TABLE `move` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -283,7 +309,7 @@ CREATE TABLE `sql_query` (
 
 LOCK TABLES `sql_query` WRITE;
 /*!40000 ALTER TABLE `sql_query` DISABLE KEYS */;
-INSERT INTO `sql_query` VALUES ('all_tickets','select f.fname as \'Վառելիք\',\n c.fissuedate as \'Թոհարկված\',\n ct.fname as \'Կտրոն\', \n count(c.fid) as \'Քանակ\', \n count(c.fid)*ct.fmeas as \'Լիտր\',\n f.fcolor\n  from cards c\n  inner join cards_types ct on ct.fid=c.ftype\n  inner join fuel f on f.fid=ct.ffuel\n  %where% and c.fstate=1\n  group by ct.fname, c.fissuedate\n  order by ct.fid, c.fissuedate'),('all_tickets2','select f.fname as \'Վառելիք\', \nct.fname as \'Կտրոն\', \ns1.fcount as \'Թողարկված\\nքանակ\', \ns1.fmeas as \'Թողարկված\\nլիտր\', \ncoalesce(s2.fcount, 0) as \'Բաշխված\\nքանակ\', \ncoalesce(s2.fmeas, 0) as \'Բաշխված\\nլիտր\',\ns1.fcount - coalesce(s2.fcount, 0) as \'Ազատ\\nքանակ\',\ns1.fmeas - coalesce(s2.fmeas, 0) as \'Ազատ\\nլիտր\',\nf.fcolor\nfrom cards_types ct\ninner join fuel f on f.fid=ct.ffuel\nleft join (select c.ftype, count(c.fid) as fcount, count(c.fid)*ct.fmeas as fmeas from cards c inner join cards_types ct on ct.fid=c.ftype where c.fstate=1 group by 1) s1 on s1.ftype=ct.fid\nleft join (select c.ftype, count(c.fid) as fcount, count(c.fid)*ct.fmeas as fmeas from cards c inner join cards_types ct on ct.fid=c.ftype where c.fstate=2 group by 1) s2 on s2.ftype=ct.fid\n%where%'),('all_tickets3','select cs.fname as `Վիճակ`, f.fname as `Վառելիք`, ct.fname `ՏԵսակ`,  c.fcode as `Կոդ`, c.fissuedate `Թողարկված`, \n c.fpartnerdate as `Վաճառված`, c.frefunddate as `Վերադարձ`, p.fname as `Գործընկեր`, ct.fmeas as `Քանակ`,\n c.fprice as `Վաճառքի գին`, c.fprice*ct.fmeas as `Վաճառքի գումար`, \n c.fpriceback as `Վերադձի գին`, c.fpriceback*ct.fmeas as `Վերադարձի գումար`,\n c.fpriceback*ct.fmeas - c.fprice*ct.fmeas `Տարբերություն`, f.fcolor\n from cards c\n left join cards_state cs on cs.fid=c.fstate\n left join cards_types ct on ct.fid=c.ftype\n left join fuel f on f.fid=ct.ffuel\n left join partners p on p.fid=c.fpartner\n %where%\n order by f.fname, c.fissuedate'),('cards_types','select cards_types.fid as \'Կոդ\', f.fname as \'Վառելիք\', cards_types.fname as \'Կտրոն\', cards_types.fmeas as \'Քանակ\', f.fcolor from cards_types  left join fuel f on f.fid=cards_types.ffuel'),('fuel','select fid as \'Կոդ\', fname as \'Վառելիք\', fcolor  from fuel'),('fuel_flash','select fid as \'Կոդ\', fname as \'Վառելիք\', fcolor  from fuel_flash'),('partners','select fid as \'Կոդ\', fname as \'Գործընկեր\' from partners'),('rep_amount1','select f.fname as \'Վառելիք\', \np.fname as \'Գործընկեր\', \nsum(ct.fmeas) as \'Քանակ\\nընդհանուր\',\nsum(ct.fmeas*c.fprice) as \'Գումար\\nընդհանուր\',\ns1.fmeas as \'Քանակ\\nմնացորդ\',\ns1.fsum as \'Գումար\\nմնացորդ\',\nf.fcolor  from cards c\ninner join partners p on p.fid=c.fpartner\ninner join cards_types ct on ct.fid=c.ftype\ninner join fuel f on f.fid=ct.ffuel\nleft join (select f.fid, c.fpartner, sum(ct.fmeas) as fmeas, sum(ct.fmeas*c.fprice) as fsum from cards c \n	inner join partners p on p.fid=c.fpartner \n	inner join cards_types ct on ct.fid=c.ftype  \n    inner join fuel f on f.fid=ct.ffuel\n    where c.fstate=2 group by 1,2) s1 on s1.fpartner=c.fpartner and s1.fid=f.fid\n%where%\ngroup by 1, 2'),('rep_amount2','select f.fname as \'Վառելիք\', \r ct.fname as \'Կտրոն\',\r c.fpartnerdate as \'Տրվել է\',\r p.fname as \'Գործընկեր\', \r sum(ct.fmeas) as \'Քանակ\',\r sum(ct.fmeas*c.fprice) as \'Գումար\',\r f.fcolor\r from cards c\r inner join partners p on p.fid=c.fpartner\r inner join cards_types ct on ct.fid=c.ftype\r inner join fuel f on f.fid=ct.ffuel\r %where%\r group by 1, 2, 3\r order by p.fname, c.fpartnerdate'),('rep_partner1','select f.fname as \'Վառելիք\', \n ct.fname as \'Կտրոն\', \n p.fname as \'Գործընկեր\', \n sum(case when s.fstate=2 then 1 else 0 end) as \'Քանակ\\nմնացորդ\', \n ct.fmeas * sum(case when s.fstate=2 then 1 else 0 end) as \'Լիտր\\nմնացորդ\',\n sum(case when s.fstate=3 then 1 else 0 end) as \'Քանակ\\nօգտ․\', \n ct.fmeas * sum(case when s.fstate=3 then 1 else 0 end) as \'Լիտր\\nօգտ․\',\n count(s.fid) as \'Քանակ\\nընդհանուր\', \n sum(ct.fmeas ) as \'Լիտր\\nընդհանուր\',\n f.fcolor \n from cards s \n inner join cards_types ct on ct.fid=s.ftype\n inner join fuel f on f.fid=ct.ffuel \n inner join partners p on p.fid=s.fpartner\n %where%\n group by 1, 2, 3\n order by f.fname, p.fname'),('rep_partner2','select f.fname as \'Վառելիք\', \n  p.fname as \'Գործընկեր\', \n  sum(case when s.fstate=2 then 1 else 0 end) as \'Քանակ\\nմնացորդ\', \n  ct.fmeas * sum(case when s.fstate=2 then 1 else 0 end) as \'Լիտր\\nմնացորդ\',\n  sum(case when s.fstate=3 then 1 else 0 end) as \'Քանակ\\nօգտ․\', \n  ct.fmeas * sum(case when s.fstate=3 then 1 else 0 end) as \'Լիտր\\nօգտ․\',\n  count(s.fid) as \'Քանակ\\nընդ․\', \n  sum(ct.fmeas) as \'Լիտր\\nընդ․\',\n  f.fcolor \n  from cards s \n  inner join cards_types ct on ct.fid=s.ftype\n  inner join fuel f on f.fid=ct.ffuel \n  inner join partners p on p.fid=s.fpartner\n  %where% \n  group by 1, 2\n  order by f.fname, p.fname'),('rep_partner3','select f.fname as \'Վառելիք\', \n ct.fname as \'Կտրոն\', \n p.fname as \'Գործընկեր\', \n s.fpartnerdate as \'Տրվել է\',\n sum(case when s.fstate=2 then 1 else 0 end) as \'Քանակ\\nմնացորդ\', \n ct.fmeas * sum(case when s.fstate=2 then 1 else 0 end) as \'Լիտր\\nմնացորդ\',\n sum(case when s.fstate=3 then 1 else 0 end) as \'Քանակ\\nօգտ․\', \n ct.fmeas * sum(case when s.fstate=3 then 1 else 0 end) as \'Լիտր\\nօգտ․\',\n count(s.fid) as \'Քանակ\\nընդ․\', \n sum(ct.fmeas ) as \'Լիտր\\nընդ․\',\n r.startn as \'Սկիզբ\', r.endn as \'Վերջ\',\n f.fcolor,\n s.fpartnertrans \n from cards s \n inner join cards_types ct on ct.fid=s.ftype\n inner join fuel f on f.fid=ct.ffuel \n inner join partners p on p.fid=s.fpartner\n inner join (\n 	select fpartner,fpartnerdate, ftype, min(cast(right(fcode,4) as unsigned)) as startn, max(cast(right(fcode,4) as unsigned)) as endn\n 	from cards where fstate=2 group by 1, 2, 3) r on r.fpartnerdate=s.fpartnerdate and r.ftype=s.ftype and r.fpartner=s.fpartner\n%where%\n group by 1, 2, 3, 4\n order by f.fname, p.fname, s.fpartnerdate');
+INSERT INTO `sql_query` VALUES ('all_tickets','select f.fname as \'Վառելիք\',\n c.fissuedate as \'Թոհարկված\',\n ct.fname as \'Կտրոն\', \n count(c.fid) as \'Քանակ\', \n count(c.fid)*ct.fmeas as \'Լիտր\',\n f.fcolor\n  from cards c\n  inner join cards_types ct on ct.fid=c.ftype\n  inner join fuel f on f.fid=ct.ffuel\n  %where% and c.fstate=1\n  group by ct.fname, c.fissuedate\n  order by ct.fid, c.fissuedate'),('all_tickets2','select f.fname as \'Վառելիք\', \nct.fname as \'Կտրոն\', \ns1.fcount as \'Թողարկված\\nքանակ\', \ns1.fmeas as \'Թողարկված\\nլիտր\', \ncoalesce(s2.fcount, 0) as \'Բաշխված\\nքանակ\', \ncoalesce(s2.fmeas, 0) as \'Բաշխված\\nլիտր\',\ns1.fcount - coalesce(s2.fcount, 0) as \'Ազատ\\nքանակ\',\ns1.fmeas - coalesce(s2.fmeas, 0) as \'Ազատ\\nլիտր\',\nf.fcolor\nfrom cards_types ct\ninner join fuel f on f.fid=ct.ffuel\nleft join (select c.ftype, count(c.fid) as fcount, count(c.fid)*ct.fmeas as fmeas from cards c inner join cards_types ct on ct.fid=c.ftype where c.fstate=1 group by 1) s1 on s1.ftype=ct.fid\nleft join (select c.ftype, count(c.fid) as fcount, count(c.fid)*ct.fmeas as fmeas from cards c inner join cards_types ct on ct.fid=c.ftype where c.fstate=2 group by 1) s2 on s2.ftype=ct.fid\n%where%'),('all_tickets3','select cs.fname as `Վիճակ`, f.fname as `Վառելիք`, ct.fname `ՏԵսակ`,  c.fcode as `Կոդ`, c.fissuedate `Թողարկված`, \n c.fpartnerdate as `Վաճառված`, c.frefunddate as `Վերադարձ`, p.fname as `Գործընկեր`, ct.fmeas as `Քանակ`,\n c.fprice as `Վաճառքի գին`, c.fprice*ct.fmeas as `Վաճառքի գումար`, \n c.fpriceback as `Վերադձի գին`, c.fpriceback*ct.fmeas as `Վերադարձի գումար`,\n c.fpriceback*ct.fmeas - c.fprice*ct.fmeas `Տարբերություն`, f.fcolor\n from cards c\n left join cards_state cs on cs.fid=c.fstate\n left join cards_types ct on ct.fid=c.ftype\n left join fuel f on f.fid=ct.ffuel\n left join partners p on p.fid=c.fpartner\n %where%\n order by f.fname, c.fissuedate'),('cards_types','select cards_types.fid as \'Կոդ\', f.fname as \'Վառելիք\', cards_types.fname as \'Կտրոն\', cards_types.fmeas as \'Քանակ\', f.fcolor from cards_types  left join fuel f on f.fid=cards_types.ffuel'),('fuel','select fid as \'Կոդ\', fname as \'Վառելիք\', fcolor  from fuel'),('fuel_flash','select fid as \'Կոդ\', fname as \'Վառելիք\', fcolor  from fuel_flash'),('fuel_flash_report','select c.fid as \'Կոդ\', m.fname as `Վիճակ`, f.fname as `Վառելիք`,   c.fdate `Ամսաթիվ`, \r   p.fname as `Գործընկեր`, c.fqty as `Քանակ`,\r   c.fprice as `Գին`, c.ftotal as `Գումար`,   f.fcolor\r   from fuel_move c\r   left join move m on m.fid=c.fstate\r   left join fuel f on f.fid=c.ffuel\r   left join partners p on p.fid=c.fpartner\r   %where%'),('fuel_flash_store','select f.fname as `Վառելիք`,   sum(c.fqty) as `Քանակ`,  f.fcolor\n   from fuel_move c\n   left join move m on m.fid=c.fstate\n   left join fuel f on f.fid=c.ffuel\n   left join partners p on p.fid=c.fpartner\n   %where%\n   group by 1\n'),('partners','select fid as \'Կոդ\', fname as \'Գործընկեր\' from partners'),('rep_amount1','select f.fname as \'Վառելիք\', \np.fname as \'Գործընկեր\', \nsum(ct.fmeas) as \'Քանակ\\nընդհանուր\',\nsum(ct.fmeas*c.fprice) as \'Գումար\\nընդհանուր\',\ns1.fmeas as \'Քանակ\\nմնացորդ\',\ns1.fsum as \'Գումար\\nմնացորդ\',\nf.fcolor  from cards c\ninner join partners p on p.fid=c.fpartner\ninner join cards_types ct on ct.fid=c.ftype\ninner join fuel f on f.fid=ct.ffuel\nleft join (select f.fid, c.fpartner, sum(ct.fmeas) as fmeas, sum(ct.fmeas*c.fprice) as fsum from cards c \n	inner join partners p on p.fid=c.fpartner \n	inner join cards_types ct on ct.fid=c.ftype  \n    inner join fuel f on f.fid=ct.ffuel\n    where c.fstate=2 group by 1,2) s1 on s1.fpartner=c.fpartner and s1.fid=f.fid\n%where%\ngroup by 1, 2'),('rep_amount2','select f.fname as \'Վառելիք\', \r ct.fname as \'Կտրոն\',\r c.fpartnerdate as \'Տրվել է\',\r p.fname as \'Գործընկեր\', \r sum(ct.fmeas) as \'Քանակ\',\r sum(ct.fmeas*c.fprice) as \'Գումար\',\r f.fcolor\r from cards c\r inner join partners p on p.fid=c.fpartner\r inner join cards_types ct on ct.fid=c.ftype\r inner join fuel f on f.fid=ct.ffuel\r %where%\r group by 1, 2, 3\r order by p.fname, c.fpartnerdate'),('rep_partner1','select f.fname as \'Վառելիք\', \n ct.fname as \'Կտրոն\', \n p.fname as \'Գործընկեր\', \n sum(case when s.fstate=2 then 1 else 0 end) as \'Քանակ\\nմնացորդ\', \n ct.fmeas * sum(case when s.fstate=2 then 1 else 0 end) as \'Լիտր\\nմնացորդ\',\n sum(case when s.fstate=3 then 1 else 0 end) as \'Քանակ\\nօգտ․\', \n ct.fmeas * sum(case when s.fstate=3 then 1 else 0 end) as \'Լիտր\\nօգտ․\',\n count(s.fid) as \'Քանակ\\nընդհանուր\', \n sum(ct.fmeas ) as \'Լիտր\\nընդհանուր\',\n f.fcolor \n from cards s \n inner join cards_types ct on ct.fid=s.ftype\n inner join fuel f on f.fid=ct.ffuel \n inner join partners p on p.fid=s.fpartner\n %where%\n group by 1, 2, 3\n order by f.fname, p.fname'),('rep_partner2','select f.fname as \'Վառելիք\', \n  p.fname as \'Գործընկեր\', \n  sum(case when s.fstate=2 then 1 else 0 end) as \'Քանակ\\nմնացորդ\', \n  ct.fmeas * sum(case when s.fstate=2 then 1 else 0 end) as \'Լիտր\\nմնացորդ\',\n  sum(case when s.fstate=3 then 1 else 0 end) as \'Քանակ\\nօգտ․\', \n  ct.fmeas * sum(case when s.fstate=3 then 1 else 0 end) as \'Լիտր\\nօգտ․\',\n  count(s.fid) as \'Քանակ\\nընդ․\', \n  sum(ct.fmeas) as \'Լիտր\\nընդ․\',\n  f.fcolor \n  from cards s \n  inner join cards_types ct on ct.fid=s.ftype\n  inner join fuel f on f.fid=ct.ffuel \n  inner join partners p on p.fid=s.fpartner\n  %where% \n  group by 1, 2\n  order by f.fname, p.fname'),('rep_partner3','select f.fname as \'Վառելիք\', \n ct.fname as \'Կտրոն\', \n p.fname as \'Գործընկեր\', \n s.fpartnerdate as \'Տրվել է\',\n sum(case when s.fstate=2 then 1 else 0 end) as \'Քանակ\\nմնացորդ\', \n ct.fmeas * sum(case when s.fstate=2 then 1 else 0 end) as \'Լիտր\\nմնացորդ\',\n sum(case when s.fstate=3 then 1 else 0 end) as \'Քանակ\\nօգտ․\', \n ct.fmeas * sum(case when s.fstate=3 then 1 else 0 end) as \'Լիտր\\nօգտ․\',\n count(s.fid) as \'Քանակ\\nընդ․\', \n sum(ct.fmeas ) as \'Լիտր\\nընդ․\',\n r.startn as \'Սկիզբ\', r.endn as \'Վերջ\',\n f.fcolor,\n s.fpartnertrans \n from cards s \n inner join cards_types ct on ct.fid=s.ftype\n inner join fuel f on f.fid=ct.ffuel \n inner join partners p on p.fid=s.fpartner\n inner join (\n 	select fpartner,fpartnerdate, ftype, min(cast(right(fcode,4) as unsigned)) as startn, max(cast(right(fcode,4) as unsigned)) as endn\n 	from cards where fstate=2 group by 1, 2, 3) r on r.fpartnerdate=s.fpartnerdate and r.ftype=s.ftype and r.fpartner=s.fpartner\n%where%\n group by 1, 2, 3, 4\n order by f.fname, p.fname, s.fpartnerdate');
 /*!40000 ALTER TABLE `sql_query` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -321,4 +347,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-03-09 17:28:07
+-- Dump completed on 2021-03-10 14:28:49

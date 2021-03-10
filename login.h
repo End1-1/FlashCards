@@ -16,9 +16,11 @@ public:
     ~Login();
     static bool login();
 
+protected:
+    virtual void enter() override;
+
 private slots:
     void on_btnCancel_clicked();
-
     void on_btnOK_clicked();
 
 private:

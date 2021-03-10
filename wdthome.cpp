@@ -12,6 +12,8 @@
 #include "wdticketsbyone.h"
 #include "wdtfuel.h"
 #include "wdtfuelflash.h"
+#include "wdtfuelflashmove.h"
+#include "wdtflashfuelstore.h"
 #include "fuelflashmove.h"
 #include "config.h"
 #include "registerticketdialog.h"
@@ -127,5 +129,23 @@ void WdtHome::on_btnFuelFlash_clicked()
 void WdtHome::on_btnFlashInput_clicked()
 {
     FuelFlashMove ffm;
+    ffm.setMove(1);
     ffm.exec();
+}
+
+void WdtHome::on_btnOutputFlash_clicked()
+{
+    FuelFlashMove ffm;
+    ffm.setMove(-1);
+    ffm.exec();
+}
+
+void WdtHome::on_btnFlashFuelMove_clicked()
+{
+    auto *t = __parent->addWidget<WdtFuelFlashMove>(static_cast<QToolButton*>(sender()));
+}
+
+void WdtHome::on_btnFlashFuelStore_clicked()
+{
+    auto *t = __parent->addWidget<WdtFlashFuelStore>(static_cast<QToolButton*>(sender()));
 }

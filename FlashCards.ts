@@ -503,6 +503,99 @@
     </message>
 </context>
 <context>
+    <name>FilterFlashFuelStore</name>
+    <message>
+        <location filename="filterflashfuelstore.ui" line="14"/>
+        <source>Form</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="filterflashfuelstore.ui" line="35"/>
+        <source>storedate</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="filterflashfuelstore.ui" line="42"/>
+        <source>Date</source>
+        <translation>Ամսաթիվ</translation>
+    </message>
+</context>
+<context>
+    <name>FilterFuelFlash</name>
+    <message>
+        <location filename="filterfuelflash.ui" line="14"/>
+        <source>Form</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="filterfuelflash.ui" line="23"/>
+        <source>Partner</source>
+        <translation>Գործընկեր</translation>
+    </message>
+    <message>
+        <location filename="filterfuelflash.ui" line="33"/>
+        <location filename="filterfuelflash.ui" line="121"/>
+        <location filename="filterfuelflash.ui" line="124"/>
+        <source>fuel</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="filterfuelflash.ui" line="52"/>
+        <source>partner</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="filterfuelflash.ui" line="55"/>
+        <location filename="filterfuelflash.ui" line="102"/>
+        <source>partners</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="filterfuelflash.ui" line="62"/>
+        <source>Fuel</source>
+        <translation>Վառելիք</translation>
+    </message>
+    <message>
+        <location filename="filterfuelflash.ui" line="85"/>
+        <location filename="filterfuelflash.ui" line="169"/>
+        <location filename="filterfuelflash.ui" line="172"/>
+        <source>move</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="filterfuelflash.ui" line="92"/>
+        <source>State</source>
+        <translation>Վիճակ</translation>
+    </message>
+    <message>
+        <location filename="filterfuelflash.ui" line="131"/>
+        <source>Issue date</source>
+        <translation>Թողարկման ամսաթիվ</translation>
+    </message>
+    <message>
+        <location filename="filterfuelflash.ui" line="150"/>
+        <source>dateissue2</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="filterfuelflash.ui" line="191"/>
+        <source>dateissue1</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="filterfuelflash.ui" line="198"/>
+        <source>Payment type</source>
+        <translation>Վճարման եղանակ</translation>
+    </message>
+    <message>
+        <location filename="filterfuelflash.ui" line="217"/>
+        <location filename="filterfuelflash.ui" line="220"/>
+        <location filename="filterfuelflash.ui" line="230"/>
+        <source>payment</source>
+        <translation></translation>
+    </message>
+</context>
+<context>
     <name>FilterPartner1</name>
     <message>
         <location filename="filterpartner1.ui" line="14"/>
@@ -660,101 +753,223 @@
         <translation></translation>
     </message>
     <message>
-        <location filename="filterticketsbyone.ui" line="262"/>
+        <location filename="filterticketsbyone.ui" line="269"/>
         <source>Partner</source>
         <translation>Գործընկեր</translation>
     </message>
     <message>
-        <location filename="filterticketsbyone.ui" line="83"/>
-        <location filename="filterticketsbyone.ui" line="233"/>
-        <location filename="filterticketsbyone.ui" line="236"/>
+        <location filename="filterticketsbyone.ui" line="160"/>
+        <location filename="filterticketsbyone.ui" line="163"/>
+        <location filename="filterticketsbyone.ui" line="211"/>
         <source>fuel</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="filterticketsbyone.ui" line="158"/>
-        <location filename="filterticketsbyone.ui" line="161"/>
-        <location filename="filterticketsbyone.ui" line="207"/>
+        <location filename="filterticketsbyone.ui" line="134"/>
+        <location filename="filterticketsbyone.ui" line="237"/>
+        <location filename="filterticketsbyone.ui" line="240"/>
         <source>ticket_type</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="filterticketsbyone.ui" line="197"/>
+        <location filename="filterticketsbyone.ui" line="82"/>
         <source>Issue date</source>
         <translation>Թողարկման ամսաթիվ</translation>
     </message>
     <message>
-        <location filename="filterticketsbyone.ui" line="214"/>
+        <location filename="filterticketsbyone.ui" line="75"/>
         <source>Ticket</source>
         <translation>Կտրոն</translation>
     </message>
     <message>
-        <location filename="filterticketsbyone.ui" line="288"/>
+        <location filename="filterticketsbyone.ui" line="218"/>
         <source>State</source>
         <translation>Վիճակ</translation>
     </message>
     <message>
-        <location filename="filterticketsbyone.ui" line="307"/>
-        <location filename="filterticketsbyone.ui" line="310"/>
-        <location filename="filterticketsbyone.ui" line="320"/>
+        <location filename="filterticketsbyone.ui" line="111"/>
+        <location filename="filterticketsbyone.ui" line="259"/>
+        <location filename="filterticketsbyone.ui" line="262"/>
         <source>state</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="filterticketsbyone.ui" line="139"/>
-        <location filename="filterticketsbyone.ui" line="183"/>
+        <location filename="filterticketsbyone.ui" line="279"/>
+        <location filename="filterticketsbyone.ui" line="301"/>
         <source>partners</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="filterticketsbyone.ui" line="180"/>
+        <location filename="filterticketsbyone.ui" line="298"/>
         <source>partner</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="filterticketsbyone.ui" line="90"/>
+        <location filename="filterticketsbyone.ui" line="141"/>
         <source>Sold date</source>
         <translation>Վաճառքի ամսաթիվ</translation>
     </message>
     <message>
-        <location filename="filterticketsbyone.ui" line="190"/>
+        <location filename="filterticketsbyone.ui" line="23"/>
         <source>Fuel</source>
         <translation>Վառելիք</translation>
     </message>
     <message>
-        <location filename="filterticketsbyone.ui" line="35"/>
+        <location filename="filterticketsbyone.ui" line="182"/>
         <source>dateissue1</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="filterticketsbyone.ui" line="281"/>
+        <location filename="filterticketsbyone.ui" line="68"/>
         <source>dateissue2</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="filterticketsbyone.ui" line="110"/>
+        <location filename="filterticketsbyone.ui" line="30"/>
         <source>Back date</source>
         <translation>Վերադարձի ամսաթիվ</translation>
     </message>
     <message>
-        <location filename="filterticketsbyone.ui" line="255"/>
+        <location filename="filterticketsbyone.ui" line="49"/>
         <source>datesold1</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="filterticketsbyone.ui" line="73"/>
+        <location filename="filterticketsbyone.ui" line="320"/>
         <source>datesold2</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="filterticketsbyone.ui" line="129"/>
+        <location filename="filterticketsbyone.ui" line="327"/>
+        <source>Payment type</source>
+        <translation>Վճարման եղանակ</translation>
+    </message>
+    <message>
+        <location filename="filterticketsbyone.ui" line="346"/>
+        <location filename="filterticketsbyone.ui" line="349"/>
+        <location filename="filterticketsbyone.ui" line="359"/>
+        <source>payment</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="filterticketsbyone.ui" line="201"/>
         <source>dateback1</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="filterticketsbyone.ui" line="54"/>
+        <location filename="filterticketsbyone.ui" line="101"/>
         <source>dateback2</source>
         <translation></translation>
+    </message>
+</context>
+<context>
+    <name>FuelFlashMove</name>
+    <message>
+        <location filename="fuelflashmove.ui" line="14"/>
+        <source>Flash fuel</source>
+        <translation>Ֆառելիք Ֆլեշ </translation>
+    </message>
+    <message>
+        <location filename="fuelflashmove.ui" line="39"/>
+        <location filename="fuelflashmove.ui" line="229"/>
+        <source>partners</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="fuelflashmove.ui" line="46"/>
+        <source>Code</source>
+        <translation>Կոդ</translation>
+    </message>
+    <message>
+        <location filename="fuelflashmove.ui" line="53"/>
+        <source>Fuel</source>
+        <translation>Վառելիք</translation>
+    </message>
+    <message>
+        <location filename="fuelflashmove.ui" line="86"/>
+        <location filename="fuelflashmove.ui" line="199"/>
+        <source>fuel</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="fuelflashmove.ui" line="93"/>
+        <source>Total</source>
+        <translation>Ընդամենը</translation>
+    </message>
+    <message>
+        <location filename="fuelflashmove.ui" line="110"/>
+        <source>Date</source>
+        <translation>Ամսաթիվ</translation>
+    </message>
+    <message>
+        <location filename="fuelflashmove.ui" line="117"/>
+        <source>Partner</source>
+        <translation>Գործընկեր</translation>
+    </message>
+    <message>
+        <location filename="fuelflashmove.ui" line="124"/>
+        <source>Price</source>
+        <translation>Գին</translation>
+    </message>
+    <message>
+        <location filename="fuelflashmove.ui" line="163"/>
+        <source>Save</source>
+        <translation>Փահպանել</translation>
+    </message>
+    <message>
+        <location filename="fuelflashmove.ui" line="170"/>
+        <source>Cancel</source>
+        <translation>Ոչ</translation>
+    </message>
+    <message>
+        <location filename="fuelflashmove.ui" line="206"/>
+        <source>Qty</source>
+        <translation>Քանակ</translation>
+    </message>
+    <message>
+        <location filename="fuelflashmove.ui" line="236"/>
+        <source>Payment</source>
+        <translation>Վճարում</translation>
+    </message>
+    <message>
+        <location filename="fuelflashmove.ui" line="244"/>
+        <source>Cash</source>
+        <translation>Կանխիկ</translation>
+    </message>
+    <message>
+        <location filename="fuelflashmove.ui" line="249"/>
+        <source>Bank</source>
+        <translation>Փոխանցում</translation>
+    </message>
+    <message>
+        <location filename="fuelflashmove.ui" line="254"/>
+        <source>Flash</source>
+        <translation>Ֆլեշ</translation>
+    </message>
+    <message>
+        <location filename="fuelflashmove.cpp" line="25"/>
+        <source>Input</source>
+        <translation>Մուտք</translation>
+    </message>
+    <message>
+        <location filename="fuelflashmove.cpp" line="28"/>
+        <source>Output</source>
+        <translation>Ելք</translation>
+    </message>
+    <message>
+        <location filename="fuelflashmove.cpp" line="60"/>
+        <source>Quantity is not defined</source>
+        <translation>Քանակը նշված չէ</translation>
+    </message>
+    <message>
+        <location filename="fuelflashmove.cpp" line="63"/>
+        <source>Fuel type is not defined</source>
+        <translation>Վառելիքի տեսակը նշված չէ</translation>
+    </message>
+    <message>
+        <location filename="fuelflashmove.cpp" line="83"/>
+        <source>Saved</source>
+        <translation>Պահպանված է</translation>
     </message>
 </context>
 <context>
@@ -848,7 +1063,7 @@
         <translation>Ոչ</translation>
     </message>
     <message>
-        <location filename="login.cpp" line="44"/>
+        <location filename="login.cpp" line="49"/>
         <source>Access denied</source>
         <translation>Մուտքը արգելված է</translation>
     </message>
@@ -923,7 +1138,12 @@
         <translation>Փոխանցում</translation>
     </message>
     <message>
-        <location filename="passticketsdialog.ui" line="435"/>
+        <location filename="passticketsdialog.ui" line="432"/>
+        <source>Flash</source>
+        <translation>Ֆլեշ</translation>
+    </message>
+    <message>
+        <location filename="passticketsdialog.ui" line="440"/>
         <source>Payment</source>
         <translation>Վճարում</translation>
     </message>
@@ -1015,22 +1235,22 @@
         <translation>Արաջին համարը մեծ է վերջին համարից</translation>
     </message>
     <message>
-        <location filename="passticketsdialog.cpp" line="153"/>
+        <location filename="passticketsdialog.cpp" line="154"/>
         <source>Not passed</source>
         <translation>Գրանցված չէ</translation>
     </message>
     <message>
-        <location filename="passticketsdialog.cpp" line="180"/>
+        <location filename="passticketsdialog.cpp" line="181"/>
         <source>Tickets issued</source>
         <translation>Գրանցումը ավարտվեց</translation>
     </message>
     <message>
-        <location filename="passticketsdialog.cpp" line="213"/>
+        <location filename="passticketsdialog.cpp" line="214"/>
         <source>Break detected.</source>
         <translation>Հերթական համարի ավարտ</translation>
     </message>
     <message>
-        <location filename="passticketsdialog.cpp" line="245"/>
+        <location filename="passticketsdialog.cpp" line="246"/>
         <source>Are you sure to rollback transaction?</source>
         <translation>Հետ՞ կանչել գրանցված կտրոններիը</translation>
     </message>
@@ -1295,6 +1515,60 @@
     </message>
     <message>
         <location filename="wdbfuel.cpp" line="26"/>
+        <source>Select color</source>
+        <translation>Ընտրեք գույնը</translation>
+    </message>
+</context>
+<context>
+    <name>WdbFuelFlash</name>
+    <message>
+        <location filename="wdbfuelflash.ui" line="14"/>
+        <source>Form</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="wdbfuelflash.ui" line="35"/>
+        <source>Color</source>
+        <translation>Գույն</translation>
+    </message>
+    <message>
+        <location filename="wdbfuelflash.ui" line="45"/>
+        <source>:fcolor</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="wdbfuelflash.ui" line="55"/>
+        <source>Code</source>
+        <translation>Կոդ</translation>
+    </message>
+    <message>
+        <location filename="wdbfuelflash.ui" line="62"/>
+        <location filename="wdbfuelflash.ui" line="82"/>
+        <source>Name</source>
+        <translation>Անվանում</translation>
+    </message>
+    <message>
+        <location filename="wdbfuelflash.ui" line="69"/>
+        <source>...</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="wdbfuelflash.ui" line="76"/>
+        <source>:fname</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="wdbfuelflash.ui" line="79"/>
+        <source>1</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="wdbfuelflash.ui" line="89"/>
+        <source>:fid</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="wdbfuelflash.cpp" line="25"/>
         <source>Select color</source>
         <translation>Ընտրեք գույնը</translation>
     </message>
@@ -1580,6 +1854,29 @@ remain</source>
     </message>
 </context>
 <context>
+    <name>WdtFlashFuelStore</name>
+    <message>
+        <location filename="wdtflashfuelstore.cpp" line="9"/>
+        <source>Qty</source>
+        <translation>Քանակ</translation>
+    </message>
+    <message>
+        <location filename="wdtflashfuelstore.cpp" line="10"/>
+        <source>Amount</source>
+        <translation>Գումար</translation>
+    </message>
+    <message>
+        <location filename="wdtflashfuelstore.cpp" line="13"/>
+        <source>Filter</source>
+        <translation>Ֆիլտր</translation>
+    </message>
+    <message>
+        <location filename="wdtflashfuelstore.cpp" line="14"/>
+        <source>Reset filter</source>
+        <translation>Մաքրել ֆիլտրը</translation>
+    </message>
+</context>
+<context>
     <name>WdtFuel</name>
     <message>
         <location filename="wdtfuel.cpp" line="12"/>
@@ -1593,6 +1890,57 @@ remain</source>
     </message>
 </context>
 <context>
+    <name>WdtFuelFlash</name>
+    <message>
+        <location filename="wdtfuelflash.cpp" line="10"/>
+        <source>New fuel type</source>
+        <translation>Նոր վառելիքի տեսակ</translation>
+    </message>
+    <message>
+        <location filename="wdtfuelflash.cpp" line="11"/>
+        <source>Edit fuel type</source>
+        <translation>Խմբագրել վառելիքի տեսակը</translation>
+    </message>
+</context>
+<context>
+    <name>WdtFuelFlashMove</name>
+    <message>
+        <location filename="wdtfuelflashmove.cpp" line="10"/>
+        <source>Qty</source>
+        <translation>քանակ</translation>
+    </message>
+    <message>
+        <location filename="wdtfuelflashmove.cpp" line="11"/>
+        <source>Amount</source>
+        <translation>գումար</translation>
+    </message>
+    <message>
+        <location filename="wdtfuelflashmove.cpp" line="14"/>
+        <source>New input</source>
+        <translation>Նոր մուտք</translation>
+    </message>
+    <message>
+        <location filename="wdtfuelflashmove.cpp" line="15"/>
+        <source>New output</source>
+        <translation>Նոր ելք</translation>
+    </message>
+    <message>
+        <location filename="wdtfuelflashmove.cpp" line="16"/>
+        <source>Edit</source>
+        <translation>Խմբագիր</translation>
+    </message>
+    <message>
+        <location filename="wdtfuelflashmove.cpp" line="17"/>
+        <source>Filter</source>
+        <translation>Ֆիլտր</translation>
+    </message>
+    <message>
+        <location filename="wdtfuelflashmove.cpp" line="18"/>
+        <source>Reset filter</source>
+        <translation>Մաքրել ֆիլտրը</translation>
+    </message>
+</context>
+<context>
     <name>WdtHome</name>
     <message>
         <location filename="wdthome.ui" line="14"/>
@@ -1600,22 +1948,57 @@ remain</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="wdthome.ui" line="463"/>
+        <location filename="wdthome.ui" line="394"/>
+        <source>Movement of fuel</source>
+        <translation>Վառելիքի շարժ</translation>
+    </message>
+    <message>
+        <location filename="wdthome.ui" line="406"/>
+        <source>Tickets input</source>
+        <translation>Կտրոնների մուտք</translation>
+    </message>
+    <message>
+        <location filename="wdthome.ui" line="435"/>
+        <source>Sales of tickets</source>
+        <translation>Կտրոնների վաճառք</translation>
+    </message>
+    <message>
+        <location filename="wdthome.ui" line="461"/>
+        <source>Back of tickets</source>
+        <translation>Կտրոնների վերադարձ</translation>
+    </message>
+    <message>
+        <location filename="wdthome.ui" line="487"/>
+        <source>Flash fuel</source>
+        <translation>Ֆլեշ վառելիք</translation>
+    </message>
+    <message>
+        <location filename="wdthome.ui" line="513"/>
+        <source>Flash fuel store</source>
+        <translation>Ֆլեշ վառելիքի պահեստ</translation>
+    </message>
+    <message>
+        <location filename="wdthome.ui" line="567"/>
         <source>Fuel</source>
         <translation>Վառելիք</translation>
     </message>
     <message>
-        <location filename="wdthome.ui" line="489"/>
+        <location filename="wdthome.ui" line="593"/>
+        <source>Fuel flash</source>
+        <translation>Վառելիք Ֆլեշ</translation>
+    </message>
+    <message>
+        <location filename="wdthome.ui" line="619"/>
         <source>Tickets types</source>
         <translation>Կտրոնների տեսակ</translation>
     </message>
     <message>
-        <location filename="wdthome.ui" line="515"/>
+        <location filename="wdthome.ui" line="645"/>
         <source>Partners</source>
         <translation>Գործընկերներ</translation>
     </message>
     <message>
-        <location filename="wdthome.ui" line="144"/>
+        <location filename="wdthome.ui" line="196"/>
         <source>Free tickets</source>
         <oldsource>All tickets 1</oldsource>
         <translation>Պահեստ</translation>
@@ -1626,58 +2009,48 @@ remain</source>
         <translation>Կտրոններ</translation>
     </message>
     <message>
-        <location filename="wdthome.ui" line="170"/>
+        <location filename="wdthome.ui" line="116"/>
+        <source>Input flash</source>
+        <translation>Ֆլեշ վառելիքի մուտք</translation>
+    </message>
+    <message>
+        <location filename="wdthome.ui" line="142"/>
+        <source>Output flash</source>
+        <translation>Ֆլեշ վառելիքի ելք</translation>
+    </message>
+    <message>
+        <location filename="wdthome.ui" line="222"/>
         <source>All tickets 2</source>
         <translation>Բոլոր կտրոնների</translation>
     </message>
     <message>
-        <location filename="wdthome.ui" line="196"/>
+        <location filename="wdthome.ui" line="248"/>
         <source>Partners ticket 1</source>
         <oldsource>Partners ticket</oldsource>
         <translation>Գործընկերներ 1</translation>
     </message>
     <message>
-        <location filename="wdthome.ui" line="222"/>
+        <location filename="wdthome.ui" line="274"/>
         <source>Partners ticket 2</source>
         <translation>Գործընկերներ 2</translation>
     </message>
     <message>
-        <location filename="wdthome.ui" line="248"/>
+        <location filename="wdthome.ui" line="300"/>
         <source>Partners ticket 3</source>
         <translation>Գործընկերներ 3</translation>
     </message>
     <message>
-        <location filename="wdthome.ui" line="274"/>
+        <location filename="wdthome.ui" line="326"/>
         <source>Money 1</source>
         <translation>Կտրոններ մանցորդ</translation>
     </message>
     <message>
-        <location filename="wdthome.ui" line="300"/>
+        <location filename="wdthome.ui" line="352"/>
         <source>Money 2</source>
         <translation>Գումար 2</translation>
     </message>
     <message>
-        <location filename="wdthome.ui" line="342"/>
-        <source>Movement of tickets</source>
-        <translation>Կտրոնների շարժ</translation>
-    </message>
-    <message>
-        <location filename="wdthome.ui" line="354"/>
-        <source>Registrations</source>
-        <translation>Մուտքագրում ծրագիր</translation>
-    </message>
-    <message>
-        <location filename="wdthome.ui" line="383"/>
-        <source>Sales</source>
-        <translation>Վաճառք</translation>
-    </message>
-    <message>
-        <location filename="wdthome.ui" line="409"/>
-        <source>Back</source>
-        <translation>Վերադարձ</translation>
-    </message>
-    <message>
-        <location filename="wdthome.ui" line="451"/>
+        <location filename="wdthome.ui" line="555"/>
         <source>Index</source>
         <translation>Տեղեկատուներ</translation>
     </message>
@@ -1699,7 +2072,7 @@ remain</source>
 մաւրում</translation>
     </message>
     <message>
-        <location filename="wdthome.ui" line="132"/>
+        <location filename="wdthome.ui" line="184"/>
         <source>Reports</source>
         <oldsource>Regular</oldsource>
         <translation>Հաշվետվություններ</translation>

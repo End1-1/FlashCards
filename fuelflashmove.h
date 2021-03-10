@@ -14,12 +14,19 @@ class FuelFlashMove : public Dialog
 public:
     explicit FuelFlashMove();
     ~FuelFlashMove();
+    void setMove(int m);
+    void setDoc(int id);
 
 private slots:
     void on_btnCancel_clicked();
+    void on_btnSave_clicked();
+    void on_leQty_textEdited(const QString &arg1);
+    void on_lePrice_textEdited(const QString &arg1);
+    void on_leTotal_textEdited(const QString &arg1);
 
 private:
     Ui::FuelFlashMove *ui;
+    int fMove;
 };
 
 #endif // FUELFLASHMOVE_H

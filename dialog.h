@@ -7,6 +7,10 @@ class Dialog : public QDialog
 {
 public:
     Dialog();
+    virtual void keyPressEvent(QKeyEvent *e) override;
+
+protected:
+    virtual void enter();
 };
 
 #endif // DIALOG_H

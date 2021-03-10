@@ -30,5 +30,7 @@
         <file>res/back.png</file>
         <file>res/money.png</file>
         <file>res/biodiesel.png</file>
+        <file>res/report.png</file>
+        <file>res/report2.png</file>
     </qresource>
 </RCC>

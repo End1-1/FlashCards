@@ -24,6 +24,11 @@ bool Login::login()
     return result;
 }
 
+void Login::enter()
+{
+    on_btnOK_clicked();
+}
+
 void Login::on_btnCancel_clicked()
 {
     reject();

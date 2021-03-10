@@ -50,6 +50,9 @@ QString FilterTicketsByOne::condition()
     if (!ui->leState->isEmpty()) {
         w += " and c.fstate in (" + ui->leState->text() + ") ";
     }
+    if (!ui->lePayment->isEmpty()) {
+        w += " and c.fpaymenttype in (" + ui->lePayment->text() + ") ";
+    }
     return w;
 }
 

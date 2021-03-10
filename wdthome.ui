@@ -131,6 +131,32 @@
        </widget>
       </item>
       <item>
+       <widget class="QToolButton" name="btnOutputFlash">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="text">
+         <string>Output flash</string>
+        </property>
+        <property name="icon">
+         <iconset resource="res.qrc">
+          <normaloff>:/res/biodiesel.png</normaloff>:/res/biodiesel.png</iconset>
+        </property>
+        <property name="iconSize">
+         <size>
+          <width>24</width>
+          <height>24</height>
+         </size>
+        </property>
+        <property name="toolButtonStyle">
+         <enum>Qt::ToolButtonTextUnderIcon</enum>
+        </property>
+       </widget>
+      </item>
+      <item>
        <spacer name="verticalSpacer">
         <property name="orientation">
          <enum>Qt::Vertical</enum>
@@ -365,7 +391,7 @@
       </size>
      </property>
      <property name="title">
-      <string>Movement of tickets</string>
+      <string>Movement of fuel</string>
      </property>
      <layout class="QVBoxLayout" name="verticalLayout_4">
       <item>
@@ -377,11 +403,11 @@
          </sizepolicy>
         </property>
         <property name="text">
-         <string>Registrations</string>
+         <string>Tickets input</string>
         </property>
         <property name="icon">
          <iconset resource="res.qrc">
-          <normaloff>:/res/tickets.png</normaloff>:/res/tickets.png</iconset>
+          <normaloff>:/res/report.png</normaloff>:/res/report.png</iconset>
         </property>
         <property name="iconSize">
          <size>
@@ -406,11 +432,11 @@
          <enum>Qt::NoFocus</enum>
         </property>
         <property name="text">
-         <string>Sales</string>
+         <string>Sales of tickets</string>
         </property>
         <property name="icon">
          <iconset resource="res.qrc">
-          <normaloff>:/res/tickets.png</normaloff>:/res/tickets.png</iconset>
+          <normaloff>:/res/report.png</normaloff>:/res/report.png</iconset>
         </property>
         <property name="iconSize">
          <size>
@@ -432,11 +458,63 @@
          </sizepolicy>
         </property>
         <property name="text">
-         <string>Back</string>
+         <string>Back of tickets</string>
         </property>
         <property name="icon">
          <iconset resource="res.qrc">
-          <normaloff>:/res/tickets.png</normaloff>:/res/tickets.png</iconset>
+          <normaloff>:/res/report.png</normaloff>:/res/report.png</iconset>
+        </property>
+        <property name="iconSize">
+         <size>
+          <width>24</width>
+          <height>24</height>
+         </size>
+        </property>
+        <property name="toolButtonStyle">
+         <enum>Qt::ToolButtonTextUnderIcon</enum>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QToolButton" name="btnFlashFuelMove">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="text">
+         <string>Flash fuel</string>
+        </property>
+        <property name="icon">
+         <iconset resource="res.qrc">
+          <normaloff>:/res/report2.png</normaloff>:/res/report2.png</iconset>
+        </property>
+        <property name="iconSize">
+         <size>
+          <width>24</width>
+          <height>24</height>
+         </size>
+        </property>
+        <property name="toolButtonStyle">
+         <enum>Qt::ToolButtonTextUnderIcon</enum>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QToolButton" name="btnFlashFuelStore">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="text">
+         <string>Flash fuel store</string>
+        </property>
+        <property name="icon">
+         <iconset resource="res.qrc">
+          <normaloff>:/res/report2.png</normaloff>:/res/report2.png</iconset>
         </property>
         <property name="iconSize">
          <size>

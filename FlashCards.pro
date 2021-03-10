@@ -66,6 +66,8 @@ SOURCES += \
         filteralltickets2.cpp \
         filteramount1.cpp \
         filteramount2.cpp \
+        filterflashfuelstore.cpp \
+        filterfuelflash.cpp \
         filterpartner1.cpp \
         filterpartner2.cpp \
         filterpartner3.cpp \
@@ -89,8 +91,10 @@ SOURCES += \
         wdtamount2.cpp \
         wdtcardtypes.cpp \
         wdtcontainer.cpp \
+        wdtflashfuelstore.cpp \
         wdtfuel.cpp \
         wdtfuelflash.cpp \
+        wdtfuelflashmove.cpp \
         wdthome.cpp \
         wdticketsbyone.cpp \
         wdtpartners.cpp \
@@ -141,6 +145,8 @@ HEADERS += \
     filteralltickets2.h \
     filteramount1.h \
     filteramount2.h \
+    filterflashfuelstore.h \
+    filterfuelflash.h \
     filterpartner1.h \
     filterpartner2.h \
     filterpartner3.h \
@@ -164,8 +170,10 @@ HEADERS += \
     wdtamount2.h \
     wdtcardtypes.h \
     wdtcontainer.h \
+    wdtflashfuelstore.h \
     wdtfuel.h \
     wdtfuelflash.h \
+    wdtfuelflashmove.h \
     wdthome.h \
     wdticketsbyone.h \
     wdtpartners.h \
@@ -187,6 +195,8 @@ FORMS += \
     filteralltickets2.ui \
     filteramount1.ui \
     filteramount2.ui \
+    filterflashfuelstore.ui \
+    filterfuelflash.ui \
     filterpartner1.ui \
     filterpartner2.ui \
     filterpartner3.ui \

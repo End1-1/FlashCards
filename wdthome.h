@@ -52,6 +52,12 @@ private slots:
 
     void on_btnFlashInput_clicked();
 
+    void on_btnOutputFlash_clicked();
+
+    void on_btnFlashFuelMove_clicked();
+
+    void on_btnFlashFuelStore_clicked();
+
 private:
     Ui::WdtHome *ui;
 };
