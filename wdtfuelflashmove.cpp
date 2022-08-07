@@ -29,7 +29,7 @@ void WdtFuelFlashMove::newDocInput()
 void WdtFuelFlashMove::newDocOutput()
 {
     FuelFlashMove ffm;
-    ffm.setMove(-1);
+    ffm.setMove(2);
     ffm.exec();
 }
 
@@ -39,9 +39,12 @@ void WdtFuelFlashMove::editDoc()
     if (id == 0) {
         return;
     }
-    FuelFlashMove ffm;
-    ffm.setDoc(id);
-    ffm.exec();
+    C5Database db(__dbhost, __dbschema, __dbusername, __dbpassword);
+    db[":fid"] = id;
+    db.exec("select fdoc from fuel_move where fid=:fid");
+    if (db.nextRow()) {
+        FuelFlashMove().setDoc(db.getInt("fdoc")).exec();
+    }
 }
 
 bool WdtFuelFlashMove::tblDoubleClicked(int row, int column, const QList<QVariant> &values)

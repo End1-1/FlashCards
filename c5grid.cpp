@@ -347,6 +347,9 @@ QMenu *C5Grid::buildTableViewContextMenu(const QPoint &point)
 bool C5Grid::tblDoubleClicked(int row, int column, const QList<QVariant> &values)
 {
     emit tblDoubleClick(row, column, values);
+    if (values.count() > 0) {
+        callEditor(values.at(0).toString());
+    }
     return false;
 }
 
@@ -614,6 +617,10 @@ void C5Grid::print()
                 .arg(fLabel)
                 .arg(reportAdditionalTitle()), 0);
         p.br();
+        if (fFilterWidget) {
+            p.ltext(fFilterWidget->conditionText(), 0);
+            p.br();
+        }
         p.setFontBold(false);
         p.line(0, p.fTop, columnsWidth, p.fTop);
         for (int c = 0; c < fModel->columnCount(); c++) {
@@ -663,7 +670,7 @@ void C5Grid::print()
                             .arg(QDateTime::currentDateTime().toString(FORMAT_DATETIME_TO_STR2))
                             .arg(hostinfo)
                             .arg(hostuser), 0);
-                    p.rtext("FlashCards");
+                    p.rtext("ArmPetrol");
                     page++;
                 } else {
                     p.br();
@@ -697,7 +704,7 @@ void C5Grid::print()
                         .arg(QDateTime::currentDateTime().toString(FORMAT_DATETIME_TO_STR2))
                         .arg(hostinfo)
                         .arg(hostuser), 0);
-                p.rtext("FlashCards");
+                p.rtext("ArmPetrol");
                 if (r < fModel->rowCount() - 1) {
                     p.br(p.fLineHeight * 4);
                 }
@@ -714,7 +721,7 @@ void C5Grid::print()
         }
     } while (!stopped);
 
-    C5PrintPreview pp(&p);
+    C5PrintPreview pp(&p, this);
     pp.exec();
 }
 
@@ -869,6 +876,11 @@ void C5Grid::refreshData()
     if (fSimpleQuery) {
         if (fFilterWidget) {
             fWhereCondition = fFilterWidget->condition();
+            ui->lbFilter->setVisible(true);
+            ui->lbFilter->setText(fFilterWidget->conditionText());
+        } else {
+            ui->lbFilter->clear();
+            ui->lbFilter->setVisible(false);
         }
         if (!fWhereCondition.isEmpty()) {
             if (fSqlQuery.contains("%where%")) {

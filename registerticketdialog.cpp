@@ -53,6 +53,7 @@ void RegisterTicketDialog::on_btnRegister_clicked()
         db[":ftype"] = ui->leTicket->getInteger();
         db[":fpartner"] = ui->lePartner->getInteger();
         db[":fcode"] = code;
+        db[":fnum"] = code.right(5);
         if (ui->lePartner->getInteger() > 0) {
             db[":fpartnerdate"] = QDate::currentDate();
             db[":fstate"] = 2;

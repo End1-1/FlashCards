@@ -15,6 +15,8 @@ public:
     explicit FilterAllTickets(QWidget *parent = nullptr);
     ~FilterAllTickets();
     virtual QString condition() override;
+    virtual QString conditionText() override;
+    virtual QString filterString() override;
     void setFuelFilter(const QString &v);
     void setTicketFilter(const QString &v);
 

@@ -15,6 +15,8 @@ public:
     explicit FilterFlashFuelStore(QWidget *parent = nullptr);
     ~FilterFlashFuelStore();
     virtual QString condition() override;
+    virtual QString conditionText() override;
+    virtual QString filterString() override;
 
 private:
     Ui::FilterFlashFuelStore *ui;

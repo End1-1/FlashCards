@@ -14,7 +14,9 @@ class FilterAmount1 : public C5FilterWidget
 public:
     explicit FilterAmount1(QWidget *parent = nullptr);
     ~FilterAmount1();
-    virtual QString condition();
+    virtual QString condition() override;
+    virtual QString conditionText() override;
+    virtual QString filterString() override;
     void setFuel(const QString &v);
 private:
     Ui::FilterAmount1 *ui;

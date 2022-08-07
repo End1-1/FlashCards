@@ -9,6 +9,7 @@
 #include <QDate>
 #include <QDebug>
 #include <QSqlField>
+#include <QUuid>
 
 #ifndef _NOAPP_
 #include <QMessageBox>
@@ -246,17 +247,9 @@ bool C5Database::execDirect(const QString &sqlQuery)
     return true;
 }
 
-QString C5Database::uuid(const QStringList &dbParams)
+QString C5Database::uuid()
 {
-    if (dbParams.count() > 0) {
-        fDbParamsForUuid = dbParams;
-    }
-    C5Database db(fDbParamsForUuid);
-    db.exec("select uuid()");
-    if (db.nextRow()) {
-        return db.getString(0);
-    }
-    return "";
+    return QUuid::createUuid().toString().replace("{", "").replace("}", "");
 }
 
 QByteArray C5Database::uuid_bin(const QStringList &dp)
@@ -480,14 +473,14 @@ void C5Database::configureDatabase(QSqlDatabase &cn, const QString &host, const 
     cn.setPassword(password);
 }
 
-void C5Database::logEvent(const QString &event)
+void C5Database::logEvent(const QString &event, const QString &file)
 {
     qDebug() << event;
     QDir d;
     if (!d.exists(d.homePath() + "/" + _APPLICATION_)) {
         d.mkpath(d.homePath() + "/" + _APPLICATION_);
     }
-    QFile  f(d.homePath() + "/" + _APPLICATION_ + "/log.txt");
+    QFile  f(d.homePath() + "/" + _APPLICATION_ + "/log" + (file.isEmpty() ? "" : "_" + file) + ".txt");
     QString dt = QDateTime::currentDateTime().toString("dd.MM.yyyy HH:mm:ss") + " ";
     f.open(QIODevice::Append);
     f.write(dt.toUtf8());

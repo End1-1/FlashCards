@@ -15,6 +15,8 @@ public:
     explicit FilterTicketsByOne(QWidget *parent = nullptr);
     ~FilterTicketsByOne();
     virtual QString condition() override;
+    virtual QString conditionText() override;
+    virtual QString filterString() override;
     void setDateMode(int mode);
 
 private:

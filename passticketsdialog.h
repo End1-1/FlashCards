@@ -2,6 +2,7 @@
 #define PASSTICKETSDIALOG_H
 
 #include "dialog.h"
+#include "c5database.h"
 
 namespace Ui {
 class PassTicketsDialog;
@@ -13,6 +14,7 @@ class PassTicketsDialog : public Dialog
 
 public:
     explicit PassTicketsDialog();
+    explicit PassTicketsDialog(int id);
     ~PassTicketsDialog();
 
 private slots:
@@ -24,11 +26,22 @@ private slots:
     void on_leQty_returnPressed();
     void on_btnRollback_clicked();
     void on_lePrice_textEdited(const QString &arg1);
+    void on_btnAddRow_clicked();
+    void on_btnRemoveRow_clicked();
+    void on_btnGroups_clicked();
+    void on_leTicketName_textChanged(const QString &arg1);
+    void on_leDiscount_textChanged(const QString &arg1);
+    void on_btnPrint_clicked();
+    void on_lePrice_textChanged(const QString &arg1);
 
 private:
     Ui::PassTicketsDialog *ui;
     QString fTransaction;
-    void getListOfTickets(QString &err, bool process = false);
+    int fTotalCount;
+    void getListOfTickets(C5Database &db, QString &err, bool process = false);
+    void countTotal();
+    void setPrice();
+    void openDoc(int id);
 };
 
 #endif // PASSTICKETSDIALOG_H

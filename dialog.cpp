@@ -2,8 +2,8 @@
 #include "config.h"
 #include <QKeyEvent>
 
-Dialog::Dialog() :
-    QDialog(__parent)
+Dialog::Dialog(QWidget *parent) :
+    QDialog(parent == nullptr ? __parent : parent)
 {
 
 }

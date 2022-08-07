@@ -2,6 +2,7 @@
 #define WDBPARTNER_H
 
 #include "wdbwidget.h"
+#include <QSet>
 
 namespace Ui {
 class WdbPartner;
@@ -18,6 +19,7 @@ public:
 
 private:
     Ui::WdbPartner *ui;
+    QSet<QString> fStrings;
 };
 
 #endif // WDBPARTNER_H

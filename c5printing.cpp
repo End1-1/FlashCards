@@ -145,7 +145,7 @@ void C5Printing::ltext(const QString &text, qreal x)
 {
     QGraphicsTextItem *item = fCanvas->addText(text, fFont);
     item->moveBy(x, fTop);
-    setTemptop(item);
+    setTemptop(item, -1);
 
     QJsonObject o;
     o["cmd"] = "ltext";
@@ -161,11 +161,25 @@ void C5Printing::ctext(const QString &text)
     op.setAlignment(Qt::AlignHCenter);
     item->document()->setDefaultTextOption(op);
     item->moveBy(0, fTop);
-    setTemptop(item);
+    setTemptop(item, -1);
 
     QJsonObject o;
     o["cmd"] = "ctext";
     o["text"] = text;
+    fJsonData.append(o);
+}
+
+void C5Printing::ctextof(const QString &text, qreal x)
+{
+    QGraphicsTextItem *item = fCanvas->addText(text, fFont);
+    int textwidth = item->boundingRect().width() / 2;
+    item->moveBy(x - textwidth, fTop);
+    setTemptop(item, -1);
+
+    QJsonObject o;
+    o["cmd"] = "ctextof";
+    o["text"] = text;
+    o["x"] = x;
     fJsonData.append(o);
 }
 
@@ -176,7 +190,7 @@ void C5Printing::rtext(const QString text)
     op.setAlignment(Qt::AlignRight);
     item->document()->setDefaultTextOption(op);
     item->moveBy(0, fTop);
-    setTemptop(item);
+    setTemptop(item, -1);
 
     QJsonObject o;
     o["cmd"] = "rtext";
@@ -331,9 +345,9 @@ void C5Printing::setLineHeight()
     fLineHeight = (fm.height());
 }
 
-void C5Printing::setTemptop(QGraphicsTextItem *item)
+void C5Printing::setTemptop(QGraphicsTextItem *item, qreal textwidth)
 {
-    item->setTextWidth(fNormalWidth);
+    item->setTextWidth(textwidth == -1 ? fNormalWidth : textwidth);
     int blocks = item->document()->documentLayout()->documentSize().height();
     qreal h = blocks;
     if (h > fLineHeight) {

@@ -15,7 +15,7 @@ public:
     explicit FuelFlashMove();
     ~FuelFlashMove();
     void setMove(int m);
-    void setDoc(int id);
+    FuelFlashMove &setDoc(int id);
 
 private slots:
     void on_btnCancel_clicked();
@@ -24,9 +24,13 @@ private slots:
     void on_lePrice_textEdited(const QString &arg1);
     void on_leTotal_textEdited(const QString &arg1);
 
+    void on_btnPrint_clicked();
+
 private:
     Ui::FuelFlashMove *ui;
     int fMove;
+    QString fTransaction;
+    int fDocNumber;
 };
 
 #endif // FUELFLASHMOVE_H

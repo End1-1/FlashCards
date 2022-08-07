@@ -33,14 +33,20 @@
     <widget class="WdtContainer" name="wc" native="true">
      <layout class="QGridLayout" name="gridLayout">
       <item row="1" column="3">
-       <widget class="C5LineEdit" name="lineEdit_4">
+       <widget class="C5LineEdit" name="leTicketName">
+        <property name="focusPolicy">
+         <enum>Qt::NoFocus</enum>
+        </property>
         <property name="lvalue" stdset="0">
          <string>ticket_type</string>
         </property>
        </widget>
       </item>
       <item row="0" column="3">
-       <widget class="C5LineEdit" name="lineEdit_3">
+       <widget class="C5LineEdit" name="leFuelName">
+        <property name="focusPolicy">
+         <enum>Qt::NoFocus</enum>
+        </property>
         <property name="lvalue" stdset="0">
          <string>fuel</string>
         </property>
@@ -165,8 +171,8 @@
   <tabstop>leFuel</tabstop>
   <tabstop>leTicket</tabstop>
   <tabstop>leYear</tabstop>
-  <tabstop>lineEdit_3</tabstop>
-  <tabstop>lineEdit_4</tabstop>
+  <tabstop>leFuelName</tabstop>
+  <tabstop>leTicketName</tabstop>
  </tabstops>
  <resources/>
  <connections/>

@@ -126,6 +126,12 @@
    <container>1</container>
   </customwidget>
  </customwidgets>
+ <tabstops>
+  <tabstop>lineEdit</tabstop>
+  <tabstop>lineEdit_2</tabstop>
+  <tabstop>leColor</tabstop>
+  <tabstop>btnSetColor</tabstop>
+ </tabstops>
  <resources/>
  <connections/>
 </ui>

@@ -62,7 +62,7 @@ public:
 
     bool execDirect(const QString &sqlQuery);
 
-    static QString uuid(const QStringList &dbParams = QStringList());
+    static QString uuid();
 
     QByteArray uuid_bin(const QStringList &dp = QStringList());
 
@@ -160,7 +160,7 @@ public:
 
     void setValue(int row, const QString &columnName, const QVariant &value);
 
-    void logEvent(const QString &event);
+    static void logEvent(const QString &event, const QString &file = "");
 
     inline QString host() {return fDb.hostName(); }
 

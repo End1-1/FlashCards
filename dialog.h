@@ -6,7 +6,7 @@
 class Dialog : public QDialog
 {
 public:
-    Dialog();
+    Dialog(QWidget *parent = nullptr);
     virtual void keyPressEvent(QKeyEvent *e) override;
 
 protected:

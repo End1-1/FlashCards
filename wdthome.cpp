@@ -15,10 +15,17 @@
 #include "wdtfuelflashmove.h"
 #include "wdtflashfuelstore.h"
 #include "fuelflashmove.h"
+#include "wdtfueloutin.h"
 #include "config.h"
+#include "autoinputdoc.h"
 #include "registerticketdialog.h"
 #include "passticketsdialog.h"
 #include "registeruseddialog.h"
+#include "wdtdebts.h"
+#include "wdtflashautoinput.h"
+#include "wdtfuelprices.h"
+#include "wdtsaledocs.h"
+#include "wdtdebtshistory.h"
 
 WdtHome::WdtHome(const QIcon &icon, const QString &label, QWidget *parent) :
     WdtWidget(icon, label, parent),
@@ -126,17 +133,10 @@ void WdtHome::on_btnFuelFlash_clicked()
     __parent->addWidget<WdtFuelFlash>(static_cast<QToolButton *>(sender()));
 }
 
-void WdtHome::on_btnFlashInput_clicked()
-{
-    FuelFlashMove ffm;
-    ffm.setMove(1);
-    ffm.exec();
-}
-
 void WdtHome::on_btnOutputFlash_clicked()
 {
     FuelFlashMove ffm;
-    ffm.setMove(-1);
+    ffm.setMove(2);
     ffm.exec();
 }
 
@@ -148,4 +148,39 @@ void WdtHome::on_btnFlashFuelMove_clicked()
 void WdtHome::on_btnFlashFuelStore_clicked()
 {
     auto *t = __parent->addWidget<WdtFlashFuelStore>(static_cast<QToolButton*>(sender()));
+}
+
+void WdtHome::on_btnFlashAutoinput_clicked()
+{
+    auto *t = __parent->addWidget<WdtFlashAutoinput>(static_cast<QToolButton*>(sender()));
+}
+
+void WdtHome::on_btnPrices_clicked()
+{
+    auto *t = __parent->addWidget<WdtFuelPrices>(static_cast<QToolButton*>(sender()));
+}
+
+void WdtHome::on_btnSalesByPayment_clicked()
+{
+    auto *t = __parent->addWidget<WdtSaleDocs>(static_cast<QToolButton*>(sender()));
+}
+
+void WdtHome::on_btnFuelInOut_clicked()
+{
+    auto *t = __parent->addWidget<WdtFuelOutIn>(static_cast<QToolButton*>(sender()));
+}
+
+void WdtHome::on_btnFuelInOut_2_clicked()
+{
+    auto *t = __parent->addWidget<WdtDebts>(static_cast<QToolButton*>(sender()));
+}
+
+void WdtHome::on_btnDebtsHistory_clicked()
+{
+    auto *t = __parent->addWidget<WdtDebtsHistory>(static_cast<QToolButton*>(sender()));
+}
+
+void WdtHome::on_btnInputFuel_clicked()
+{
+    AutoinputDoc().newDoc().exec();
 }

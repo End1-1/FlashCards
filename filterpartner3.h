@@ -15,6 +15,8 @@ public:
     explicit FilterPartner3(QWidget *parent = nullptr);
     ~FilterPartner3();
     virtual QString condition() override;
+    virtual QString conditionText() override;
+    virtual QString filterString() override;
     void setFuelFilter(const QString &v);
     void setTicketFilter(const QString &v);
 

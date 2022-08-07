@@ -32,6 +32,34 @@ QString FilterAmount2::condition()
     return w;
 }
 
+QString FilterAmount2::conditionText()
+{
+    QString w;
+    if (!ui->leFuel->isEmpty()) {
+        w += QString("%1: %2").arg(tr("Fuel")).arg(ui->leFuelName->text());
+    }
+    if (!ui->leTicket->isEmpty()) {
+        w += QString("%1: %2").arg(tr("Ticket")).arg(ui->leTicketName->text());
+    }
+    if (!ui->lePartner->isEmpty()) {
+        w += QString("%1: %2").arg(tr("Partner")).arg(ui->lePartnerName->text());
+    }
+    if (!ui->deDate->isEmpty()) {
+        w += QString("%1: %2").arg(tr("Date")).arg(ui->deDate->text());
+    }
+    return w;
+}
+
+QString FilterAmount2::filterString()
+{
+    QString f;
+    concat(ui->deDate, nullptr, tr("Year"), f);
+    concat(ui->leTicket, ui->leTicketName, tr("Ticket"), f);
+    concat(ui->leFuel, ui->leFuelName, tr("Fuel"), f);
+    concat(ui->lePartner, ui->lePartnerName, tr("Partner"), f);
+    return f;
+}
+
 void FilterAmount2::setFuel(const QString &v)
 {
     ui->wc->setKey(ui->leFuel, v);

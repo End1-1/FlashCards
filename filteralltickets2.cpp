@@ -23,6 +23,22 @@ QString FilterAllTickets2::condition()
     return where;
 }
 
+QString FilterAllTickets2::conditionText()
+{
+    QString where;
+    if (!ui->leFuel->isEmpty()) {
+        where += QString("%1: %2").arg(tr("Fuel")).arg(ui->leFuelName->text());
+    }
+    return where;
+}
+
+QString FilterAllTickets2::filterString()
+{
+    QString f;
+    concat(ui->leFuel, ui->leFuelName, tr("Fuel"), f);
+    return f;
+}
+
 void FilterAllTickets2::setFuelFilter(const QString &v)
 {
     ui->wc->setKey(ui->leFuel, v);

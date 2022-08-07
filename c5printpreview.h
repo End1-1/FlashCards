@@ -14,7 +14,7 @@ class C5PrintPreview : public Dialog
     Q_OBJECT
 
 public:
-    explicit C5PrintPreview(C5Printing *printData);
+    explicit C5PrintPreview(C5Printing *printData, QWidget *parent);
 
     ~C5PrintPreview();
 

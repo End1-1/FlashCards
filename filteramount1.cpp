@@ -26,6 +26,26 @@ QString FilterAmount1::condition()
     return w;
 }
 
+QString FilterAmount1::conditionText()
+{
+    QString where;
+    if (!ui->leFuel->isEmpty()) {
+        where += QString("%1: %2").arg(tr("Fuel")).arg(ui->leFuelName->text());
+    }
+    if (!ui->deDate->isEmpty()) {
+        where += QString("%1: %2").arg(tr("Year")).arg(ui->deDate->text());
+    }
+    return where;
+}
+
+QString FilterAmount1::filterString()
+{
+    QString f;
+    concat(ui->deDate, nullptr, tr("Year"), f);
+    concat(ui->leFuel, ui->leFuelName, tr("Fuel"), f);
+    return f;
+}
+
 void FilterAmount1::setFuel(const QString &v)
 {
     ui->wc->setKey(ui->leFuel, v);

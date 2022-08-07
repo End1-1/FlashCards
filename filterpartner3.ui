@@ -59,7 +59,10 @@
        </widget>
       </item>
       <item row="3" column="3">
-       <widget class="C5LineEdit" name="lineEdit_4">
+       <widget class="C5LineEdit" name="lePartnerName">
+        <property name="focusPolicy">
+         <enum>Qt::NoFocus</enum>
+        </property>
         <property name="lvalue" stdset="0">
          <string>partners</string>
         </property>
@@ -109,14 +112,20 @@
        </widget>
       </item>
       <item row="0" column="3">
-       <widget class="C5LineEdit" name="lineEdit_3">
+       <widget class="C5LineEdit" name="leFuelName">
+        <property name="focusPolicy">
+         <enum>Qt::NoFocus</enum>
+        </property>
         <property name="lvalue" stdset="0">
          <string>fuel</string>
         </property>
        </widget>
       </item>
       <item row="2" column="3">
-       <widget class="C5LineEdit" name="lineEdit_2">
+       <widget class="C5LineEdit" name="leTicketName">
+        <property name="focusPolicy">
+         <enum>Qt::NoFocus</enum>
+        </property>
         <property name="lvalue" stdset="0">
          <string>ticket_type</string>
         </property>
@@ -199,9 +208,9 @@
   <tabstop>leTicket</tabstop>
   <tabstop>lePartner</tabstop>
   <tabstop>deIssue</tabstop>
-  <tabstop>lineEdit_2</tabstop>
-  <tabstop>lineEdit_4</tabstop>
-  <tabstop>lineEdit_3</tabstop>
+  <tabstop>leTicketName</tabstop>
+  <tabstop>lePartnerName</tabstop>
+  <tabstop>leFuelName</tabstop>
  </tabstops>
  <resources/>
  <connections/>

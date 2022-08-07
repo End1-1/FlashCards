@@ -18,7 +18,6 @@ void WdtPartners::newPartner()
 void WdtPartners::editPartner()
 {
     editElement<WdbPartner>();
-
 }
 
 bool WdtPartners::tblDoubleClicked(int row, int column, const QList<QVariant> &values)

@@ -32,5 +32,11 @@
         <file>res/biodiesel.png</file>
         <file>res/report.png</file>
         <file>res/report2.png</file>
+        <file>autoinputdoc.cpp</file>
+        <file>res/add.png</file>
+        <file>res/sand-clock.png</file>
+        <file>res/warning.png</file>
+        <file>res/copy.png</file>
+        <file>res/save.png</file>
     </qresource>
 </RCC>

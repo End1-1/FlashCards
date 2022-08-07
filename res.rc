@@ -14,13 +14,13 @@ BEGIN
         BEGIN
             VALUE "Comments", "\0"
             VALUE "CompanyName", "Kudryashov Vasili\0"
-            VALUE "FileDescription", "FlashCards\0"
+            VALUE "FileDescription", "ArmPetrolCards\0"
             VALUE "FileVersion", _FILE_VERSION_STR
-            VALUE "InternalName", "FlashCards\0"
-            VALUE "LegalCopyright", "(C)2020-2011, Kudryashov Vasili\0"
-            VALUE "OriginalFilename", "FlashCards.exe\0"
+            VALUE "InternalName", "ArmPetrolCards\0"
+            VALUE "LegalCopyright", "(C)2020-2022, Kudryashov Vasili\0"
+            VALUE "OriginalFilename", "APCards.exe\0"
             VALUE "Email", "end1_1@yahoo.com\0"
-            VALUE "ProductName", "FlashCards\0"
+            VALUE "ProductName", "ArmPetrolCards\0"
             VALUE "ProductVersion", _PRODUCT_VERSION_STR
         END
     END

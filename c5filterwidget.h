@@ -13,9 +13,14 @@ public:
     explicit C5FilterWidget(QWidget *parent = nullptr);
     ~C5FilterWidget();
     virtual QString condition() = 0;
+    virtual QString conditionText() = 0;
+    virtual QString filterString() = 0;
     virtual void saveFilter(QWidget *parent);
     virtual void restoreFilter(QWidget *parent);
     virtual void clearFilter(QWidget *parent);
+
+protected:
+    void concat(C5LineEdit *l1, C5LineEdit *l2, const QString &title, QString &v1);
 
 private:
     C5LineEdit *isKeyValueEdit(QObject *o);

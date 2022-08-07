@@ -15,6 +15,8 @@ public:
     explicit FilterPartner1(QWidget *parent = nullptr);
     ~FilterPartner1();
     virtual QString condition() override;
+    virtual QString conditionText() override;
+    virtual QString filterString() override;
     void setTicketFilter(const QString &v);
 
 private:

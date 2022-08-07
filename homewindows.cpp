@@ -4,6 +4,7 @@
 #include "c5connection.h"
 #include "wdthome.h"
 #include "c5message.h"
+#include "downloaddialog.h"
 #include <QShortcut>
 #include <QCloseEvent>
 #include <QDebug>
@@ -18,6 +19,9 @@ HomeWindows::HomeWindows(QWidget *parent) :
     connect(sh, SIGNAL(activated()), this, SLOT(hotKey()));
     sh = new QShortcut(QKeySequence("Esc"), this);
     connect(sh, SIGNAL(activated()), this, SLOT(hotKey()));
+    statusBar()->showMessage(tr("Ready"));
+    QWidget *w = new QWidget();
+    statusBar()->addWidget(w);
     logout();
 }
 
@@ -31,6 +35,7 @@ void HomeWindows::login()
     if (!Login::login()) {
         return;
     }
+    DownloadDialog::instance()->startDownload();
     setMenuState(true);
     QToolButton btn;
     btn.setIcon(QIcon(":/res/homepage.png"));

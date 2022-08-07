@@ -1,0 +1,8 @@
+#ifndef MOVECONSTS_H
+#define MOVECONSTS_H
+
+#define MOVE_INPUT 1
+#define MOVE_OUTPUT 2
+#define MOVE_INPUT_DRAFT 3
+
+#endif // MOVECONSTS_H

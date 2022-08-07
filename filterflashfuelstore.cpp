@@ -16,7 +16,19 @@ FilterFlashFuelStore::~FilterFlashFuelStore()
 
 QString FilterFlashFuelStore::condition()
 {
-    QString w = " where ";
-    w += QString(" c.fdate <= %1 ").arg(ui->leDate->toMySQLDate());
+    QString w = " where c.fstate in (1,2) ";
+    w += QString(" and c.fdate <= %1 ").arg(ui->leDate->toMySQLDate());
     return w;
+}
+
+QString FilterFlashFuelStore::conditionText()
+{
+    return QString("%1: %2 ").arg(tr("Date"), ui->leDate->text());
+}
+
+QString FilterFlashFuelStore::filterString()
+{
+    QString f;
+    concat(ui->leDate, nullptr, tr("Date"), f);
+    return f;
 }

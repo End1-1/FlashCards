@@ -13,7 +13,6 @@ C5DateEdit::C5DateEdit(QWidget *parent) :
     setInputMask("00/00/0000");
     setDate(C5DateEditFirstDate);
     connect(this, SIGNAL(textChanged(QString)), this, SLOT(newText(QString)));
-    setMaximumWidth(100);
     fRow = 0;
     fColumn = 0;
     fDoNoCheckMinDate = false;
@@ -26,14 +25,14 @@ void C5DateEdit::setText(const QString &text)
         if (d.isValid() && d < C5DateEditMinDate && !fDoNoCheckMinDate) {
             d = C5DateEditMinDate;
         }
-        QLineEdit::setText(d.toString(FORMAT_DATE_TO_STR));
+        C5LineEdit::setText(d.toString(FORMAT_DATE_TO_STR));
     } else if (inputMask() == "00:00:00") {
         QTime t = QTime::fromString(text, FORMAT_TIME_TO_STR);
         if (t.isValid()) {
-            QLineEdit::setText(t.toString(FORMAT_TIME_TO_STR));
+            C5LineEdit::setText(t.toString(FORMAT_TIME_TO_STR));
         }
     } else {
-        QLineEdit::setText(text);
+        C5LineEdit::setText(text);
     }
 }
 

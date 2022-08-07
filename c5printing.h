@@ -35,6 +35,8 @@ public:
 
     void ctext(const QString &text);
 
+    void ctextof(const QString &text, qreal x);
+
     void rtext(const QString text);
 
     void image(const QString &fileName, Qt::Alignment align);
@@ -82,7 +84,7 @@ private:
 
     void setLineHeight();
 
-    void setTemptop(QGraphicsTextItem *item);
+    void setTemptop(QGraphicsTextItem *item, qreal textwidth);
 
     QJsonArray fJsonData;
 };

@@ -34,17 +34,17 @@ void C5FilterWidget::saveFilter(QWidget *parent)
             }
             continue;
         }
-        if ((le = isLineEdit(o))) {
-            value = le->property("FilterName");
-            if (value.isValid()) {
-                s.setValue(value.toString(), le->text());
-            }
-            continue;
-        }
         if ((de = isDateEdit(o))) {
             value = de->property("FilterName");
             if (value.isValid()) {
                 s.setValue(value.toString(), de->date());
+            }
+            continue;
+        }
+        if ((le = isLineEdit(o))) {
+            value = le->property("FilterName");
+            if (value.isValid()) {
+                s.setValue(value.toString(), le->text());
             }
             continue;
         }
@@ -83,15 +83,6 @@ void C5FilterWidget::restoreFilter(QWidget *parent)
             keyValue(le)->setKey(value.toString());
             continue;
         }
-        if ((le = isLineEdit(o))) {
-            filterName = le->property("FilterName").toString();
-            if (filterName.isEmpty()) {
-                continue;
-            }
-            value = s.value(filterName, "");
-            le->setText(value.toString());
-            continue;
-        }
         if ((de = isDateEdit(o))) {
             filterName = de->property("FilterName").toString();
             if (filterName.isEmpty()) {
@@ -101,6 +92,15 @@ void C5FilterWidget::restoreFilter(QWidget *parent)
             if (value.isValid()) {
                 de->setDate(value.toDate());
             }
+            continue;
+        }
+        if ((le = isLineEdit(o))) {
+            filterName = le->property("FilterName").toString();
+            if (filterName.isEmpty()) {
+                continue;
+            }
+            value = s.value(filterName, "");
+            le->setText(value.toString());
             continue;
         }
         if ((ce = isCheckBox(o))) {
@@ -147,6 +147,17 @@ void C5FilterWidget::clearFilter(QWidget *parent)
         }
     }
     saveFilter(this);
+}
+
+void C5FilterWidget::concat(C5LineEdit *l1, C5LineEdit *l2, const QString &title, QString &v1)
+{
+    if (!l1->isEmpty()) {
+        if (v1.isEmpty()) {
+            v1 = title + ": " + (l2 == nullptr ? l1->text() : l2->text());
+        } else {
+            v1 += "; " + title + ": " + (l2 == nullptr ? l1->text() : l2->text());
+        }
+    }
 }
 
 C5LineEdit *C5FilterWidget::isKeyValueEdit(QObject *o)

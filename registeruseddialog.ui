@@ -6,31 +6,87 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>510</width>
-    <height>224</height>
+    <width>1256</width>
+    <height>591</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Register used ticket</string>
   </property>
-  <layout class="QVBoxLayout" name="verticalLayout">
+  <layout class="QHBoxLayout" name="horizontalLayout_3">
    <item>
     <widget class="WdtContainer" name="wc" native="true">
      <layout class="QGridLayout" name="gridLayout">
-      <property name="leftMargin">
-       <number>0</number>
-      </property>
-      <property name="topMargin">
-       <number>0</number>
-      </property>
-      <property name="rightMargin">
-       <number>0</number>
-      </property>
-      <property name="bottomMargin">
-       <number>0</number>
-      </property>
-      <item row="2" column="1">
-       <widget class="C5LineEdit" name="lePartner">
+      <item row="3" column="0" colspan="6">
+       <widget class="QWidget" name="wback" native="true">
+        <property name="minimumSize">
+         <size>
+          <width>0</width>
+          <height>50</height>
+         </size>
+        </property>
+        <layout class="QHBoxLayout" name="horizontalLayout_2">
+         <property name="leftMargin">
+          <number>0</number>
+         </property>
+         <property name="topMargin">
+          <number>0</number>
+         </property>
+         <property name="rightMargin">
+          <number>0</number>
+         </property>
+         <property name="bottomMargin">
+          <number>0</number>
+         </property>
+         <item>
+          <widget class="QLabel" name="label_2">
+           <property name="text">
+            <string>Start code</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLineEdit" name="leStart"/>
+         </item>
+         <item>
+          <widget class="QLabel" name="label_3">
+           <property name="text">
+            <string>End code</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLineEdit" name="leEnd"/>
+         </item>
+         <item>
+          <widget class="QPushButton" name="btnGo">
+           <property name="text">
+            <string>Go</string>
+           </property>
+           <property name="icon">
+            <iconset resource="res.qrc">
+             <normaloff>:/res/add.png</normaloff>:/res/add.png</iconset>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <spacer name="horizontalSpacer_3">
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>306</width>
+             <height>20</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+        </layout>
+       </widget>
+      </item>
+      <item row="1" column="3">
+       <widget class="C5DateEdit" name="deDoc">
         <property name="minimumSize">
          <size>
           <width>120</width>
@@ -46,12 +102,22 @@
         <property name="readOnly">
          <bool>true</bool>
         </property>
-        <property name="lkey" stdset="0">
-         <string>partners</string>
-        </property>
        </widget>
       </item>
-      <item row="7" column="0" colspan="3">
+      <item row="2" column="4">
+       <spacer name="horizontalSpacer_5">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>40</width>
+          <height>20</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+      <item row="5" column="0" colspan="6">
        <widget class="QWidget" name="widget_2" native="true">
         <layout class="QHBoxLayout" name="horizontalLayout">
          <property name="leftMargin">
@@ -97,6 +163,40 @@
           </widget>
          </item>
          <item>
+          <widget class="QPushButton" name="btnZeroArmPetStore">
+           <property name="enabled">
+            <bool>true</bool>
+           </property>
+           <property name="focusPolicy">
+            <enum>Qt::NoFocus</enum>
+           </property>
+           <property name="text">
+            <string>Reset store</string>
+           </property>
+           <property name="icon">
+            <iconset resource="res.qrc">
+             <normaloff>:/res/warning.png</normaloff>:/res/warning.png</iconset>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="btnPrint">
+           <property name="enabled">
+            <bool>true</bool>
+           </property>
+           <property name="focusPolicy">
+            <enum>Qt::NoFocus</enum>
+           </property>
+           <property name="text">
+            <string>Print</string>
+           </property>
+           <property name="icon">
+            <iconset resource="res.qrc">
+             <normaloff>:/res/print.png</normaloff>:/res/print.png</iconset>
+           </property>
+          </widget>
+         </item>
+         <item>
           <widget class="QPushButton" name="btnClose">
            <property name="focusPolicy">
             <enum>Qt::NoFocus</enum>
@@ -124,139 +224,26 @@
           </spacer>
          </item>
         </layout>
-       </widget>
-      </item>
-      <item row="0" column="0">
-       <widget class="QLabel" name="label">
-        <property name="text">
-         <string>Code</string>
-        </property>
+        <zorder>btnClose</zorder>
+        <zorder>btnWrite</zorder>
+        <zorder>btnPrint</zorder>
+        <zorder>btnZeroArmPetStore</zorder>
        </widget>
       </item>
       <item row="1" column="2">
-       <widget class="C5LineEdit" name="lineEdit_3">
-        <property name="minimumSize">
-         <size>
-          <width>300</width>
-          <height>0</height>
-         </size>
-        </property>
+       <widget class="QLabel" name="label_7">
         <property name="maximumSize">
          <size>
-          <width>300</width>
+          <width>150</width>
           <height>16777215</height>
          </size>
         </property>
-        <property name="focusPolicy">
-         <enum>Qt::NoFocus</enum>
-        </property>
-        <property name="readOnly">
-         <bool>true</bool>
-        </property>
-        <property name="lvalue" stdset="0">
-         <string>ticket_type</string>
-        </property>
-       </widget>
-      </item>
-      <item row="3" column="1">
-       <widget class="C5DateEdit" name="deIssue">
-        <property name="minimumSize">
-         <size>
-          <width>120</width>
-          <height>0</height>
-         </size>
-        </property>
-        <property name="maximumSize">
-         <size>
-          <width>120</width>
-          <height>16777215</height>
-         </size>
-        </property>
-        <property name="readOnly">
-         <bool>true</bool>
-        </property>
-       </widget>
-      </item>
-      <item row="5" column="0">
-       <widget class="QLabel" name="label_6">
         <property name="text">
-         <string>Date used</string>
+         <string>Document date</string>
         </property>
        </widget>
       </item>
-      <item row="1" column="0">
-       <widget class="QLabel" name="label_4">
-        <property name="text">
-         <string>Ticket type</string>
-        </property>
-       </widget>
-      </item>
-      <item row="0" column="1" colspan="2">
-       <widget class="C5LineEdit" name="leCode">
-        <property name="focusPolicy">
-         <enum>Qt::StrongFocus</enum>
-        </property>
-       </widget>
-      </item>
-      <item row="2" column="2">
-       <widget class="C5LineEdit" name="lineEdit_5">
-        <property name="minimumSize">
-         <size>
-          <width>300</width>
-          <height>0</height>
-         </size>
-        </property>
-        <property name="maximumSize">
-         <size>
-          <width>300</width>
-          <height>16777215</height>
-         </size>
-        </property>
-        <property name="focusPolicy">
-         <enum>Qt::NoFocus</enum>
-        </property>
-        <property name="readOnly">
-         <bool>true</bool>
-        </property>
-        <property name="lvalue" stdset="0">
-         <string>partners</string>
-        </property>
-       </widget>
-      </item>
-      <item row="3" column="0">
-       <widget class="QLabel" name="label_2">
-        <property name="text">
-         <string>Date issue</string>
-        </property>
-       </widget>
-      </item>
-      <item row="4" column="0">
-       <widget class="QLabel" name="label_5">
-        <property name="text">
-         <string>Date passed</string>
-        </property>
-       </widget>
-      </item>
-      <item row="4" column="1">
-       <widget class="C5DateEdit" name="dePassed">
-        <property name="minimumSize">
-         <size>
-          <width>120</width>
-          <height>0</height>
-         </size>
-        </property>
-        <property name="maximumSize">
-         <size>
-          <width>120</width>
-          <height>16777215</height>
-         </size>
-        </property>
-        <property name="readOnly">
-         <bool>true</bool>
-        </property>
-       </widget>
-      </item>
-      <item row="5" column="1">
+      <item row="1" column="1">
        <widget class="C5DateEdit" name="deUsed">
         <property name="minimumSize">
          <size>
@@ -270,13 +257,10 @@
           <height>16777215</height>
          </size>
         </property>
-        <property name="readOnly">
-         <bool>true</bool>
-        </property>
        </widget>
       </item>
-      <item row="1" column="1">
-       <widget class="C5LineEdit" name="leTicket">
+      <item row="2" column="1">
+       <widget class="C5LineEdit" name="leDocNumber">
         <property name="minimumSize">
          <size>
           <width>120</width>
@@ -292,27 +276,179 @@
         <property name="readOnly">
          <bool>true</bool>
         </property>
-        <property name="lkey" stdset="0">
-         <string>ticket_type</string>
+       </widget>
+      </item>
+      <item row="1" column="0">
+       <widget class="QLabel" name="label_6">
+        <property name="text">
+         <string>Date used</string>
         </property>
        </widget>
+      </item>
+      <item row="0" column="1" colspan="5">
+       <widget class="C5LineEdit" name="leCode">
+        <property name="focusPolicy">
+         <enum>Qt::StrongFocus</enum>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="2" colspan="2">
+       <widget class="QComboBox" name="comboBox">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+          <horstretch>2</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>16777215</width>
+          <height>16777215</height>
+         </size>
+        </property>
+        <item>
+         <property name="text">
+          <string>Used</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Change</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Trash</string>
+         </property>
+        </item>
+       </widget>
+      </item>
+      <item row="1" column="4" colspan="2">
+       <spacer name="horizontalSpacer_4">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>40</width>
+          <height>20</height>
+         </size>
+        </property>
+       </spacer>
       </item>
       <item row="2" column="0">
-       <widget class="QLabel" name="label_3">
+       <widget class="QLabel" name="Document">
         <property name="text">
-         <string>Partner</string>
+         <string>Document</string>
         </property>
        </widget>
       </item>
-      <item row="6" column="0">
-       <widget class="QLabel" name="label_7">
+      <item row="0" column="0">
+       <widget class="QLabel" name="label">
         <property name="text">
-         <string>Price</string>
+         <string>Code</string>
         </property>
        </widget>
       </item>
-      <item row="6" column="1">
-       <widget class="QLineEdit" name="lePrice"/>
+      <item row="4" column="0" colspan="5">
+       <widget class="QWidget" name="widget" native="true">
+        <property name="minimumSize">
+         <size>
+          <width>0</width>
+          <height>50</height>
+         </size>
+        </property>
+        <layout class="QHBoxLayout" name="horizontalLayout_4">
+         <item>
+          <widget class="C5TableWidget" name="tbl">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="editTriggers">
+            <set>QAbstractItemView::NoEditTriggers</set>
+           </property>
+           <column>
+            <property name="text">
+             <string>ID</string>
+            </property>
+           </column>
+           <column>
+            <property name="text">
+             <string>Code</string>
+            </property>
+           </column>
+           <column>
+            <property name="text">
+             <string>Type Code</string>
+            </property>
+           </column>
+           <column>
+            <property name="text">
+             <string>Type Name</string>
+            </property>
+           </column>
+           <column>
+            <property name="text">
+             <string>Partner</string>
+            </property>
+           </column>
+           <column>
+            <property name="text">
+             <string>Date issue</string>
+            </property>
+           </column>
+           <column>
+            <property name="text">
+             <string>Date passed</string>
+            </property>
+           </column>
+           <column>
+            <property name="text">
+             <string>Date used</string>
+            </property>
+           </column>
+           <column>
+            <property name="text">
+             <string>Price</string>
+            </property>
+           </column>
+          </widget>
+         </item>
+         <item>
+          <widget class="C5TableWidget" name="tblStore">
+           <property name="horizontalScrollBarPolicy">
+            <enum>Qt::ScrollBarAlwaysOff</enum>
+           </property>
+           <property name="editTriggers">
+            <set>QAbstractItemView::NoEditTriggers</set>
+           </property>
+           <column>
+            <property name="text">
+             <string>Fuel Id</string>
+            </property>
+           </column>
+           <column>
+            <property name="text">
+             <string>Fuel</string>
+            </property>
+           </column>
+           <column>
+            <property name="text">
+             <string>Price</string>
+            </property>
+           </column>
+           <column>
+            <property name="text">
+             <string>Quantity</string>
+            </property>
+           </column>
+          </widget>
+         </item>
+        </layout>
+       </widget>
       </item>
      </layout>
     </widget>
@@ -336,17 +472,23 @@
    <extends>QLineEdit</extends>
    <header location="global">c5dateedit.h</header>
   </customwidget>
+  <customwidget>
+   <class>C5TableWidget</class>
+   <extends>QTableWidget</extends>
+   <header location="global">c5tablewidget.h</header>
+  </customwidget>
  </customwidgets>
  <tabstops>
   <tabstop>leCode</tabstop>
-  <tabstop>leTicket</tabstop>
-  <tabstop>lePartner</tabstop>
-  <tabstop>deIssue</tabstop>
-  <tabstop>dePassed</tabstop>
   <tabstop>deUsed</tabstop>
-  <tabstop>lePrice</tabstop>
-  <tabstop>lineEdit_3</tabstop>
-  <tabstop>lineEdit_5</tabstop>
+  <tabstop>deDoc</tabstop>
+  <tabstop>leDocNumber</tabstop>
+  <tabstop>comboBox</tabstop>
+  <tabstop>leStart</tabstop>
+  <tabstop>leEnd</tabstop>
+  <tabstop>btnGo</tabstop>
+  <tabstop>tbl</tabstop>
+  <tabstop>tblStore</tabstop>
  </tabstops>
  <resources>
   <include location="res.qrc"/>

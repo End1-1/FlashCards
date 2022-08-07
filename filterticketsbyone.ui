@@ -103,7 +103,7 @@
        </widget>
       </item>
       <item row="4" column="3">
-       <widget class="C5LineEdit" name="lineEdit_5">
+       <widget class="C5LineEdit" name="leStateName">
         <property name="focusPolicy">
          <enum>Qt::NoFocus</enum>
         </property>
@@ -126,7 +126,7 @@
        </spacer>
       </item>
       <item row="2" column="3">
-       <widget class="C5LineEdit" name="lineEdit_2">
+       <widget class="C5LineEdit" name="leTicketName">
         <property name="focusPolicy">
          <enum>Qt::NoFocus</enum>
         </property>
@@ -203,7 +203,7 @@
        </widget>
       </item>
       <item row="0" column="3">
-       <widget class="C5LineEdit" name="lineEdit_3">
+       <widget class="C5LineEdit" name="leFuelName">
         <property name="focusPolicy">
          <enum>Qt::NoFocus</enum>
         </property>
@@ -271,7 +271,7 @@
        </widget>
       </item>
       <item row="3" column="3">
-       <widget class="C5LineEdit" name="lineEdit_4">
+       <widget class="C5LineEdit" name="lePartnerName">
         <property name="focusPolicy">
          <enum>Qt::NoFocus</enum>
         </property>
@@ -351,7 +351,7 @@
        </widget>
       </item>
       <item row="5" column="3">
-       <widget class="C5LineEdit" name="lineEdit_6">
+       <widget class="C5LineEdit" name="lePaymentTypeName">
         <property name="focusPolicy">
          <enum>Qt::NoFocus</enum>
         </property>
@@ -367,6 +367,11 @@
  </widget>
  <customwidgets>
   <customwidget>
+   <class>C5DateEdit</class>
+   <extends>QLineEdit</extends>
+   <header location="global">c5dateedit.h</header>
+  </customwidget>
+  <customwidget>
    <class>C5LineEdit</class>
    <extends>QLineEdit</extends>
    <header location="global">c5lineedit.h</header>
@@ -376,11 +381,6 @@
    <extends>QWidget</extends>
    <header location="global">wdtcontainer.h</header>
    <container>1</container>
-  </customwidget>
-  <customwidget>
-   <class>C5DateEdit</class>
-   <extends>QLineEdit</extends>
-   <header location="global">c5dateedit.h</header>
   </customwidget>
  </customwidgets>
  <tabstops>
@@ -393,9 +393,9 @@
   <tabstop>deSold2</tabstop>
   <tabstop>deBack1</tabstop>
   <tabstop>deBack2</tabstop>
-  <tabstop>lineEdit_3</tabstop>
-  <tabstop>lineEdit_2</tabstop>
-  <tabstop>lineEdit_4</tabstop>
+  <tabstop>leFuelName</tabstop>
+  <tabstop>leTicketName</tabstop>
+  <tabstop>lePartnerName</tabstop>
  </tabstops>
  <resources/>
  <connections/>

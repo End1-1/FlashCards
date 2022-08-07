@@ -1,6 +1,7 @@
 #include "homewindows.h"
 #include "config.h"
 #include "c5connection.h"
+#include "download.h"
 #include <QFile>
 #include <QApplication>
 #include <QTranslator>
@@ -30,6 +31,7 @@ int main(int argc, char *argv[])
     QFont font = a.font();
     font.setPointSize(__appFontSize);
     a.setFont(font);
+
     HomeWindows w;
     __parent = &w;
     w.showMaximized();

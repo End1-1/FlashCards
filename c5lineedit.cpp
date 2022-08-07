@@ -88,6 +88,9 @@ void C5LineEdit::focusOutEvent(QFocusEvent *event)
 
 void C5LineEdit::mouseDoubleClickEvent(QMouseEvent *e)
 {
+    if (isReadOnly()) {
+        return;
+    }
     QLineEdit::mouseDoubleClickEvent(e);
     emit doubleClicked();
 }

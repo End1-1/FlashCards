@@ -50,13 +50,25 @@ private slots:
 
     void on_btnFuelFlash_clicked();
 
-    void on_btnFlashInput_clicked();
-
     void on_btnOutputFlash_clicked();
 
     void on_btnFlashFuelMove_clicked();
 
     void on_btnFlashFuelStore_clicked();
+
+    void on_btnFlashAutoinput_clicked();
+
+    void on_btnPrices_clicked();
+
+    void on_btnSalesByPayment_clicked();
+
+    void on_btnFuelInOut_clicked();
+
+    void on_btnFuelInOut_2_clicked();
+
+    void on_btnDebtsHistory_clicked();
+
+    void on_btnInputFuel_clicked();
 
 private:
     Ui::WdtHome *ui;

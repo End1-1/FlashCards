@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>462</width>
-    <height>285</height>
+    <width>510</width>
+    <height>352</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -17,40 +17,23 @@
    <item row="7" column="2">
     <widget class="WdtContainer" name="wc" native="true">
      <layout class="QGridLayout" name="gridLayout_2">
-      <item row="5" column="1">
-       <widget class="C5LineEdit" name="lePrice">
+      <item row="3" column="0">
+       <widget class="QLabel" name="label_3">
+        <property name="text">
+         <string>Partner</string>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="1">
+       <widget class="C5LineEdit" name="leFuel">
         <property name="maximumSize">
          <size>
           <width>120</width>
           <height>16777215</height>
          </size>
         </property>
-       </widget>
-      </item>
-      <item row="3" column="2">
-       <widget class="C5LineEdit" name="lePartnerName">
-        <property name="focusPolicy">
-         <enum>Qt::NoFocus</enum>
-        </property>
-        <property name="readOnly">
-         <bool>true</bool>
-        </property>
-        <property name="lvalue" stdset="0">
-         <string>partners</string>
-        </property>
-       </widget>
-      </item>
-      <item row="0" column="0">
-       <widget class="QLabel" name="label">
-        <property name="text">
-         <string>Code</string>
-        </property>
-       </widget>
-      </item>
-      <item row="2" column="0">
-       <widget class="QLabel" name="label_4">
-        <property name="text">
-         <string>Fuel</string>
+        <property name="lkey" stdset="0">
+         <string>fuel_flash</string>
         </property>
        </widget>
       </item>
@@ -64,13 +47,10 @@
         </property>
        </widget>
       </item>
-      <item row="0" column="2">
-       <widget class="QLineEdit" name="leMove">
-        <property name="focusPolicy">
-         <enum>Qt::NoFocus</enum>
-        </property>
-        <property name="readOnly">
-         <bool>true</bool>
+      <item row="4" column="0">
+       <widget class="QLabel" name="label_5">
+        <property name="text">
+         <string>Qty</string>
         </property>
        </widget>
       </item>
@@ -83,24 +63,7 @@
          <bool>true</bool>
         </property>
         <property name="lvalue" stdset="0">
-         <string>fuel</string>
-        </property>
-       </widget>
-      </item>
-      <item row="6" column="0">
-       <widget class="QLabel" name="label_7">
-        <property name="text">
-         <string>Total</string>
-        </property>
-       </widget>
-      </item>
-      <item row="1" column="1">
-       <widget class="C5DateEdit" name="leDate">
-        <property name="maximumSize">
-         <size>
-          <width>120</width>
-          <height>16777215</height>
-         </size>
+         <string>fuel_flash</string>
         </property>
        </widget>
       </item>
@@ -111,28 +74,21 @@
         </property>
        </widget>
       </item>
-      <item row="3" column="0">
-       <widget class="QLabel" name="label_3">
-        <property name="text">
-         <string>Partner</string>
-        </property>
-       </widget>
-      </item>
-      <item row="5" column="0">
-       <widget class="QLabel" name="label_6">
-        <property name="text">
-         <string>Price</string>
-        </property>
-       </widget>
-      </item>
-      <item row="0" column="1">
-       <widget class="C5LineEdit" name="leCode">
+      <item row="3" column="1">
+       <widget class="C5LineEdit" name="lePartner">
         <property name="maximumSize">
          <size>
           <width>120</width>
           <height>16777215</height>
          </size>
         </property>
+        <property name="lkey" stdset="0">
+         <string>partners</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="2">
+       <widget class="QLineEdit" name="leMove">
         <property name="focusPolicy">
          <enum>Qt::NoFocus</enum>
         </property>
@@ -144,6 +100,18 @@
       <item row="8" column="0" colspan="3">
        <widget class="QWidget" name="widget_2" native="true">
         <layout class="QHBoxLayout" name="horizontalLayout">
+         <property name="leftMargin">
+          <number>0</number>
+         </property>
+         <property name="topMargin">
+          <number>0</number>
+         </property>
+         <property name="rightMargin">
+          <number>0</number>
+         </property>
+         <property name="bottomMargin">
+          <number>0</number>
+         </property>
          <item>
           <spacer name="horizontalSpacer">
            <property name="orientation">
@@ -161,6 +129,16 @@
           <widget class="QPushButton" name="btnSave">
            <property name="text">
             <string>Save</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="btnPrint">
+           <property name="enabled">
+            <bool>false</bool>
+           </property>
+           <property name="text">
+            <string>Print</string>
            </property>
           </widget>
          </item>
@@ -187,23 +165,80 @@
         </layout>
        </widget>
       </item>
-      <item row="2" column="1">
-       <widget class="C5LineEdit" name="leFuel">
+      <item row="3" column="2">
+       <widget class="C5LineEdit" name="lePartnerName">
+        <property name="focusPolicy">
+         <enum>Qt::NoFocus</enum>
+        </property>
+        <property name="readOnly">
+         <bool>true</bool>
+        </property>
+        <property name="lvalue" stdset="0">
+         <string>partners</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="1">
+       <widget class="C5LineEdit" name="leCode">
         <property name="maximumSize">
          <size>
           <width>120</width>
           <height>16777215</height>
          </size>
         </property>
-        <property name="lkey" stdset="0">
-         <string>fuel</string>
+        <property name="focusPolicy">
+         <enum>Qt::NoFocus</enum>
+        </property>
+        <property name="readOnly">
+         <bool>true</bool>
         </property>
        </widget>
       </item>
-      <item row="4" column="0">
-       <widget class="QLabel" name="label_5">
+      <item row="5" column="1">
+       <widget class="C5LineEdit" name="lePrice">
+        <property name="maximumSize">
+         <size>
+          <width>120</width>
+          <height>16777215</height>
+         </size>
+        </property>
+       </widget>
+      </item>
+      <item row="5" column="0">
+       <widget class="QLabel" name="label_6">
         <property name="text">
-         <string>Qty</string>
+         <string>Price</string>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="0">
+       <widget class="QLabel" name="label_4">
+        <property name="text">
+         <string>Fuel</string>
+        </property>
+       </widget>
+      </item>
+      <item row="6" column="0">
+       <widget class="QLabel" name="label_7">
+        <property name="text">
+         <string>Total</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="1">
+       <widget class="C5DateEdit" name="leDate">
+        <property name="maximumSize">
+         <size>
+          <width>120</width>
+          <height>16777215</height>
+         </size>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="0">
+       <widget class="QLabel" name="label">
+        <property name="text">
+         <string>Code</string>
         </property>
        </widget>
       </item>
@@ -217,43 +252,59 @@
         </property>
        </widget>
       </item>
-      <item row="3" column="1">
-       <widget class="C5LineEdit" name="lePartner">
-        <property name="maximumSize">
-         <size>
-          <width>120</width>
-          <height>16777215</height>
-         </size>
-        </property>
-        <property name="lkey" stdset="0">
-         <string>partners</string>
-        </property>
-       </widget>
-      </item>
-      <item row="7" column="0">
-       <widget class="QLabel" name="label_8">
-        <property name="text">
+      <item row="7" column="0" colspan="3">
+       <widget class="QGroupBox" name="gbPayment">
+        <property name="title">
          <string>Payment</string>
         </property>
-       </widget>
-      </item>
-      <item row="7" column="1">
-       <widget class="QComboBox" name="cbPayment">
-        <item>
-         <property name="text">
-          <string>Cash</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>Bank</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>Flash</string>
-         </property>
-        </item>
+        <layout class="QFormLayout" name="formLayout">
+         <item row="0" column="0">
+          <widget class="QLabel" name="label_8">
+           <property name="text">
+            <string>Payment type</string>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="1">
+          <widget class="QComboBox" name="cbPayment">
+           <item>
+            <property name="text">
+             <string>Cash</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Bank</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Flash</string>
+            </property>
+           </item>
+          </widget>
+         </item>
+         <item row="1" column="0">
+          <widget class="QLabel" name="label_9">
+           <property name="text">
+            <string>Amount</string>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="1">
+          <widget class="C5LineEdit" name="lePaid"/>
+         </item>
+         <item row="2" column="0">
+          <widget class="QLabel" name="label_10">
+           <property name="text">
+            <string>Invoice</string>
+           </property>
+          </widget>
+         </item>
+         <item row="2" column="1">
+          <widget class="C5LineEdit" name="leInvoiceNumber"/>
+         </item>
+        </layout>
        </widget>
       </item>
      </layout>
@@ -286,7 +337,6 @@
   <tabstop>leQty</tabstop>
   <tabstop>lePrice</tabstop>
   <tabstop>leTotal</tabstop>
-  <tabstop>cbPayment</tabstop>
   <tabstop>btnSave</tabstop>
   <tabstop>btnCancel</tabstop>
  </tabstops>

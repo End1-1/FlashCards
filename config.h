@@ -10,6 +10,7 @@
 #define FORMAT_TIME_TO_STR "HH:mm:ss"
 #define FORMAT_DATE_TO_STR_MYSQL "yyyy-MM-dd"
 #define float_str(value, f) QLocale().toString(value, 'f', f).remove(QRegExp("(?!\\d[\\.\\,][1-9]+)0+$")).remove(QRegExp("[\\.\\,]$"))
+#define str_float(value) QLocale().toDouble(value)
 #define hostinfo QHostInfo::localHostName().toLower()
 #define hostuser QString(getenv("USER")).isEmpty() ? getenv("USERNAME") : getenv("USER")
 

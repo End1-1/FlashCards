@@ -37,7 +37,10 @@
        </widget>
       </item>
       <item row="0" column="3">
-       <widget class="C5LineEdit" name="lineEdit_3">
+       <widget class="C5LineEdit" name="leFuelName">
+        <property name="focusPolicy">
+         <enum>Qt::NoFocus</enum>
+        </property>
         <property name="lvalue" stdset="0">
          <string>fuel</string>
         </property>
@@ -122,6 +125,11 @@
    <container>1</container>
   </customwidget>
  </customwidgets>
+ <tabstops>
+  <tabstop>leFuel</tabstop>
+  <tabstop>leFuelName</tabstop>
+  <tabstop>deDate</tabstop>
+ </tabstops>
  <resources/>
  <connections/>
 </ui>
