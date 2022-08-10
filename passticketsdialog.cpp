@@ -258,6 +258,7 @@ void PassTicketsDialog::openDoc(int id)
    ui->lePrice->setEnabled(false);
    ui->leQty->setEnabled(false);
    ui->btnSave->setVisible(false);
+   ui->btnPrint->setEnabled(true);
 
    C5Database db(__dbhost, __dbschema, __dbusername, __dbpassword);
    db[":fid"] = id;
@@ -649,11 +650,11 @@ void PassTicketsDialog::on_btnPrint_clicked()
     p.ltext(tr("Delivered tickets by type"), baseleft + sl + 50);
     p.br();
     points.clear();
-    points << baseleft << 100 << 300 << 150 << 200 << 250;
+    points << baseleft << 100 << 300 << 150 << 200 << 100 << 250;
     points2 = points;
     points2[0] = points2[0] + sl;
     vals.clear();
-    vals << tr("NN") << tr("Fuel") << tr("Type") << tr("Count") << tr("Count");
+    vals << tr("NN") << tr("Fuel") << tr("Type") << tr("Count") << "" << tr("Count");
     p.tableText(points, vals, p.fLineHeight + 30);
     p.tableText(points2, vals, p.fLineHeight + 30);
     p.br(p.fLineHeight + 20);
@@ -671,9 +672,9 @@ void PassTicketsDialog::on_btnPrint_clicked()
         vals << QString::number(r++)
              << db.getString("ffuelname")
              << db.getString("ftypename")
-             << float_str(db.getDouble("fmeas"), 2)
-             << QString::number(db.getInt("fcount"))
-             << float_str(db.getDouble("fqty"), 2);
+             << float_str(db.getDouble("fcount"), 2) + QString::fromUtf8(" հատ")
+             << ""
+             << float_str(db.getDouble("fqty"), 2) + QString::fromUtf8(" լիտր");
         p.tableText(points, vals, p.fLineHeight + 30);
         p.tableText(points2, vals, p.fLineHeight + 30);
         p.br(p.fLineHeight + 20);
@@ -681,11 +682,11 @@ void PassTicketsDialog::on_btnPrint_clicked()
         total += db.getDouble("fqty");
     }
     points.clear();
-    points << baseleft + 750 << 250;
+    points << baseleft + 850 << 250;
     points2 = points;
     points[0] = points[0] + sl;
     vals.clear();
-    vals << float_str(total, 2);
+    vals << float_str(total, 2) + QString::fromUtf8(" լիտր");
     p.tableText(points, vals, p.fLineHeight + 30);
     p.tableText(points2, vals, p.fLineHeight + 30);
     p.br(p.fLineHeight + 20);

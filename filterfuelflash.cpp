@@ -19,7 +19,7 @@ QString FilterFuelFlash::condition()
     QString w = " where  ";
     w += QString(" c.fdate between %1 and %2").arg(ui->leDate1->toMySQLDate(), ui->leDate2->toMySQLDate());
     if (!ui->leFuel->isEmpty()) {
-        w += " and ct.ffuel in (" + ui->leFuel->text() + ") ";
+        w += " and c.ffuel in (" + ui->leFuel->text() + ") ";
     }
     if (!ui->lePartner->isEmpty()) {
         w += " and c.fpartner in (" + ui->lePartner->text() + ") ";

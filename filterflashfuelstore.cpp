@@ -9,6 +9,7 @@ FilterFlashFuelStore::FilterFlashFuelStore(QWidget *parent) :
     ui->wc->enumLineEdit();
 }
 
+
 FilterFlashFuelStore::~FilterFlashFuelStore()
 {
     delete ui;

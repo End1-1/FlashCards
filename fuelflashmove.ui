@@ -17,10 +17,20 @@
    <item row="7" column="2">
     <widget class="WdtContainer" name="wc" native="true">
      <layout class="QGridLayout" name="gridLayout_2">
-      <item row="3" column="0">
-       <widget class="QLabel" name="label_3">
+      <item row="2" column="0">
+       <widget class="QLabel" name="label_4">
         <property name="text">
-         <string>Partner</string>
+         <string>Fuel</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="1">
+       <widget class="C5DateEdit" name="leDate">
+        <property name="maximumSize">
+         <size>
+          <width>120</width>
+          <height>16777215</height>
+         </size>
         </property>
        </widget>
       </item>
@@ -37,13 +47,33 @@
         </property>
        </widget>
       </item>
-      <item row="4" column="1">
-       <widget class="C5LineEdit" name="leQty">
+      <item row="3" column="0">
+       <widget class="QLabel" name="label_3">
+        <property name="text">
+         <string>Partner</string>
+        </property>
+       </widget>
+      </item>
+      <item row="5" column="0">
+       <widget class="QLabel" name="label_6">
+        <property name="text">
+         <string>Price</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="1">
+       <widget class="C5LineEdit" name="leCode">
         <property name="maximumSize">
          <size>
           <width>120</width>
           <height>16777215</height>
          </size>
+        </property>
+        <property name="focusPolicy">
+         <enum>Qt::NoFocus</enum>
+        </property>
+        <property name="readOnly">
+         <bool>true</bool>
         </property>
        </widget>
       </item>
@@ -54,16 +84,13 @@
         </property>
        </widget>
       </item>
-      <item row="2" column="2">
-       <widget class="C5LineEdit" name="leFuelName">
-        <property name="focusPolicy">
-         <enum>Qt::NoFocus</enum>
-        </property>
-        <property name="readOnly">
-         <bool>true</bool>
-        </property>
-        <property name="lvalue" stdset="0">
-         <string>fuel_flash</string>
+      <item row="6" column="1">
+       <widget class="C5LineEdit" name="leTotal">
+        <property name="maximumSize">
+         <size>
+          <width>120</width>
+          <height>16777215</height>
+         </size>
         </property>
        </widget>
       </item>
@@ -71,6 +98,13 @@
        <widget class="QLabel" name="label_2">
         <property name="text">
          <string>Date</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="0">
+       <widget class="QLabel" name="label">
+        <property name="text">
+         <string>Code</string>
         </property>
        </widget>
       </item>
@@ -87,17 +121,69 @@
         </property>
        </widget>
       </item>
-      <item row="0" column="2">
-       <widget class="QLineEdit" name="leMove">
-        <property name="focusPolicy">
-         <enum>Qt::NoFocus</enum>
-        </property>
-        <property name="readOnly">
-         <bool>true</bool>
+      <item row="6" column="0">
+       <widget class="QLabel" name="label_7">
+        <property name="text">
+         <string>Total</string>
         </property>
        </widget>
       </item>
-      <item row="8" column="0" colspan="3">
+      <item row="7" column="0" colspan="4">
+       <widget class="QGroupBox" name="gbPayment">
+        <property name="title">
+         <string>Payment</string>
+        </property>
+        <layout class="QFormLayout" name="formLayout">
+         <item row="0" column="0">
+          <widget class="QLabel" name="label_8">
+           <property name="text">
+            <string>Payment type</string>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="1">
+          <widget class="QComboBox" name="cbPayment">
+           <item>
+            <property name="text">
+             <string>Cash</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Bank</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Flash</string>
+            </property>
+           </item>
+          </widget>
+         </item>
+         <item row="1" column="0">
+          <widget class="QLabel" name="label_9">
+           <property name="text">
+            <string>Amount</string>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="1">
+          <widget class="C5LineEdit" name="lePaid"/>
+         </item>
+         <item row="2" column="0">
+          <widget class="QLabel" name="label_10">
+           <property name="text">
+            <string>Invoice</string>
+           </property>
+          </widget>
+         </item>
+         <item row="2" column="1">
+          <widget class="C5LineEdit" name="leInvoiceNumber"/>
+         </item>
+        </layout>
+       </widget>
+      </item>
+      <item row="8" column="0" colspan="4">
        <widget class="QWidget" name="widget_2" native="true">
         <layout class="QHBoxLayout" name="horizontalLayout">
          <property name="leftMargin">
@@ -165,7 +251,57 @@
         </layout>
        </widget>
       </item>
-      <item row="3" column="2">
+      <item row="5" column="1">
+       <widget class="C5LineEdit" name="lePrice">
+        <property name="maximumSize">
+         <size>
+          <width>120</width>
+          <height>16777215</height>
+         </size>
+        </property>
+       </widget>
+      </item>
+      <item row="4" column="1">
+       <widget class="C5LineEdit" name="leQty">
+        <property name="maximumSize">
+         <size>
+          <width>120</width>
+          <height>16777215</height>
+         </size>
+        </property>
+       </widget>
+      </item>
+      <item row="5" column="2">
+       <widget class="QLabel" name="label_11">
+        <property name="text">
+         <string>Discount</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="2" colspan="2">
+       <widget class="QLineEdit" name="leMove">
+        <property name="focusPolicy">
+         <enum>Qt::NoFocus</enum>
+        </property>
+        <property name="readOnly">
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="2" colspan="2">
+       <widget class="C5LineEdit" name="leFuelName">
+        <property name="focusPolicy">
+         <enum>Qt::NoFocus</enum>
+        </property>
+        <property name="readOnly">
+         <bool>true</bool>
+        </property>
+        <property name="lvalue" stdset="0">
+         <string>fuel_flash</string>
+        </property>
+       </widget>
+      </item>
+      <item row="3" column="2" colspan="2">
        <widget class="C5LineEdit" name="lePartnerName">
         <property name="focusPolicy">
          <enum>Qt::NoFocus</enum>
@@ -178,133 +314,14 @@
         </property>
        </widget>
       </item>
-      <item row="0" column="1">
-       <widget class="C5LineEdit" name="leCode">
-        <property name="maximumSize">
-         <size>
-          <width>120</width>
-          <height>16777215</height>
-         </size>
-        </property>
+      <item row="5" column="3">
+       <widget class="C5LineEdit" name="leDiscount">
         <property name="focusPolicy">
-         <enum>Qt::NoFocus</enum>
+         <enum>Qt::StrongFocus</enum>
         </property>
         <property name="readOnly">
-         <bool>true</bool>
+         <bool>false</bool>
         </property>
-       </widget>
-      </item>
-      <item row="5" column="1">
-       <widget class="C5LineEdit" name="lePrice">
-        <property name="maximumSize">
-         <size>
-          <width>120</width>
-          <height>16777215</height>
-         </size>
-        </property>
-       </widget>
-      </item>
-      <item row="5" column="0">
-       <widget class="QLabel" name="label_6">
-        <property name="text">
-         <string>Price</string>
-        </property>
-       </widget>
-      </item>
-      <item row="2" column="0">
-       <widget class="QLabel" name="label_4">
-        <property name="text">
-         <string>Fuel</string>
-        </property>
-       </widget>
-      </item>
-      <item row="6" column="0">
-       <widget class="QLabel" name="label_7">
-        <property name="text">
-         <string>Total</string>
-        </property>
-       </widget>
-      </item>
-      <item row="1" column="1">
-       <widget class="C5DateEdit" name="leDate">
-        <property name="maximumSize">
-         <size>
-          <width>120</width>
-          <height>16777215</height>
-         </size>
-        </property>
-       </widget>
-      </item>
-      <item row="0" column="0">
-       <widget class="QLabel" name="label">
-        <property name="text">
-         <string>Code</string>
-        </property>
-       </widget>
-      </item>
-      <item row="6" column="1">
-       <widget class="C5LineEdit" name="leTotal">
-        <property name="maximumSize">
-         <size>
-          <width>120</width>
-          <height>16777215</height>
-         </size>
-        </property>
-       </widget>
-      </item>
-      <item row="7" column="0" colspan="3">
-       <widget class="QGroupBox" name="gbPayment">
-        <property name="title">
-         <string>Payment</string>
-        </property>
-        <layout class="QFormLayout" name="formLayout">
-         <item row="0" column="0">
-          <widget class="QLabel" name="label_8">
-           <property name="text">
-            <string>Payment type</string>
-           </property>
-          </widget>
-         </item>
-         <item row="0" column="1">
-          <widget class="QComboBox" name="cbPayment">
-           <item>
-            <property name="text">
-             <string>Cash</string>
-            </property>
-           </item>
-           <item>
-            <property name="text">
-             <string>Bank</string>
-            </property>
-           </item>
-           <item>
-            <property name="text">
-             <string>Flash</string>
-            </property>
-           </item>
-          </widget>
-         </item>
-         <item row="1" column="0">
-          <widget class="QLabel" name="label_9">
-           <property name="text">
-            <string>Amount</string>
-           </property>
-          </widget>
-         </item>
-         <item row="1" column="1">
-          <widget class="C5LineEdit" name="lePaid"/>
-         </item>
-         <item row="2" column="0">
-          <widget class="QLabel" name="label_10">
-           <property name="text">
-            <string>Invoice</string>
-           </property>
-          </widget>
-         </item>
-         <item row="2" column="1">
-          <widget class="C5LineEdit" name="leInvoiceNumber"/>
-         </item>
-        </layout>
        </widget>
       </item>
      </layout>
@@ -336,8 +353,13 @@
   <tabstop>lePartner</tabstop>
   <tabstop>leQty</tabstop>
   <tabstop>lePrice</tabstop>
+  <tabstop>leDiscount</tabstop>
   <tabstop>leTotal</tabstop>
+  <tabstop>cbPayment</tabstop>
+  <tabstop>lePaid</tabstop>
+  <tabstop>leInvoiceNumber</tabstop>
   <tabstop>btnSave</tabstop>
+  <tabstop>btnPrint</tabstop>
   <tabstop>btnCancel</tabstop>
  </tabstops>
  <resources/>

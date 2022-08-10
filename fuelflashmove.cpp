@@ -13,6 +13,10 @@ FuelFlashMove::FuelFlashMove() :
 {
     ui->setupUi(this);
     ui->wc->enumLineEdit();
+    ui->leDiscount->setValidator(new QDoubleValidator(0, 999999,2));
+    ui->lePaid->setValidator(new QDoubleValidator(0, 999999,2));
+    ui->leTotal->setValidator(new QDoubleValidator(0, 999999,2));
+    ui->lePrice->setValidator(new QDoubleValidator(0, 99999999, 2));
 }
 
 FuelFlashMove::~FuelFlashMove()
@@ -120,6 +124,7 @@ void FuelFlashMove::on_btnSave_clicked()
     db[":fpaymenttype"] = ui->cbPayment->currentIndex();
     db[":fqty"] = ui->leQty->getDouble();
     db[":fprice"] = ui->lePrice->getDouble();
+    db[":fdiscount"] = ui->leDiscount->getDouble();
     db[":ftotal"] = ui->leTotal->getDouble();
     if (ui->leCode->getInteger() == 0) {
         ui->leCode->setInteger(db.insert("fuel_move"));
@@ -224,7 +229,7 @@ void FuelFlashMove::on_btnPrint_clicked()
 
     C5Database db(__dbhost, __dbschema, __dbusername, __dbpassword);
     db[":fdoc"] = fDocNumber;
-    db.exec("SELECT f.fname, 0 as fpricediscount, m.fprice, m.fqty, m.ftotal "
+    db.exec("SELECT f.fname, m.fdiscount as fpricediscount, m.fprice, m.fqty, m.ftotal "
             "FROM fuel_move m "
             "left join fuel_flash f on f.fid=m.ffuel "
             "WHERE m.fdoc=:fdoc ");
