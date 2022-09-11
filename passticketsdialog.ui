@@ -788,7 +788,7 @@
        </widget>
       </item>
       <item row="2" column="1">
-       <widget class="C5DateEdit" name="leInvoiceNumber">
+       <widget class="C5LineEdit" name="leInvoiceNumber">
         <property name="sizePolicy">
          <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
           <horstretch>1</horstretch>

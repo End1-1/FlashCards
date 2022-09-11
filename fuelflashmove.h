@@ -23,14 +23,19 @@ private slots:
     void on_leQty_textEdited(const QString &arg1);
     void on_lePrice_textEdited(const QString &arg1);
     void on_leTotal_textEdited(const QString &arg1);
-
     void on_btnPrint_clicked();
+    void on_leInitialPrice_textChanged(const QString &arg1);
+    void on_leDiscount_textChanged(const QString &arg1);
+    void on_btnAddRow_clicked();
+
+    void on_btnRemoveRow_clicked();
 
 private:
     Ui::FuelFlashMove *ui;
     int fMove;
     QString fTransaction;
     int fDocNumber;
+    void countTotal();
 };
 
 #endif // FUELFLASHMOVE_H

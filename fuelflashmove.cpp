@@ -71,11 +71,8 @@ void FuelFlashMove::on_btnCancel_clicked()
 void FuelFlashMove::on_btnSave_clicked()
 {
     QString err;
-    if (ui->leQty->getDouble() < 0.001) {
-        err +=  "<br>" + tr("Quantity is not defined");
-    }
-    if (ui->leFuel->getInteger() == 0) {
-        err += "<br>" + tr("Fuel type is not defined");
+    if (ui->tbl->rowCount() < 1) {
+        err += tr("Empty document");
     }
     if (!err.isEmpty()) {
         C5Message::error(err);
@@ -115,25 +112,23 @@ void FuelFlashMove::on_btnSave_clicked()
             return;
         }
     }
-    db[":fstate"] = fMove;
-    db[":fdoc"] = fDocNumber;
-    db[":fsign"] = fMove == 1 ? 1 : -1;
-    db[":ffuel"] = ui->leFuel->getInteger();
-    db[":fdate"] = ui->leDate->date();
-    db[":fpartner"] = ui->lePartner->getInteger();
-    db[":fpaymenttype"] = ui->cbPayment->currentIndex();
-    db[":fqty"] = ui->leQty->getDouble();
-    db[":fprice"] = ui->lePrice->getDouble();
-    db[":fdiscount"] = ui->leDiscount->getDouble();
-    db[":ftotal"] = ui->leTotal->getDouble();
-    if (ui->leCode->getInteger() == 0) {
-        ui->leCode->setInteger(db.insert("fuel_move"));
-    } else {
-        db.update("fuel_move", where_id(ui->leCode->text()));
+    for (int i = 0; i < ui->tbl->rowCount(); i++) {
+        db[":fstate"] = fMove;
+        db[":fdoc"] = fDocNumber;
+        db[":fsign"] = fMove == 1 ? 1 : -1;
+        db[":ffuel"] = ui->tbl->getInteger(i, 0);
+        db[":fdate"] = ui->leDate->date();
+        db[":fpartner"] = ui->lePartner->getInteger();
+        db[":fpaymenttype"] = ui->cbPayment->currentIndex();
+        db[":fqty"] = ui->tbl->getDouble(i, 2);
+        db[":fprice"] = ui->tbl->getDouble(i, 3);
+        db[":fdiscount"] = ui->tbl->getDouble(i, 4);
+        db[":ftotal"] = ui->tbl->getDouble(i, 5);
+        db.insert("fuel_move");
+        db[":fid"] = ui->tbl->getInteger(i, 0);
+        db[":fqty"] = ui->tbl->getDouble(i, 2);
+        db.exec("update fuel_flash set fqty=fqty-:fqty where fid=:fid");
     }
-    db[":fid"] = ui->leFuel->getInteger();
-    db[":fqty"] = ui->leQty->getDouble();
-    db.exec("update fuel_flash set fqty=fqty-:fqty where fid=:fid");
     db.commit();
     ui->btnSave->setEnabled(false);
     ui->btnPrint->setEnabled(true);
@@ -147,6 +142,7 @@ void FuelFlashMove::on_leQty_textEdited(const QString &arg1)
 
 void FuelFlashMove::on_lePrice_textEdited(const QString &arg1)
 {
+    ui->leInitialPrice->setDouble(arg1.toDouble() + ui->leDiscount->getDouble());
     ui->leTotal->setDouble(arg1.toDouble() * ui->leQty->getDouble());
 }
 
@@ -154,6 +150,7 @@ void FuelFlashMove::on_leTotal_textEdited(const QString &arg1)
 {
     if (ui->leQty->getDouble() > 0.001) {
         ui->lePrice->setDouble(arg1.toDouble() / ui->leQty->getDouble());
+        ui->leInitialPrice->setDouble(arg1.toDouble() + ui->leDiscount->getDouble());
     }
 }
 
@@ -283,4 +280,53 @@ void FuelFlashMove::on_btnPrint_clicked()
 
     C5PrintPreview pp(&p, this);
     pp.exec();
+}
+
+void FuelFlashMove::on_leInitialPrice_textChanged(const QString &arg1)
+{
+    ui->lePrice->setDouble(arg1.toDouble() - ui->leDiscount->getDouble());
+    on_lePrice_textEdited(ui->lePrice->text());
+}
+
+void FuelFlashMove::on_leDiscount_textChanged(const QString &arg1)
+{
+    ui->lePrice->setDouble(ui->leInitialPrice->getDouble() - arg1.toDouble());
+    on_lePrice_textEdited(ui->lePrice->text());
+}
+
+void FuelFlashMove::on_btnAddRow_clicked()
+{
+    int r = ui->tbl->addEmptyRow();
+    ui->tbl->setInteger(r, 0, ui->leFuel->getInteger());
+    ui->tbl->setString(r, 1, ui->leFuelName->text());
+    ui->tbl->setDouble(r, 2, ui->leQty->getDouble());
+    ui->tbl->setDouble(r, 3, ui->leInitialPrice->getDouble());
+    ui->tbl->setDouble(r, 4, ui->leDiscount->getDouble());
+    ui->tbl->setDouble(r, 5, (ui->leInitialPrice->getDouble() - ui->leDiscount->getDouble()) * ui->leQty->getDouble());
+    countTotal();
+    ui->leFuel->clear();
+    ui->leInitialPrice->clear();
+    ui->leQty->clear();
+    ui->lePrice->clear();
+    ui->leDiscount->clear();
+    ui->leTotal->clear();
+}
+
+void FuelFlashMove::countTotal()
+{
+    double t = 0;
+    for (int i = 0; i < ui->tbl->rowCount(); i++) {
+        t += ui->tbl->getDouble(i, 5);
+    }
+    ui->ltTotal->setDouble(t);
+}
+
+void FuelFlashMove::on_btnRemoveRow_clicked()
+{
+    int r = ui->tbl->currentRow();
+    if (r < 0) {
+        return;
+    }
+    ui->tbl->removeRow(r);
+    countTotal();
 }

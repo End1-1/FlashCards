@@ -167,7 +167,8 @@ void PassTicketsDialog::getListOfTickets(C5Database &db, QString &err, bool proc
                 db[":fpricediscount"] = ui->tbl->getDouble(i, 9);
                 db[":fpartnertrans"] = fTransaction;
                 db[":fpaymenttype"] = ui->cbPaymentType->currentIndex() + 1;
-                db.exec("update cards set fstate=:fstate, fpartner=:fpartner, fpartnerdate=current_date, fprice=:fprice, "
+                db[":fpartnerdate"] = ui->leDocDate->date();
+                db.exec("update cards set fstate=:fstate, fpartner=:fpartner, fpartnerdate=:fpartnerdate, fprice=:fprice, "
                         "fpartnertrans=:fpartnertrans, fpricediscount=:fpricediscount where fcode=:fcode and fstate=1 ");
                 if (db.fAffectedRows != 1) {
                     notPassed++;
@@ -309,7 +310,8 @@ void PassTicketsDialog::on_btnSave_clicked()
         fTransaction = db.uuid();
         db[":fcompany"] = 1;
         db[":fdoctype"] = DOCTYPE_PASSTICKET;
-        db[":fdatecreate"] = QDate::currentDate();
+        //db[":fdatecreate"] = QDate::currentDate();
+        db[":fdatecreate"] = ui->leDocDate->date();
         db[":ftimecreate"] = QTime::currentTime();
         db[":ftransaction"] = fTransaction;
         db[":fpaymenttype"] = ui->cbPaymentType->currentIndex() + 1;
@@ -317,7 +319,8 @@ void PassTicketsDialog::on_btnSave_clicked()
         db[":finvoice"] = ui->leInvoiceNumber->text();
         ui->leDocNumber->setInteger(db.insert("docs", true));
 
-        db[":fdate"] = QDate::currentDate();
+        //db[":fdate"] = QDate::currentDate();
+        db[":fdate"] =ui->leDocDate->date();
         db[":fdoc"] = ui->leDocNumber->getInteger();
         db[":fpartner"] = ui->lePartner->getInteger();
         db[":fdebet"] = ui->lePaid->getDouble();
@@ -326,6 +329,8 @@ void PassTicketsDialog::on_btnSave_clicked()
     }
     db[":fid"] = fTransaction;
     db[":fuser"] = __userid;
+    db[":fdate"] = QDate::currentDate();
+    db[":ftime"] = QTime::currentTime();
     if (!db.insert("transactions")) {
         db.rollback();
         C5Message::error(db.fLastError);

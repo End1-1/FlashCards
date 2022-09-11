@@ -934,9 +934,6 @@
     </widget>
    </item>
    <item>
-    <widget class="QDateTimeEdit" name="dateTimeEdit"/>
-   </item>
-   <item>
     <spacer name="horizontalSpacer">
      <property name="focusPolicy">
       <enum>Qt::NoFocus</enum>
