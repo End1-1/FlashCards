@@ -154,6 +154,12 @@ void C5Grid::buildQuery()
             fSqlQuery += fHavindCondition;
         }
     }
+    if (fFilterWidget) {
+        for (QMap<QString, QString>::const_iterator ir = fFilterWidget->replaces().constBegin();
+             ir != fFilterWidget->replaces().constEnd(); ir++) {
+            fSqlQuery.replace(ir.key(), ir.value());
+        }
+    }
     fModel->translate(fTranslation);
     refreshData();
 }

@@ -614,7 +614,7 @@ void PassTicketsDialog::on_btnPrint_clicked()
 
     C5Database db(__dbhost, __dbschema, __dbusername, __dbpassword);
     db[":fpartnertrans"] = fTransaction;
-    db.exec("SELECT f.fname, c.fpricediscount, c.fprice, SUM(ct.fmeas) as fmeas, SUM(ct.fmeas*c.fprice) as famount "
+    db.exec("SELECT f.fname, c.fpricediscount, c.fprice+c.fpricediscount as fprice, SUM(ct.fmeas) as fmeas, SUM(ct.fmeas*c.fprice) as famount "
             "FROM cards c "
             "LEFT JOIN cards_types ct ON ct.fid=c.ftype "
             "LEFT JOIN fuel_flash f ON f.fid=ct.ffuel "

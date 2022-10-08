@@ -101,7 +101,7 @@ void FuelFlashMove::on_btnSave_clicked()
         db[":fdoc"] = fDocNumber;
         db[":fpartner"] = ui->lePartner->getInteger();
         db[":fdebet"] = ui->lePaid->getDouble();
-        db[":fcredit"] = ui->leTotal->getDouble();
+        db[":fcredit"] = ui->ltTotal->getDouble();
         db.insert("debts", false);
 
         db[":fid"] = fTransaction;

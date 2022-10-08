@@ -25,6 +25,7 @@
 #include "wdtflashautoinput.h"
 #include "wdtfuelprices.h"
 #include "wdtsaledocs.h"
+#include "wdtamount3.h"
 #include "wdtdebtshistory.h"
 
 WdtHome::WdtHome(const QIcon &icon, const QString &label, QWidget *parent) :
@@ -183,4 +184,9 @@ void WdtHome::on_btnDebtsHistory_clicked()
 void WdtHome::on_btnInputFuel_clicked()
 {
     AutoinputDoc().newDoc().exec();
+}
+
+void WdtHome::on_btnMoney3_clicked()
+{
+    __parent->addWidget<WdtAmount3>(static_cast<QToolButton *>(sender()));
 }

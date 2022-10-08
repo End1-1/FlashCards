@@ -18,6 +18,7 @@ public:
     virtual QString conditionText() override;
     virtual QString filterString() override;
     void setFuel(const QString &v);
+    virtual QMap<QString, QString> replaces() override;
 private:
     Ui::FilterAmount1 *ui;
 };

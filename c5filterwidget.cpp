@@ -149,6 +149,11 @@ void C5FilterWidget::clearFilter(QWidget *parent)
     saveFilter(this);
 }
 
+QMap<QString, QString> C5FilterWidget::replaces()
+{
+    return fReplaceData;
+}
+
 void C5FilterWidget::concat(C5LineEdit *l1, C5LineEdit *l2, const QString &title, QString &v1)
 {
     if (!l1->isEmpty()) {

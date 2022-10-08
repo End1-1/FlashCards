@@ -18,8 +18,10 @@ public:
     virtual void saveFilter(QWidget *parent);
     virtual void restoreFilter(QWidget *parent);
     virtual void clearFilter(QWidget *parent);
+    virtual QMap<QString, QString> replaces() ;
 
 protected:
+    QMap<QString, QString> fReplaceData;
     void concat(C5LineEdit *l1, C5LineEdit *l2, const QString &title, QString &v1);
 
 private:

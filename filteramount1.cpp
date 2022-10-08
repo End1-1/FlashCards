@@ -16,12 +16,9 @@ FilterAmount1::~FilterAmount1()
 
 QString FilterAmount1::condition()
 {
-    QString w = " where c.fid>0 ";
+    QString w = " where c.fid is not null ";
     if (!ui->leFuel->isEmpty()) {
         w += " and ct.ffuel in (" + ui->leFuel->text() + ") ";
-    }
-    if (!ui->deDate->isEmpty()) {
-        w += " and year(c.fissuedate) in (" + ui->deDate->text() + ") ";
     }
     return w;
 }
@@ -30,18 +27,16 @@ QString FilterAmount1::conditionText()
 {
     QString where;
     if (!ui->leFuel->isEmpty()) {
-        where += QString("%1: %2").arg(tr("Fuel")).arg(ui->leFuelName->text());
+        where += QString("%1: %2").arg(tr("Fuel"), ui->leFuelName->text());
     }
-    if (!ui->deDate->isEmpty()) {
-        where += QString("%1: %2").arg(tr("Year")).arg(ui->deDate->text());
-    }
+    where += QString("%1: %2").arg(tr("Date"), ui->deDate->text());
     return where;
 }
 
 QString FilterAmount1::filterString()
 {
     QString f;
-    concat(ui->deDate, nullptr, tr("Year"), f);
+    concat(ui->deDate, nullptr, tr("Date"), f);
     concat(ui->leFuel, ui->leFuelName, tr("Fuel"), f);
     return f;
 }
@@ -49,4 +44,10 @@ QString FilterAmount1::filterString()
 void FilterAmount1::setFuel(const QString &v)
 {
     ui->wc->setKey(ui->leFuel, v);
+}
+
+QMap<QString, QString> FilterAmount1::replaces()
+{
+    fReplaceData["%date%"] = ui->deDate->toMySQLDate();
+    return fReplaceData;
 }

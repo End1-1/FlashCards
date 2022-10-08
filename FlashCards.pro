@@ -103,6 +103,8 @@ SOURCES += \
         wdtalltickets2.cpp \
         wdtamount1.cpp \
         wdtamount2.cpp \
+        wdtamount3.cpp \
+        wdtamount3filter.cpp \
         wdtcardtypes.cpp \
         wdtcontainer.cpp \
         wdtdebts.cpp \
@@ -203,6 +205,8 @@ HEADERS += \
     wdtalltickets2.h \
     wdtamount1.h \
     wdtamount2.h \
+    wdtamount3.h \
+    wdtamount3filter.h \
     wdtcardtypes.h \
     wdtcontainer.h \
     wdtdebts.h \
@@ -262,6 +266,7 @@ FORMS += \
     wdbfuelflash.ui \
     wdbpartner.ui \
     wdbtickettype.ui \
+    wdtamount3filter.ui \
     wdthome.ui
 
 DEFINES += _DBDRIVER_=\\\"QMYSQL\\\"

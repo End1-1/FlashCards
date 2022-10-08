@@ -70,6 +70,8 @@ private slots:
 
     void on_btnInputFuel_clicked();
 
+    void on_btnMoney3_clicked();
+
 private:
     Ui::WdtHome *ui;
 };
