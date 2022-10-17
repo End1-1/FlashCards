@@ -26,6 +26,7 @@
 #include "wdtfuelprices.h"
 #include "wdtsaledocs.h"
 #include "wdtamount3.h"
+#include "wdtrangemovement.h"
 #include "wdtdebtshistory.h"
 
 WdtHome::WdtHome(const QIcon &icon, const QString &label, QWidget *parent) :
@@ -189,4 +190,9 @@ void WdtHome::on_btnInputFuel_clicked()
 void WdtHome::on_btnMoney3_clicked()
 {
     __parent->addWidget<WdtAmount3>(static_cast<QToolButton *>(sender()));
+}
+
+void WdtHome::on_btnRange1_clicked()
+{
+    __parent->addWidget<WdtRangeMovement>(static_cast<QToolButton *>(sender()));
 }

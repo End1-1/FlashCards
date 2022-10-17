@@ -89,6 +89,8 @@ public:
 
     QList<QList<QVariant> > fRawData;
 
+    void clearModel();
+
 private:
     C5Database &fDb;
 
@@ -115,8 +117,6 @@ private:
     QMap<int, QMap<QString, QVariant> > fAddDataToUpdate;
 
     QMap<int, QString> fFilters;
-
-    void clearModel();
 
     inline QVariant dataDisplay(int row, int column) const;
 

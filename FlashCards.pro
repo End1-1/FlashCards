@@ -8,6 +8,9 @@ QT       += core gui sql network printsupport
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
+RESOURCES += \
+    res.qrc
+
 TARGET = APCards
 TEMPLATE = app
 
@@ -119,6 +122,8 @@ SOURCES += \
         wdthome.cpp \
         wdticketsbyone.cpp \
         wdtpartners.cpp \
+        wdtrangemovement.cpp \
+        wdtrangemovementfilter.cpp \
         wdtreppartners2.cpp \
         wdtreppartners1.cpp \
         wdtreppartners3.cpp \
@@ -221,6 +226,8 @@ HEADERS += \
     wdthome.h \
     wdticketsbyone.h \
     wdtpartners.h \
+    wdtrangemovement.h \
+    wdtrangemovementfilter.h \
     wdtreppartners2.h \
     wdtreppartners1.h \
     wdtreppartners3.h \
@@ -267,14 +274,12 @@ FORMS += \
     wdbpartner.ui \
     wdbtickettype.ui \
     wdtamount3filter.ui \
-    wdthome.ui
+    wdthome.ui \
+    wdtrangemovementfilter.ui
 
 DEFINES += _DBDRIVER_=\\\"QMYSQL\\\"
 DEFINES += _ORGANIZATION_=\\\"ArmPetrol\\\"
 DEFINES += _APPLICATION_=\\\"ArmPetrolCards\\\"
 DEFINES += _MODULE_=\\\"ArmPetrolCards\\\"
-
-RESOURCES += \
-    res.qrc
 
 INCLUDEPATH += c:/projects/xlsx/src

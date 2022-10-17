@@ -21,6 +21,7 @@ class C5FilterWidget;
 class WdbWidget;
 class C5LineEdit;
 class C5TableWidget;
+class QLabel;
 
 class C5Grid : public WdtWidget
 {
@@ -40,6 +41,7 @@ public:
     virtual void setCheckboxes(bool v);
     virtual void hkFind() override;
     virtual void hkEscape() override;
+    QLabel *lbFilter();
 
 public slots:
     virtual void buildQuery();

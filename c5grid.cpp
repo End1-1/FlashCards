@@ -154,12 +154,6 @@ void C5Grid::buildQuery()
             fSqlQuery += fHavindCondition;
         }
     }
-    if (fFilterWidget) {
-        for (QMap<QString, QString>::const_iterator ir = fFilterWidget->replaces().constBegin();
-             ir != fFilterWidget->replaces().constEnd(); ir++) {
-            fSqlQuery.replace(ir.key(), ir.value());
-        }
-    }
     fModel->translate(fTranslation);
     refreshData();
 }
@@ -191,6 +185,11 @@ void C5Grid::hkEscape()
 {
     fFilterLineEdit->clear();
     widget()->setVisible(false);
+}
+
+QLabel *C5Grid::lbFilter()
+{
+    return ui->lbFilter;
 }
 
 QWidget *C5Grid::widget()
@@ -770,6 +769,35 @@ void C5Grid::exportToExcel()
             s->addCell(j + 2, i + 1, fModel->data(j, i, Qt::EditRole), d.style()->styleNum(bgStyle));
         }
     }
+
+    /* MERGE cells */
+    QMap<int, QList<int> > skiprow, skipcol;
+    for (int r = 0; r < rowCount; r++) {
+        for (int c = 0; c < colCount; c++) {
+            if (fTableView->columnSpan(r, c) > 1 || fTableView->rowSpan(r, c) > 1) {
+                int rs = -1, cs = -1;
+                if (fTableView->columnSpan(r, c) > 1 && skipcol[r].contains(c) == false) {
+                    cs = fTableView->columnSpan(r, c) - 1;
+                    for (int i = c + 1; i < c + cs + 1; i++) {
+                        skipcol[r].append(i);
+                    }
+                }
+                if (fTableView->rowSpan(r, c) > 1 && skiprow[c].contains(r) == false) {
+                    rs = fTableView->rowSpan(r, c) - 1;
+                    for (int i = r + 1; i < r + rs + 1; i++) {
+                        skiprow[c].append(i);
+                    }
+                }
+                if (rs == -1 && cs == -1) {
+                    continue;
+                }
+                rs = rs < 0 ? 0 : rs;
+                cs = cs < 0 ? 0 : cs;
+                s->setSpan(r + 2, c + 1, r + 2 + rs, c + 1 + cs);
+            }
+        }
+    }
+
     /* TOTALS ROWS */
     if (ui->tblTotal->isVisible()) {
         QFont totalFont(qApp->font());
@@ -909,6 +937,12 @@ void C5Grid::refreshData()
         }
         if (!fOrderCondition.isEmpty()) {
             sqlQuery += fOrderCondition;
+        }
+    }
+    if (fFilterWidget) {
+        for (QMap<QString, QString>::const_iterator ir = fFilterWidget->replaces().constBegin();
+             ir != fFilterWidget->replaces().constEnd(); ir++) {
+            sqlQuery.replace(ir.key(), ir.value());
         }
     }
     fModel->setCheckboxes(fCheckboxes);

@@ -72,6 +72,8 @@ private slots:
 
     void on_btnMoney3_clicked();
 
+    void on_btnRange1_clicked();
+
 private:
     Ui::WdtHome *ui;
 };

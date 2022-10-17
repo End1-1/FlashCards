@@ -313,50 +313,50 @@
         <translation>Արտահանել Excel</translation>
     </message>
     <message>
-        <location filename="c5grid.cpp" line="219"/>
-        <location filename="c5grid.cpp" line="229"/>
-        <location filename="c5grid.cpp" line="573"/>
+        <location filename="c5grid.cpp" line="218"/>
+        <location filename="c5grid.cpp" line="228"/>
+        <location filename="c5grid.cpp" line="572"/>
         <source>Nothing was selected</source>
         <translation>Ոչինչ նշված չէ</translation>
     </message>
     <message>
-        <location filename="c5grid.cpp" line="346"/>
+        <location filename="c5grid.cpp" line="345"/>
         <source>Filter</source>
         <translation>Ֆիլտր</translation>
     </message>
     <message>
-        <location filename="c5grid.cpp" line="348"/>
+        <location filename="c5grid.cpp" line="347"/>
         <source>Copy selection</source>
         <translation>Պատճենել նշվածը</translation>
     </message>
     <message>
-        <location filename="c5grid.cpp" line="349"/>
+        <location filename="c5grid.cpp" line="348"/>
         <source>Copy all</source>
         <translation>Պատճենել բոլորը</translation>
     </message>
     <message>
-        <location filename="c5grid.cpp" line="675"/>
-        <location filename="c5grid.cpp" line="709"/>
+        <location filename="c5grid.cpp" line="674"/>
+        <location filename="c5grid.cpp" line="708"/>
         <source>Printed</source>
         <translation>Տպված է</translation>
     </message>
     <message>
-        <location filename="c5grid.cpp" line="739"/>
+        <location filename="c5grid.cpp" line="738"/>
         <source>Empty report!</source>
         <translation>Դատարկ հաշվետվություն</translation>
     </message>
     <message>
-        <location filename="c5grid.cpp" line="838"/>
+        <location filename="c5grid.cpp" line="866"/>
         <source>Set filter</source>
         <translation>Ֆիլտր</translation>
     </message>
     <message>
-        <location filename="c5grid.cpp" line="839"/>
+        <location filename="c5grid.cpp" line="867"/>
         <source>Remove filter</source>
         <translation>Հեռացնել ֆիլտրը</translation>
     </message>
     <message>
-        <location filename="c5grid.cpp" line="840"/>
+        <location filename="c5grid.cpp" line="868"/>
         <source>Autofit columns widths</source>
         <translation>Ավտոմատ սյունի լայնություն</translation>
     </message>
@@ -3395,14 +3395,14 @@ remain</source>
         <translation>Ֆլեշ վառելիքի պահեստ</translation>
     </message>
     <message>
-        <location filename="wdthome.ui" line="813"/>
-        <source>Fuel</source>
-        <translation>Վառելիք</translation>
+        <location filename="wdthome.ui" line="779"/>
+        <source>Range movement</source>
+        <translation>Շարժ ըստ ժամանակահատվածի</translation>
     </message>
     <message>
         <location filename="wdthome.ui" line="842"/>
-        <source>Fuel flash</source>
-        <translation>Վառելիք Ֆլեշ</translation>
+        <source>Fuel</source>
+        <translation>Վառելիք</translation>
     </message>
     <message>
         <location filename="wdthome.ui" line="871"/>
@@ -3469,7 +3469,7 @@ remain</source>
         <translation>Գումար 2</translation>
     </message>
     <message>
-        <location filename="wdthome.ui" line="798"/>
+        <location filename="wdthome.ui" line="827"/>
         <source>Index</source>
         <translation>Տեղեկատուներ</translation>
     </message>
@@ -3508,6 +3508,125 @@ remain</source>
         <location filename="wdtpartners.cpp" line="10"/>
         <source>Edit partner</source>
         <translation>Խմբագրել գործընկերը</translation>
+    </message>
+</context>
+<context>
+    <name>WdtRangeMovement</name>
+    <message>
+        <location filename="wdtrangemovement.cpp" line="14"/>
+        <source>Filter</source>
+        <translation>Ֆիլտր</translation>
+    </message>
+    <message>
+        <location filename="wdtrangemovement.cpp" line="28"/>
+        <source>Partner code</source>
+        <translation>Գործընկերող կոդ</translation>
+    </message>
+    <message>
+        <location filename="wdtrangemovement.cpp" line="29"/>
+        <location filename="wdtrangemovement.cpp" line="146"/>
+        <source>Partner</source>
+        <translation>Գործընկեր</translation>
+    </message>
+    <message>
+        <location filename="wdtrangemovement.cpp" line="30"/>
+        <source>Fuel code</source>
+        <translation>Վառելիքի կոդ</translation>
+    </message>
+    <message>
+        <location filename="wdtrangemovement.cpp" line="31"/>
+        <location filename="wdtrangemovement.cpp" line="147"/>
+        <source>Fuel</source>
+        <translation>Վառելիք</translation>
+    </message>
+    <message>
+        <location filename="wdtrangemovement.cpp" line="40"/>
+        <location filename="wdtrangemovement.cpp" line="150"/>
+        <source>Remain</source>
+        <translation>Մնացորդ</translation>
+    </message>
+    <message>
+        <location filename="wdtrangemovement.cpp" line="41"/>
+        <source>Debt</source>
+        <translation>Պարտք</translation>
+    </message>
+    <message>
+        <location filename="wdtrangemovement.cpp" line="148"/>
+        <source>Quantity, in</source>
+        <translation>Քանակ, մուտք</translation>
+    </message>
+    <message>
+        <location filename="wdtrangemovement.cpp" line="149"/>
+        <source>Quantity, out</source>
+        <translation>Քանակ, ելք</translation>
+    </message>
+    <message>
+        <location filename="wdtrangemovement.cpp" line="151"/>
+        <source>Balance</source>
+        <translation>Բալանս</translation>
+    </message>
+    <message>
+        <location filename="wdtrangemovement.cpp" line="152"/>
+        <location filename="wdtrangemovement.cpp" line="156"/>
+        <source>5</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="wdtrangemovement.cpp" line="153"/>
+        <location filename="wdtrangemovement.cpp" line="157"/>
+        <source>10</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="wdtrangemovement.cpp" line="154"/>
+        <location filename="wdtrangemovement.cpp" line="158"/>
+        <source>20</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="wdtrangemovement.cpp" line="155"/>
+        <location filename="wdtrangemovement.cpp" line="159"/>
+        <source>40</source>
+        <translation></translation>
+    </message>
+</context>
+<context>
+    <name>WdtRangeMovementFilter</name>
+    <message>
+        <location filename="wdtrangemovementfilter.ui" line="14"/>
+        <source>Form</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="wdtrangemovementfilter.ui" line="17"/>
+        <source>date2</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="wdtrangemovementfilter.ui" line="26"/>
+        <source>date1</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="wdtrangemovementfilter.ui" line="33"/>
+        <location filename="wdtrangemovementfilter.cpp" line="24"/>
+        <source>Date range</source>
+        <translation>Ժամանակաշրջան</translation>
+    </message>
+    <message>
+        <location filename="wdtrangemovementfilter.ui" line="53"/>
+        <source>Debt show mode</source>
+        <translation>Պարքը ցուցադրելու ռեժիմ</translation>
+    </message>
+    <message>
+        <location filename="wdtrangemovementfilter.ui" line="64"/>
+        <source>Show only in selected range</source>
+        <translation>Ցույց տալ գործարքները նշված ժամանակաշրջանում</translation>
+    </message>
+    <message>
+        <location filename="wdtrangemovementfilter.ui" line="69"/>
+        <source>Show actual on date end</source>
+        <translation>Ցույց տալ ակտուալ պարքը նշված ժամանակաշրջանի վերջում</translation>
     </message>
 </context>
 <context>

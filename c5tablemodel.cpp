@@ -253,7 +253,7 @@ void C5TableModel::insertRow(int row)
     for (int i = 0; i < fColumnIndexName.count(); i++) {
         emptyRow << QVariant();
     }
-    fRawData.insert(row + 1, emptyRow);
+    fRawData.insert(row, emptyRow);
     fProxyData.clear();
     for (int i = 0, count = fRawData.count(); i < count; i++) {
         fProxyData << i;
@@ -285,6 +285,10 @@ void C5TableModel::removeRow(int row, const QModelIndex &parent)
 {
     beginRemoveRows(parent, row, row);
     fRawData.removeAt(fProxyData.at(row));
+    for (int i = row; i < fProxyData.count() - 1; i++) {
+        fProxyData[i] = fProxyData[i + 1] - 1;
+    }
+    fProxyData.removeLast();
     endRemoveRows();
 }
 
@@ -443,6 +447,7 @@ void C5TableModel::filterData()
 
 void C5TableModel::clearModel()
 {
+    beginResetModel();
     fProxyData.clear();
     fRawData.clear();
     fColumnNameIndex.clear();
@@ -451,6 +456,7 @@ void C5TableModel::clearModel()
     fAddDataToUpdate.clear();
     fColorData.clear();
     fFilters.clear();
+    endResetModel();
 }
 
 QVariant C5TableModel::dataDisplay(int row, int column) const
