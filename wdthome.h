@@ -74,6 +74,10 @@ private slots:
 
     void on_btnRange1_clicked();
 
+    void on_btnChangePassword_clicked();
+
+    void on_btnTotalReport_clicked();
+
 private:
     Ui::WdtHome *ui;
 };

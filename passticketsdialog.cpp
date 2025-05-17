@@ -88,7 +88,6 @@ void PassTicketsDialog::on_leEndCode_returnPressed()
             return;
         }
     }
-
     db[":fcode"] = ui->leEndCode->text();
     db.exec("select fid, fnum, fstate, fissuetrans from cards where fcode=:fcode");
     int fid2 = 0;
@@ -100,7 +99,6 @@ void PassTicketsDialog::on_leEndCode_returnPressed()
             return;
         }
     }
-
     if (fid1 == 0) {
         C5Message::error(tr("Start code error"));
         return;
@@ -113,10 +111,8 @@ void PassTicketsDialog::on_leEndCode_returnPressed()
         C5Message::error(tr("End code cannot be greater than start code"));
         return;
     }
-
     ui->leCount->setInteger(fid2 - fid1 + 1);
-    ui->leQty->setDouble(ui->leCount->getInteger() * litr);
-
+    ui->leQty->setDouble(ui->leCount->getInteger() *litr);
     db[":fid1"] = fid1;
     db[":fid2"] = fid2;
     db.exec("select * from cards where fid between :fid1 and :fid2 order by fid");
@@ -138,7 +134,7 @@ void PassTicketsDialog::on_leEndCode_returnPressed()
             return;
         }
     }
-    ui->leAmount->setDouble(ui->leQty->getDouble() * ui->lePrice->getDouble());
+    ui->leAmount->setDouble(ui->leQty->getDouble() *ui->lePrice->getDouble());
 }
 
 void PassTicketsDialog::getListOfTickets(C5Database &db, QString &err, bool process)
@@ -146,12 +142,11 @@ void PassTicketsDialog::getListOfTickets(C5Database &db, QString &err, bool proc
     if (ui->lePartner->isEmpty()) {
         err += tr("Partner is null") + "<br>";
     }
-
     ui->progressBar->setMaximum(fTotalCount);
     for (int i = 0; i < ui->tbl->rowCount(); i++) {
         int startnumber = ui->tbl->getString(i, 2).right(5).toInt();
         int endnumber = ui->tbl->getString(i, 3).right(5).toInt();
-        QString prefix = ui->tbl->getString(i, 2).left(5);
+        QString prefix = ui->tbl->getString(i, 2).left(ui->tbl->getString(i, 2).length() - 5);
         if (process && err.isEmpty()) {
             ui->progressBar->setVisible(true);
             ui->progressBar->setMinimum(startnumber);
@@ -177,7 +172,6 @@ void PassTicketsDialog::getListOfTickets(C5Database &db, QString &err, bool proc
                 ui->progressBar->setValue(c);
                 qApp->processEvents();
             }
-
             db[":fdoc"] = ui->leDocNumber->getInteger();
             db[":frow"] = i;
             db[":ftickettype"] = ui->tbl->getInteger(i, 0);
@@ -188,7 +182,6 @@ void PassTicketsDialog::getListOfTickets(C5Database &db, QString &err, bool proc
             db[":fprice"] = ui->tbl->getDouble(i, 6);
             db[":fdiscount"] = ui->tbl->getDouble(i, 9);
             db.insert("docs_pass", false);
-
             if (notPassed > 0) {
                 db.rollback();
                 notPassedList.insert(0, "\r\n");
@@ -245,61 +238,58 @@ void PassTicketsDialog::setPrice()
 
 void PassTicketsDialog::openDoc(int id)
 {
-   ui->leTicket->setEnabled(false);
-   ui->leStartCode->setEnabled(false);
-   ui->leEndCode->setEnabled(false);
-   ui->btnGroups->setEnabled(false);
-   ui->btnAddRow->setEnabled(false);
-   ui->btnRemoveRow->setEnabled(false);
-   ui->leDocDate->setReadOnly(true);
-   ui->lePartner->setEnabled(false);
-   ui->leCount->setEnabled(false);
-   ui->leCurrentPrice->setEnabled(false);
-   ui->leDiscount->setEnabled(false);
-   ui->lePrice->setEnabled(false);
-   ui->leQty->setEnabled(false);
-   ui->btnSave->setVisible(false);
-   ui->btnPrint->setEnabled(true);
-
-   C5Database db(__dbhost, __dbschema, __dbusername, __dbpassword);
-   db[":fid"] = id;
-   db.exec("select * from docs where fid=:fid");
-   if (!db.nextRow()) {
-       C5Message::error(tr("Invalid document number"));
-       return;
-   }
-   fTransaction = db.getString("ftransaction");
-   ui->leDocDate->setDate(db.getDate("fdatecreate"));
-   ui->leDocNumber->setInteger(db.getInt("fid"));
-   ui->cbPaymentType->setCurrentIndex(db.getInt("fpaymenttype") - 1);
-   ui->cbPaymentType->setEnabled(db.getInt("fpaymentstate") == 2);
-
-   db[":fpartnertrans"] = fTransaction;
-   db.exec("select * from cards where fpartnertrans=:fpartnertrans limit 1");
-   while (db.nextRow()) {
-       ui->wc->setKey(ui->lePartner, db.getInt("fpartner"));
-   }
-
-   db[":fdoc"] = id;
-   db.exec("select dp.ftickettype, ct.fname, dp.fstartnumber, dp.fendnumber, "
-           "dp.fcount, dp.fqty, dp.fprice, dp.fqty*dp.fprice as ftotal "
-           "from docs_pass dp "
+    ui->leTicket->setEnabled(false);
+    ui->leStartCode->setEnabled(false);
+    ui->leEndCode->setEnabled(false);
+    ui->btnGroups->setEnabled(false);
+    ui->btnAddRow->setEnabled(false);
+    ui->btnRemoveRow->setEnabled(false);
+    ui->leDocDate->setReadOnly(true);
+    ui->lePartner->setEnabled(false);
+    ui->leCount->setEnabled(false);
+    ui->leCurrentPrice->setEnabled(false);
+    ui->leDiscount->setEnabled(false);
+    ui->lePrice->setEnabled(false);
+    ui->leQty->setEnabled(false);
+    ui->btnSave->setVisible(false);
+    ui->btnPrint->setEnabled(true);
+    C5Database db(__dbhost, __dbschema, __dbusername, __dbpassword);
+    db[":fid"] = id;
+    db.exec("select * from docs where fid=:fid");
+    if (!db.nextRow()) {
+        C5Message::error(tr("Invalid document number"));
+        return;
+    }
+    fTransaction = db.getString("ftransaction");
+    ui->leDocDate->setDate(db.getDate("fdatecreate"));
+    ui->leDocNumber->setInteger(db.getInt("fid"));
+    ui->cbPaymentType->setCurrentIndex(db.getInt("fpaymenttype") - 1);
+    ui->cbPaymentType->setEnabled(db.getInt("fpaymentstate") == 2);
+    db[":fpartnertrans"] = fTransaction;
+    db.exec("select * from cards where fpartnertrans=:fpartnertrans limit 1");
+    while (db.nextRow()) {
+        ui->wc->setKey(ui->lePartner, db.getInt("fpartner"));
+    }
+    db[":fdoc"] = id;
+    db.exec("select dp.ftickettype, ct.fname, dp.fstartnumber, dp.fendnumber, "
+            "dp.fcount, dp.fqty, dp.fprice, dp.fqty*dp.fprice as ftotal "
+            "from docs_pass dp "
             "left join cards_types ct on ct.fid=dp.ftickettype "
             "where fdoc=:fdoc order by frow");
-   double total = 0;
-   while (db.nextRow()) {
-       int r = ui->tbl->addEmptyRow();
-       ui->tbl->setInteger(r, 0, db.getInt("ftickettype"));
-       ui->tbl->setString(r, 1, db.getString("fname"));
-       ui->tbl->setString(r, 2, db.getString("fstartnumber"));
-       ui->tbl->setString(r, 3, db.getString("fendnumber"));
-       ui->tbl->setInteger(r, 4, db.getInt("fcount"));
-       ui->tbl->setDouble(r, 5, db.getDouble("fqty"));
-       ui->tbl->setDouble(r, 6, db.getDouble("fprice"));
-       ui->tbl->setDouble(r, 7, db.getDouble("ftotal"));
-       total += db.getDouble("ftotal");
-   }
-   ui->leTotal->setDouble(total);
+    double total = 0;
+    while (db.nextRow()) {
+        int r = ui->tbl->addEmptyRow();
+        ui->tbl->setInteger(r, 0, db.getInt("ftickettype"));
+        ui->tbl->setString(r, 1, db.getString("fname"));
+        ui->tbl->setString(r, 2, db.getString("fstartnumber"));
+        ui->tbl->setString(r, 3, db.getString("fendnumber"));
+        ui->tbl->setInteger(r, 4, db.getInt("fcount"));
+        ui->tbl->setDouble(r, 5, db.getDouble("fqty"));
+        ui->tbl->setDouble(r, 6, db.getDouble("fprice"));
+        ui->tbl->setDouble(r, 7, db.getDouble("ftotal"));
+        total += db.getDouble("ftotal");
+    }
+    ui->leTotal->setDouble(total);
 }
 
 void PassTicketsDialog::on_btnSave_clicked()
@@ -318,9 +308,8 @@ void PassTicketsDialog::on_btnSave_clicked()
         db[":fpaymentstate"] = 1;
         db[":finvoice"] = ui->leInvoiceNumber->text();
         ui->leDocNumber->setInteger(db.insert("docs", true));
-
         //db[":fdate"] = QDate::currentDate();
-        db[":fdate"] =ui->leDocDate->date();
+        db[":fdate"] = ui->leDocDate->date();
         db[":fdoc"] = ui->leDocNumber->getInteger();
         db[":fpartner"] = ui->lePartner->getInteger();
         db[":fdebet"] = ui->lePaid->getDouble();
@@ -361,23 +350,22 @@ void PassTicketsDialog::on_leCount_returnPressed()
     db.exec("select min(fid) as fid, fcode from cards where ftype=:ftype and fstate=1");
     int nextnum = 0;
     int count = 0;
-
     db[":fid"] = ui->leTicket->getInteger();
     db.exec("select fmeas from cards_types where fid=:fid");
     if (db.nextRow()) {
-        ui->leQty->setInteger(ui->leCount->getInteger() * db.getInt(0));
+        ui->leQty->setInteger(ui->leCount->getInteger() *db.getInt(0));
     }
-
-    QString and;
+    QString andstr;
     if (!ui->leStartCode->text().isEmpty()) {
         db[":fcode"] = ui->leStartCode->text();
         db.exec("select fid from cards where fcode=:fcode");
         if (db.nextRow()) {
-            and = QString(" and fid>=%1").arg(db.getInt(0));
+            andstr = QString(" and fid>=%1").arg(db.getInt(0));
         }
     }
     db[":ftype"] = ui->leTicket->getInteger();
-    db.exec(QString("select * from cards where ftype=:ftype and fstate=1 %and% order by fissuedate, fid").replace("%and%", and));
+    db.exec(QString("select * from cards where ftype=:ftype and fstate=1 %and% order by fissuedate, fid").replace("%and%",
+            andstr ));
     QDate id;
     while (db.nextRow() && count < ui->leCount->getInteger()) {
         if (count == 0) {
@@ -401,13 +389,13 @@ void PassTicketsDialog::on_leCount_returnPressed()
         nextnum++;
         count++;
     }
-    ui->leAmount->setDouble(ui->leQty->getDouble() * ui->lePrice->getDouble());
-//    db[":fid"] = ui->leTicket->getInteger();
-//    db[":fqty"] = count;
-//    db.exec("select fmeas*:fqty from cards_types where fid=:fid");
-//    if (db.nextRow()) {
-//        ui->leQty->setDouble(db.getDouble(0));
-//    }
+    ui->leAmount->setDouble(ui->leQty->getDouble() *ui->lePrice->getDouble());
+    //    db[":fid"] = ui->leTicket->getInteger();
+    //    db[":fqty"] = count;
+    //    db.exec("select fmeas*:fqty from cards_types where fid=:fid");
+    //    if (db.nextRow()) {
+    //        ui->leQty->setDouble(db.getDouble(0));
+    //    }
 }
 
 void PassTicketsDialog::on_leQty_returnPressed()
@@ -424,7 +412,7 @@ void PassTicketsDialog::on_leQty_returnPressed()
         ui->leCount->setInteger(ui->leQty->getInteger() / db.getInt(0));
         on_leCount_returnPressed();
     }
-    ui->leAmount->setDouble(ui->leQty->getDouble() * ui->lePrice->getDouble());
+    ui->leAmount->setDouble(ui->leQty->getDouble() *ui->lePrice->getDouble());
 }
 
 void PassTicketsDialog::on_btnRollback_clicked()
@@ -442,7 +430,7 @@ void PassTicketsDialog::on_btnRollback_clicked()
 
 void PassTicketsDialog::on_lePrice_textEdited(const QString &arg1)
 {
-    ui->leAmount->setDouble(str_float(arg1) * ui->leQty->getDouble());
+    ui->leAmount->setDouble(str_float(arg1) *ui->leQty->getDouble());
     ui->leDiscount->setDouble(ui->leCurrentPrice->getDouble() - str_float(arg1));
 }
 
@@ -458,12 +446,12 @@ void PassTicketsDialog::on_btnAddRow_clicked()
     if (ui->leEndCode->isEmpty()) {
         err += tr("End code is empty") + "<br>";
     }
-    if (ui->leStartCode->text().length() != 1 + 2 + 2 + 5) {
-        err += tr("Start code has invalid lenght") + "<br>";
-    }
-    if (ui->leEndCode->text().length() != 1 + 2 + 2 + 5) {
-        err += tr("End code has invalid lenght") + "<br>";
-    }
+    // if (ui->leStartCode->text().length() != 1 + 2 + 2 + 5) {
+    //     err += tr("Start code has invalid lenght") + "<br>";
+    // }
+    // if (ui->leEndCode->text().length() != 1 + 2 + 2 + 5) {
+    //     err += tr("End code has invalid lenght") + "<br>";
+    // }
     if (ui->lePrice->getDouble() < 0.001) {
         err += tr("Price is empty") + "<br>";
     }
@@ -471,7 +459,6 @@ void PassTicketsDialog::on_btnAddRow_clicked()
         C5Message::error(err);
         return;
     }
-
     int r = ui->tbl->addEmptyRow();
     ui->tbl->setString(r, 0, ui->leTicket->text());
     ui->tbl->setString(r, 1, ui->leTicketName->text());
@@ -484,7 +471,6 @@ void PassTicketsDialog::on_btnAddRow_clicked()
     ui->tbl->setString(r, 8, "");
     ui->tbl->setDouble(r, 9, ui->leDiscount->getDouble());
     countTotal();
-
     ui->leCount->setInteger(0);
     ui->leTicket->setText("");
     ui->leStartCode->clear();
@@ -502,16 +488,16 @@ void PassTicketsDialog::on_btnRemoveRow_clicked()
         return;
     }
     QSet<int> tempRows;
-    for (QModelIndex mi: ml) {
+    for (QModelIndex mi : ml) {
         tempRows.insert(mi.row());
     }
     QList<int> rows;
-    for (int i: tempRows) {
+    for (int i : tempRows) {
         rows.append(i);
     }
     std::sort(rows.begin(), rows.end());
     std::reverse(rows.begin(), rows.end());
-    for (int i: rows) {
+    for (int i : rows) {
         ui->tbl->removeRow(i);
     }
     countTotal();
@@ -549,12 +535,12 @@ void PassTicketsDialog::on_btnPrint_clicked()
         return;
     }
     C5Printing p;
-    p.setSceneParams(2800, 2000, QPrinter::Landscape);
-    QFont font(font());
+    p.setSceneParams(2800, 2000, QPageLayout::Landscape);
+    QFont ffont(font());
     int fontbase = 26;
-    font.setPointSize(fontbase);
+    ffont.setPointSize(fontbase);
     //font.setBold(true);
-    p.setFont(font);
+    p.setFont(ffont);
     int baseleft = 100;
     int sl = 1400 + baseleft;
     int cl = (2700 / 2) / 2;
@@ -601,7 +587,6 @@ void PassTicketsDialog::on_btnPrint_clicked()
     p.ltext(ui->lePaid->text(), sl + 350);
     p.br();
     p.br();
-
     QList<qreal> points;
     points << baseleft << 100 << 300 << 150 << 150 << 150 << 150 << 250;
     QList<qreal> points2 = points;
@@ -611,7 +596,6 @@ void PassTicketsDialog::on_btnPrint_clicked()
     p.tableText(points, vals, p.fLineHeight + 30);
     p.tableText(points2, vals, p.fLineHeight + 30);
     p.br(p.fLineHeight + 20);
-
     C5Database db(__dbhost, __dbschema, __dbusername, __dbpassword);
     db[":fpartnertrans"] = fTransaction;
     db.exec("SELECT f.fname, c.fpricediscount, c.fprice+c.fpricediscount as fprice, SUM(ct.fmeas) as fmeas, SUM(ct.fmeas*c.fprice) as famount "
@@ -635,7 +619,6 @@ void PassTicketsDialog::on_btnPrint_clicked()
         p.tableText(points, vals, p.fLineHeight + 30);
         p.tableText(points2, vals, p.fLineHeight + 30);
         p.br(p.fLineHeight + 20);
-
         total += db.getDouble("famount");
     }
     points.clear();
@@ -649,8 +632,6 @@ void PassTicketsDialog::on_btnPrint_clicked()
     p.br(p.fLineHeight + 20);
     p.br();
     p.br();
-
-
     p.ltext(tr("Delivered tickets by type"), baseleft);
     p.ltext(tr("Delivered tickets by type"), baseleft + sl + 50);
     p.br();
@@ -683,7 +664,6 @@ void PassTicketsDialog::on_btnPrint_clicked()
         p.tableText(points, vals, p.fLineHeight + 30);
         p.tableText(points2, vals, p.fLineHeight + 30);
         p.br(p.fLineHeight + 20);
-
         total += db.getDouble("fqty");
     }
     points.clear();
@@ -697,7 +677,6 @@ void PassTicketsDialog::on_btnPrint_clicked()
     p.br(p.fLineHeight + 20);
     p.br(p.fLineHeight + 20);
     p.br(p.fLineHeight + 20);
-
     p.ltext(tr("Receiver:"), baseleft);
     p.ltext(tr("Receiver:"), baseleft + sl);
     p.ltext(tr("Deliver:"), baseleft + 750);
@@ -714,13 +693,13 @@ void PassTicketsDialog::on_btnPrint_clicked()
     p.br();
     p.br();
     p.ltext(QString("%1 %2").arg(tr("Printed:"), QDateTime::currentDateTime().toString(FORMAT_DATETIME_TO_STR)), baseleft);
-    p.ltext(QString("%1 %2").arg(tr("Printed:"), QDateTime::currentDateTime().toString(FORMAT_DATETIME_TO_STR)), sl + baseleft);
-
-    C5PrintPreview pp(&p, this);
+    p.ltext(QString("%1 %2").arg(tr("Printed:"), QDateTime::currentDateTime().toString(FORMAT_DATETIME_TO_STR)),
+            sl + baseleft);
+    C5PrintPreview pp( &p, this);
     pp.exec();
 }
 
 void PassTicketsDialog::on_lePrice_textChanged(const QString &arg1)
 {
-    ui->leAmount->setDouble(ui->leQty->getDouble() * str_float(arg1));
+    ui->leAmount->setDouble(ui->leQty->getDouble() *str_float(arg1));
 }

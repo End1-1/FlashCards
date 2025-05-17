@@ -15,7 +15,7 @@ public:
 
     ~C5Printing();
 
-    void setSceneParams(qreal width, qreal height, QPrinter::Orientation orientation);
+    void setSceneParams(qreal width, qreal height, QPageLayout::Orientation orientation);
 
     void setFont(const QFont &font);
 
@@ -53,9 +53,9 @@ public:
 
     int pageCount();
 
-    QPrinter::Orientation orientation(int index);
+    QPageLayout::Orientation orientation(int index);
 
-    void print(const QString &printername, QPagedPaintDevice::PageSize pageSize);
+    void print(const QString &printername, QPageSize pageSize);
 
     qreal fTop;
 
@@ -72,7 +72,7 @@ private:
 
     QGraphicsScene *fCanvas;
 
-    QList<QGraphicsScene*> fCanvasList;
+    QList<QGraphicsScene *> fCanvasList;
 
     QPen fLinePen;
 
@@ -80,7 +80,7 @@ private:
 
     int fCurrentPageIndex;
 
-    QMap<QGraphicsScene*, QPrinter::Orientation> fCanvasOrientation;
+    QMap<QGraphicsScene *, QPageLayout::Orientation> fCanvasOrientation;
 
     void setLineHeight();
 

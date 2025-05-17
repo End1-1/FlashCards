@@ -9,13 +9,13 @@
 #define rmGET 1
 #define rmPOST 2
 
-HttpRequest::HttpRequest(const QString &url, const char* slot, QObject *parent) :
+HttpRequest::HttpRequest(const QString &url, const char *slot, QObject *parent) :
     QNetworkAccessManager(parent),
     fUrl(url)
 {
     fContentType = "multipart/form-data, boundary=" + boundary;
-    connect(this, SIGNAL(finished(QNetworkReply*)), this, SLOT(finished(QNetworkReply*)));
-    connect(this, SIGNAL(response(bool,QString)), parent, slot);
+    connect(this, SIGNAL(finished(QNetworkReply *)), this, SLOT(finished(QNetworkReply *)));
+    connect(this, SIGNAL(response(bool, QString)), parent, slot);
 }
 
 HttpRequest::~HttpRequest()
@@ -30,9 +30,9 @@ void HttpRequest::setHeader(const QString &name, const QString &data)
 
 void HttpRequest::setFormData(const QString &name, const QString &data)
 {
-    fData.append("--" + boundary + "\r\n");
-    fData.append("Content-Disposition: form-data; name=\"" + name + "\"\r\n\r\n");
-    fData.append(data + "\r\n");
+    fData.append(QString("--" + boundary + "\r\n").toLatin1());
+    fData.append(QString("Content-Disposition: form-data; name=\"" + name + "\"\r\n\r\n").toUtf8());
+    fData.append(QString(data + "\r\n").toUtf8());
 }
 
 void HttpRequest::postRequest()
@@ -75,21 +75,19 @@ void HttpRequest::start()
         //sslConf.setProtocol(QSsl::AnyProtocol);
         nr.setSslConfiguration(sslConf);
     }
-
     nr.setRawHeader("Content-Type", fContentType.toLatin1());
     //nr.setRawHeader("Content-Length", QString::number(fData.length()).toLatin1());
     //nr.setRawHeader("Cache-Control", "no-cache");
     nr.setRawHeader("Accept", "application/json");
-
     for (QMap<QString, QString>::const_iterator it = fHeader.constBegin(); it != fHeader.constEnd(); it++)
         nr.setRawHeader(it.key().toLatin1(), it.value().toLatin1());
     switch (fRequestMethod) {
-    case rmGET:
-        get(nr);
-        break;
-    case rmPOST:
-        post(nr, fData);
-        break;
+        case rmGET:
+            get(nr);
+            break;
+        case rmPOST:
+            post(nr, fData);
+            break;
     }
 }
 
@@ -107,7 +105,7 @@ void HttpRequest::finished(QNetworkReply *reply)
         } else {
             jo = jd.object();
         }
-        jo["error_code"] =reply->error();
+        jo["error_code"] = reply->error();
         jo["error_string"] = reply->errorString();
         emit response(true, QJsonDocument(jo).toJson());
     }

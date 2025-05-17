@@ -4,10 +4,12 @@
 #include "c5message.h"
 #include "c5checkbox.h"
 #include "config.h"
-#include "xlsxall.h"
 #include <QHeaderView>
 #include <QApplication>
 #include <QDateTime>
+#include <QFileDialog>
+#include <QDesktopServices>
+#include <QXlsx/header/xlsxdocument.h>
 
 C5TableWidget::C5TableWidget(QWidget *parent) :
     QTableWidget(parent)
@@ -17,7 +19,7 @@ C5TableWidget::C5TableWidget(QWidget *parent) :
 
 C5TableWidgetItem *C5TableWidget::item(int row, int column) const
 {
-    return static_cast<C5TableWidgetItem*>(QTableWidget::item(row, column));
+    return static_cast<C5TableWidgetItem *>(QTableWidget::item(row, column));
 }
 
 void C5TableWidget::setColumnWidths(int count, ...)
@@ -58,7 +60,7 @@ void C5TableWidget::fitRowToHeight(int dec)
 {
     int rh = verticalHeader()->defaultSectionSize();
     int visibleRows = (height() - dec) / rh;
-    int delta = (height() - dec) - (visibleRows * rh);
+    int delta = (height() - dec) - (visibleRows *rh);
     verticalHeader()->setDefaultSectionSize(rh + (delta / visibleRows));
 }
 
@@ -75,7 +77,7 @@ C5LineEdit *C5TableWidget::createLineEdit(int row, int column)
 
 C5LineEdit *C5TableWidget::lineEdit(int row, int column)
 {
-    return static_cast<C5LineEdit*>(cellWidget(row, column));
+    return static_cast<C5LineEdit *>(cellWidget(row, column));
 }
 
 C5ComboBox *C5TableWidget::createComboBox(int row, int column)
@@ -91,7 +93,7 @@ C5ComboBox *C5TableWidget::createComboBox(int row, int column)
 
 C5ComboBox *C5TableWidget::comboBox(int row, int column)
 {
-    return static_cast<C5ComboBox*>(cellWidget(row, column));
+    return static_cast<C5ComboBox *>(cellWidget(row, column));
 }
 
 C5CheckBox *C5TableWidget::createCheckbox(int row, int column)
@@ -106,7 +108,7 @@ C5CheckBox *C5TableWidget::createCheckbox(int row, int column)
 
 C5CheckBox *C5TableWidget::checkBox(int row, int column)
 {
-    return static_cast<C5CheckBox*>(cellWidget(row, column));
+    return static_cast<C5CheckBox *>(cellWidget(row, column));
 }
 
 bool C5TableWidget::findWidget(QWidget *w, int &row, int &column)
@@ -192,33 +194,35 @@ void C5TableWidget::exportToExcel()
         C5Message::info(tr("Empty report"));
         return;
     }
-    XlsxDocument d;
-    XlsxSheet *s = d.workbook()->addSheet("Sheet1");
+    QXlsx::Document d;
+    d.addSheet("Sheet1");
     /* HEADER */
     QColor color = QColor::fromRgb(200, 200, 250);
     QFont headerFont(qApp->font());
     headerFont.setBold(true);
-    d.style()->addFont("header", headerFont);
-    d.style()->addBackgrounFill("header", color);
+    QXlsx::Format hf;
+    hf.setFont(headerFont);
+    hf.setPatternBackgroundColor( color);
     for (int i = 0; i < columnCount(); i++) {
-        s->addCell(1, i + 1, horizontalHeaderItem(i)->data(Qt::DisplayRole).toString(), d.style()->styleNum("header"));
-        s->setColumnWidth(i + 1, columnWidth(i) / 7);
+        d.write(1, i + 1, horizontalHeaderItem(i)->data(Qt::DisplayRole).toString(), hf);
+        d.setColumnWidth(i + 1, columnWidth(i) / 7);
     }
     //e.setHorizontalAlignment(e.address(0, 0), e.address(0, colCount - 1), Excel::hCenter);
     /* BODY */
     QFont bodyFont(qApp->font());
-    d.style()->addFont("body", bodyFont);
+    QXlsx::Format bf;
+    bf.setFont( bodyFont);
     for (int j = 0; j < rowCount(); j++) {
         for (int i = 0; i < columnCount(); i++) {
-            s->addCell(j + 2, i + 1,  item(j, i)->data(Qt::EditRole), d.style()->styleNum("body"));
+            d.write(j + 2, i + 1,  item(j, i)->data(Qt::EditRole), bf);
         }
     }
-    QString err;
-    if (!d.save(err, true)) {
-        if (!err.isEmpty()) {
-            C5Message::error(err);
-        }
+    QString filename = QFileDialog::getSaveFileName(nullptr, "", "", "*.xlsx");
+    if (filename.isEmpty()) {
+        return;
     }
+    d.saveAs(filename);
+    QDesktopServices::openUrl(filename);
 }
 
 void C5TableWidget::search(const QString &txt)
@@ -250,19 +254,19 @@ void C5TableWidget::setColumnDecimals(int column, int decimals)
 
 void C5TableWidget::lineEditTextChanged(const QString arg1)
 {
-    C5LineEdit *l = static_cast<C5LineEdit*>(sender());
+    C5LineEdit *l = static_cast<C5LineEdit *>(sender());
     setString(l->property("row").toInt(), l->property("column").toInt(), arg1);
 }
 
 void C5TableWidget::comboTextChanged(const QString &text)
 {
-    C5ComboBox *c = static_cast<C5ComboBox*>(sender());
+    C5ComboBox *c = static_cast<C5ComboBox *>(sender());
     setString(c->property("row").toInt(), c->property("column").toInt(), text);
 }
 
 void C5TableWidget::checkBoxChecked(bool v)
 {
-    C5CheckBox *c = static_cast<C5CheckBox*>(sender());
+    C5CheckBox *c = static_cast<C5CheckBox *>(sender());
     setString(c->property("row").toInt(), c->property("column").toInt(), (v ? "1" : "0"));
 }
 
@@ -275,27 +279,26 @@ C5TableWidgetItem::C5TableWidgetItem(int type) :
 C5TableWidgetItem::C5TableWidgetItem(const QString &text, int type) :
     QTableWidgetItem (text, type)
 {
-
 }
 
 QVariant C5TableWidgetItem::data(int role) const
 {
     QVariant v = QTableWidgetItem::data(role);
     if (role == Qt::DisplayRole) {
-       switch (v.type()) {
-       case QVariant::Int:
-           return v.toString();
-       case QVariant::Date:
-           return v.toDate().toString(FORMAT_DATE_TO_STR);
-       case QVariant::DateTime:
-           return v.toDateTime().toString(FORMAT_DATETIME_TO_STR);
-       case QVariant::Time:
-           return v.toTime().toString(FORMAT_TIME_TO_STR);
-       case QVariant::Double:
-           return float_str(v.toDouble(), fDecimals);
-       default:
-           return v.toString();
-       }
+        switch (v.type()) {
+            case QVariant::Int:
+                return v.toString();
+            case QVariant::Date:
+                return v.toDate().toString(FORMAT_DATE_TO_STR);
+            case QVariant::DateTime:
+                return v.toDateTime().toString(FORMAT_DATETIME_TO_STR);
+            case QVariant::Time:
+                return v.toTime().toString(FORMAT_TIME_TO_STR);
+            case QVariant::Double:
+                return float_str(v.toDouble(), fDecimals);
+            default:
+                return v.toString();
+        }
     }
     return v;
 }

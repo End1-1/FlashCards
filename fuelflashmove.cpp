@@ -13,9 +13,9 @@ FuelFlashMove::FuelFlashMove() :
 {
     ui->setupUi(this);
     ui->wc->enumLineEdit();
-    ui->leDiscount->setValidator(new QDoubleValidator(0, 999999,2));
-    ui->lePaid->setValidator(new QDoubleValidator(0, 999999,2));
-    ui->leTotal->setValidator(new QDoubleValidator(0, 999999,2));
+    ui->leDiscount->setValidator(new QDoubleValidator(0, 999999, 2));
+    ui->lePaid->setValidator(new QDoubleValidator(0, 999999, 2));
+    ui->leTotal->setValidator(new QDoubleValidator(0, 999999, 2));
     ui->lePrice->setValidator(new QDoubleValidator(0, 99999999, 2));
 }
 
@@ -28,12 +28,12 @@ void FuelFlashMove::setMove(int m)
 {
     fMove = m;
     switch (fMove) {
-    case 1:
-        ui->leMove->setText(tr("Input"));
-        break;
-    case 2:
-        ui->leMove->setText(tr("Output"));
-        break;
+        case 1:
+            ui->leMove->setText(tr("Input"));
+            break;
+        case 2:
+            ui->leMove->setText(tr("Output"));
+            break;
     }
 }
 
@@ -52,7 +52,6 @@ FuelFlashMove &FuelFlashMove::setDoc(int id)
         ui->wc->setKey(ui->leFuel, db.getInt("ffuel"));
         ui->wc->setKey(ui->lePartner, db.getInt("fpartner"));
         ui->leQty->setDouble(db.getDouble("fqty"));
-
         ui->lePrice->setDouble(db.getDouble("fprice"));
         ui->leTotal->setDouble(db.getDouble("ftotal"));
         ui->cbPayment->setCurrentIndex(db.getInt("fpaymenttype"));
@@ -96,14 +95,12 @@ void FuelFlashMove::on_btnSave_clicked()
             C5Message::error(db.fLastError);
             return;
         }
-
         db[":fdate"] = QDate::currentDate();
         db[":fdoc"] = fDocNumber;
         db[":fpartner"] = ui->lePartner->getInteger();
         db[":fdebet"] = ui->lePaid->getDouble();
         db[":fcredit"] = ui->ltTotal->getDouble();
         db.insert("debts", false);
-
         db[":fid"] = fTransaction;
         db[":fuser"] = __userid;
         if (!db.insert("transactions")) {
@@ -137,13 +134,13 @@ void FuelFlashMove::on_btnSave_clicked()
 
 void FuelFlashMove::on_leQty_textEdited(const QString &arg1)
 {
-    ui->leTotal->setDouble(arg1.toDouble() * ui->lePrice->getDouble());
+    ui->leTotal->setDouble(arg1.toDouble() *ui->lePrice->getDouble());
 }
 
 void FuelFlashMove::on_lePrice_textEdited(const QString &arg1)
 {
     ui->leInitialPrice->setDouble(arg1.toDouble() + ui->leDiscount->getDouble());
-    ui->leTotal->setDouble(arg1.toDouble() * ui->leQty->getDouble());
+    ui->leTotal->setDouble(arg1.toDouble() *ui->leQty->getDouble());
 }
 
 void FuelFlashMove::on_leTotal_textEdited(const QString &arg1)
@@ -161,12 +158,12 @@ void FuelFlashMove::on_btnPrint_clicked()
         return;
     }
     C5Printing p;
-    p.setSceneParams(2800, 2000, QPrinter::Landscape);
-    QFont font(font());
+    p.setSceneParams(2800, 2000, QPageLayout::Landscape);
+    QFont ffont(font());
     int fontbase = 26;
-    font.setPointSize(fontbase);
+    ffont.setPointSize(fontbase);
     //font.setBold(true);
-    p.setFont(font);
+    p.setFont(ffont);
     int baseleft = 100;
     int sl = 1400 + baseleft;
     int cl = (2700 / 2) / 2;
@@ -213,7 +210,6 @@ void FuelFlashMove::on_btnPrint_clicked()
     p.ltext(ui->lePaid->text(), sl + 350);
     p.br();
     p.br();
-
     QList<qreal> points;
     points << baseleft << 100 << 300 << 150 << 150 << 150 << 150 << 250;
     QList<qreal> points2 = points;
@@ -223,7 +219,6 @@ void FuelFlashMove::on_btnPrint_clicked()
     p.tableText(points, vals, p.fLineHeight + 30);
     p.tableText(points2, vals, p.fLineHeight + 30);
     p.br(p.fLineHeight + 20);
-
     C5Database db(__dbhost, __dbschema, __dbusername, __dbpassword);
     db[":fdoc"] = fDocNumber;
     db.exec("SELECT f.fname, m.fdiscount as fpricediscount, m.fprice, m.fqty, m.ftotal "
@@ -244,7 +239,6 @@ void FuelFlashMove::on_btnPrint_clicked()
         p.tableText(points, vals, p.fLineHeight + 30);
         p.tableText(points2, vals, p.fLineHeight + 30);
         p.br(p.fLineHeight + 20);
-
         total += db.getDouble("ftotal");
     }
     points.clear();
@@ -259,7 +253,6 @@ void FuelFlashMove::on_btnPrint_clicked()
     p.br();
     p.br();
     p.br(p.fLineHeight + 20);
-
     p.ltext(tr("Receiver:"), baseleft);
     p.ltext(tr("Receiver:"), baseleft + sl);
     p.ltext(tr("Deliver:"), baseleft + 750);
@@ -276,9 +269,9 @@ void FuelFlashMove::on_btnPrint_clicked()
     p.br();
     p.br();
     p.ltext(QString("%1 %2").arg(tr("Printed:"), QDateTime::currentDateTime().toString(FORMAT_DATETIME_TO_STR)), baseleft);
-    p.ltext(QString("%1 %2").arg(tr("Printed:"), QDateTime::currentDateTime().toString(FORMAT_DATETIME_TO_STR)), sl + baseleft);
-
-    C5PrintPreview pp(&p, this);
+    p.ltext(QString("%1 %2").arg(tr("Printed:"), QDateTime::currentDateTime().toString(FORMAT_DATETIME_TO_STR)),
+            sl + baseleft);
+    C5PrintPreview pp( &p, this);
     pp.exec();
 }
 
@@ -296,13 +289,21 @@ void FuelFlashMove::on_leDiscount_textChanged(const QString &arg1)
 
 void FuelFlashMove::on_btnAddRow_clicked()
 {
+    if (ui->leFuel->getInteger() == 0) {
+        C5Message::error(tr("Fuel type is not selected"));
+        return;
+    }
+    if (ui->leQty->getDouble() < 0.01) {
+        C5Message::error(tr("Quantity is not selected"));
+        return;
+    }
     int r = ui->tbl->addEmptyRow();
     ui->tbl->setInteger(r, 0, ui->leFuel->getInteger());
     ui->tbl->setString(r, 1, ui->leFuelName->text());
     ui->tbl->setDouble(r, 2, ui->leQty->getDouble());
     ui->tbl->setDouble(r, 3, ui->leInitialPrice->getDouble());
     ui->tbl->setDouble(r, 4, ui->leDiscount->getDouble());
-    ui->tbl->setDouble(r, 5, (ui->leInitialPrice->getDouble() - ui->leDiscount->getDouble()) * ui->leQty->getDouble());
+    ui->tbl->setDouble(r, 5, (ui->leInitialPrice->getDouble() - ui->leDiscount->getDouble()) *ui->leQty->getDouble());
     countTotal();
     ui->leFuel->clear();
     ui->leInitialPrice->clear();

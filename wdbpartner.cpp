@@ -16,7 +16,7 @@ WdbPartner::WdbPartner(QWidget *parent) :
     while (db.nextRow()) {
         fStrings.insert(db.getString(0));
     }
-    QStringListModel *m = new QStringListModel(fStrings.toList());
+    QStringListModel *m = new QStringListModel(fStrings.values());
     QCompleter *c = new QCompleter(m);
     c->setCaseSensitivity(Qt::CaseInsensitive);
     ui->leName->setCompleter(c);

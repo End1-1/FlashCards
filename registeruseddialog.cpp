@@ -41,17 +41,17 @@ void RegisterUsedDialog::on_btnWrite_clicked()
     int cardstate = 3;
     int doctype = 0;
     switch (ui->comboBox->currentIndex()) {
-    case 0:
-        doctype = DOCTYPE_USEDTICKET;
-    break;
-    case 1:
-        doctype = DOCTYPE_BACKTICKET;
-        cardstate = 4;
-        break;
-    case 2:
-        doctype = DOCTYPE_TRASHTICKET;
-        cardstate = 5;
-        break;
+        case 0:
+            doctype = DOCTYPE_USEDTICKET;
+            break;
+        case 1:
+            doctype = DOCTYPE_BACKTICKET;
+            cardstate = 4;
+            break;
+        case 2:
+            doctype = DOCTYPE_TRASHTICKET;
+            cardstate = 5;
+            break;
     }
     C5Database db(__dbhost, __dbschema, __dbusername, __dbpassword);
     db.startTransaction();
@@ -121,15 +121,15 @@ void RegisterUsedDialog::getTicketByCode()
         QString err;
         if (db.getInt("fstate") != 2 && ui->comboBox->currentIndex() == 0) {
             switch (db.getInt("fstate")) {
-            case 1:
-                err = tr("Ticket was issued, but not sold");
-                break;
-            case 3:
-                err = tr("Ticket already marked as used") + "<br>" + db.getString("fpartnername");
-                break;
-            default:
-                err = tr("Unknow ticket state.");
-                break;
+                case 1:
+                    err = tr("Ticket was issued, but not sold");
+                    break;
+                case 3:
+                    err = tr("Ticket already marked as used") + "<br>" + db.getString("fpartnername");
+                    break;
+                default:
+                    err = tr("Unknow ticket state.");
+                    break;
             }
             C5Message::error(err);
             return;
@@ -148,7 +148,6 @@ void RegisterUsedDialog::getTicketByCode()
         ui->tbl->setString(r, c++, db.getDate("fpartnerdate").toString(FORMAT_DATE_TO_STR));
         ui->tbl->setString(r, c++, ui->deUsed->text());
         ui->tbl->setString(r, c++, float_str(fuelPrice(db.getInt("ffuel")), 2));
-
         ui->btnWrite->setEnabled(true);
         ui->deUsed->setEnabled(false);
         for (int i = 0; i < ui->tblStore->rowCount(); i++) {
@@ -185,7 +184,7 @@ void RegisterUsedDialog::on_btnGo_clicked()
     int startcode = ui->leStart->text().mid(11, 4).toInt();
     int endcode = ui->leEnd->text().mid(11, 4).toInt();
     for (int i = startcode; i < endcode + 1; i++) {
-        ui->leCode->setText(QString("%1%2").arg(part).arg(i, 4,10, QChar('0')));
+        ui->leCode->setText(QString("%1%2").arg(part).arg(i, 4, 10, QChar('0')));
         on_leCode_returnPressed();
     }
 }
@@ -193,13 +192,13 @@ void RegisterUsedDialog::on_btnGo_clicked()
 void RegisterUsedDialog::on_comboBox_currentIndexChanged(int index)
 {
     switch (index) {
-    case 0:
-        ui->wback->setVisible(false);
-    break;
-    case 1:
-    case 2:
-        ui->wback->setVisible(true);
-        break;
+        case 0:
+            ui->wback->setVisible(false);
+            break;
+        case 1:
+        case 2:
+            ui->wback->setVisible(true);
+            break;
     }
 }
 
@@ -243,12 +242,11 @@ void RegisterUsedDialog::on_btnPrint_clicked()
         return;
     }
     C5Printing p;
-    p.setSceneParams(2800, 2000, QPrinter::Landscape);
-    QFont font(font());
-    font.setPointSize(28);
-    font.setBold(true);
-    p.setFont(font);
-
+    p.setSceneParams(2800, 2000, QPageLayout::Landscape);
+    QFont ffont(font());
+    ffont.setPointSize(28);
+    ffont.setBold(true);
+    p.setFont(ffont);
     p.ltext(tr("<<ARMPETROL>> LTD"), 10);
     p.br();
     p.ctext(QString("%1 %2%3").arg(tr("COUPON CONSUPTION ACT"), tr("NN"), ui->leDocNumber->text()));
@@ -257,7 +255,6 @@ void RegisterUsedDialog::on_btnPrint_clicked()
     p.rtext(QString("%1: %2").arg(tr("Document date"), ui->deDoc->text()));
     p.br();
     p.br();
-
     p.setFontSize(24);
     QList<qreal> points;
     points << 10 << 100 << 300 << 150 << 600 << 250 << 250;
@@ -279,7 +276,6 @@ void RegisterUsedDialog::on_btnPrint_clicked()
     }
     p.br(p.fLineHeight + 10);
     p.br(p.fLineHeight + 10);
-
     p.ltext(tr("Operator:"), 10);
     p.line(10, p.fTop + p.fLineHeight, 500, p.fTop + p.fLineHeight);
     p.br();
@@ -287,9 +283,7 @@ void RegisterUsedDialog::on_btnPrint_clicked()
     p.br();
     p.br();
     p.ltext(QString("%1 %2").arg(tr("Printed:"), QDateTime::currentDateTime().toString(FORMAT_DATETIME_TO_STR)), 10);
-
-
-    C5PrintPreview pp(&p, this);
+    C5PrintPreview pp( &p, this);
     pp.exec();
 }
 
@@ -322,7 +316,7 @@ void RegisterUsedDialog::on_btnZeroArmPetStore_clicked()
         C5Message::error(db.fLastError);
         return;
     }
-    db[":fid"] = fTransaction;
+    db[":fid"] = trans;
     db[":fuser"] = __userid;
     if (!db.insert("transactions")) {
         db.rollback();

@@ -96,17 +96,17 @@
         <translation>Հեռացնել</translation>
     </message>
     <message>
-        <location filename="autoinputdoc.cpp" line="90"/>
+        <location filename="autoinputdoc.cpp" line="95"/>
         <source>Are you sure to remove this document?</source>
         <translation>Հաստատեք հեռացումը</translation>
     </message>
     <message>
-        <location filename="autoinputdoc.cpp" line="96"/>
+        <location filename="autoinputdoc.cpp" line="101"/>
         <source>Deleted</source>
         <translation>Հեռացված է</translation>
     </message>
     <message>
-        <location filename="autoinputdoc.cpp" line="169"/>
+        <location filename="autoinputdoc.cpp" line="174"/>
         <source>Saved</source>
         <translation>Պահպանված է</translation>
     </message>
@@ -681,6 +681,55 @@
         <location filename="dlgfuelprices.cpp" line="66"/>
         <source>Saved</source>
         <translation>Պահպանված է</translation>
+    </message>
+</context>
+<context>
+    <name>DlgPassword</name>
+    <message>
+        <location filename="dlgpassword.ui" line="14"/>
+        <source>Change password</source>
+        <translation>Գախտնաբառի փոփոխություն</translation>
+    </message>
+    <message>
+        <location filename="dlgpassword.ui" line="20"/>
+        <source>Old password</source>
+        <translation>Հին գախտնաբառ</translation>
+    </message>
+    <message>
+        <location filename="dlgpassword.ui" line="34"/>
+        <source>New password</source>
+        <translation>Նոր գախտնաբառ</translation>
+    </message>
+    <message>
+        <location filename="dlgpassword.ui" line="48"/>
+        <source>Confirm password</source>
+        <translation>Կրկնել նոր գախտնաբառը</translation>
+    </message>
+    <message>
+        <location filename="dlgpassword.ui" line="78"/>
+        <source>Change</source>
+        <translation>Փոխել</translation>
+    </message>
+    <message>
+        <location filename="dlgpassword.ui" line="85"/>
+        <source>Cancel</source>
+        <translation>Ոչ</translation>
+    </message>
+    <message>
+        <location filename="dlgpassword.cpp" line="29"/>
+        <location filename="dlgpassword.cpp" line="32"/>
+        <source>Password</source>
+        <translation>Գախտնավառ</translation>
+    </message>
+    <message>
+        <location filename="dlgpassword.cpp" line="29"/>
+        <source>New password set</source>
+        <translation>Նոր գախտնաբառը նշանակված է</translation>
+    </message>
+    <message>
+        <location filename="dlgpassword.cpp" line="32"/>
+        <source>Incorrect old password</source>
+        <translation>Սխալ հին գախտնաբառ</translation>
     </message>
 </context>
 <context>
@@ -1919,7 +1968,7 @@
         <translation>Ոչ</translation>
     </message>
     <message>
-        <location filename="login.cpp" line="49"/>
+        <location filename="login.cpp" line="50"/>
         <source>Access denied</source>
         <translation>Մուտքը արգելված է</translation>
     </message>
@@ -3420,6 +3469,11 @@ remain</source>
         <translation>Գործընկերներ</translation>
     </message>
     <message>
+        <location filename="wdthome.ui" line="958"/>
+        <source>Change password</source>
+        <translation>Գախտնաբառի փոփոխություն</translation>
+    </message>
+    <message>
         <location filename="wdthome.ui" line="223"/>
         <source>Free tickets</source>
         <oldsource>All tickets 1</oldsource>
@@ -3524,7 +3578,7 @@ remain</source>
     </message>
     <message>
         <location filename="wdtrangemovement.cpp" line="29"/>
-        <location filename="wdtrangemovement.cpp" line="146"/>
+        <location filename="wdtrangemovement.cpp" line="215"/>
         <source>Partner</source>
         <translation>Գործընկեր</translation>
     </message>
@@ -3535,57 +3589,63 @@ remain</source>
     </message>
     <message>
         <location filename="wdtrangemovement.cpp" line="31"/>
-        <location filename="wdtrangemovement.cpp" line="147"/>
+        <location filename="wdtrangemovement.cpp" line="216"/>
         <source>Fuel</source>
         <translation>Վառելիք</translation>
     </message>
     <message>
         <location filename="wdtrangemovement.cpp" line="40"/>
-        <location filename="wdtrangemovement.cpp" line="150"/>
+        <location filename="wdtrangemovement.cpp" line="219"/>
         <source>Remain</source>
         <translation>Մնացորդ</translation>
     </message>
     <message>
         <location filename="wdtrangemovement.cpp" line="41"/>
+        <location filename="wdtrangemovement.cpp" line="220"/>
+        <source>Real remain</source>
+        <translation>Իրական մնացորդ</translation>
+    </message>
+    <message>
+        <location filename="wdtrangemovement.cpp" line="42"/>
         <source>Debt</source>
         <translation>Պարտք</translation>
     </message>
     <message>
-        <location filename="wdtrangemovement.cpp" line="148"/>
+        <location filename="wdtrangemovement.cpp" line="217"/>
         <source>Quantity, in</source>
         <translation>Քանակ, մուտք</translation>
     </message>
     <message>
-        <location filename="wdtrangemovement.cpp" line="149"/>
+        <location filename="wdtrangemovement.cpp" line="218"/>
         <source>Quantity, out</source>
         <translation>Քանակ, ելք</translation>
     </message>
     <message>
-        <location filename="wdtrangemovement.cpp" line="151"/>
+        <location filename="wdtrangemovement.cpp" line="221"/>
         <source>Balance</source>
         <translation>Բալանս</translation>
     </message>
     <message>
-        <location filename="wdtrangemovement.cpp" line="152"/>
-        <location filename="wdtrangemovement.cpp" line="156"/>
+        <location filename="wdtrangemovement.cpp" line="222"/>
+        <location filename="wdtrangemovement.cpp" line="226"/>
         <source>5</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="wdtrangemovement.cpp" line="153"/>
-        <location filename="wdtrangemovement.cpp" line="157"/>
+        <location filename="wdtrangemovement.cpp" line="223"/>
+        <location filename="wdtrangemovement.cpp" line="227"/>
         <source>10</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="wdtrangemovement.cpp" line="154"/>
-        <location filename="wdtrangemovement.cpp" line="158"/>
+        <location filename="wdtrangemovement.cpp" line="224"/>
+        <location filename="wdtrangemovement.cpp" line="228"/>
         <source>20</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="wdtrangemovement.cpp" line="155"/>
-        <location filename="wdtrangemovement.cpp" line="159"/>
+        <location filename="wdtrangemovement.cpp" line="225"/>
+        <location filename="wdtrangemovement.cpp" line="229"/>
         <source>40</source>
         <translation></translation>
     </message>

@@ -24,7 +24,6 @@ KeyValueLineEdit::KeyValueLineEdit(C5LineEdit *lkey, C5LineEdit *lvalue, const Q
 
 KeyValueLineEdit::~KeyValueLineEdit()
 {
-
 }
 
 void KeyValueLineEdit::setKey(const QString &key)
@@ -36,7 +35,7 @@ void KeyValueLineEdit::setKey(const QString &key)
 void KeyValueLineEdit::createKeyValueEditor(C5LineEdit *lkey, C5LineEdit *lvalue, const QString &kv)
 {
     KeyValueLineEdit *kve = new KeyValueLineEdit(lkey, lvalue, kv);
-    QVariant vkve = qVariantFromValue(kve);
+    QVariant vkve = QVariant::fromValue(kve);
     lkey->setProperty("keyvalue", vkve);
 }
 

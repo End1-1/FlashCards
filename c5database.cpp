@@ -12,7 +12,7 @@
 #include <QUuid>
 
 #ifndef _NOAPP_
-#include <QMessageBox>
+    #include <QMessageBox>
 #endif
 
 int C5Database::fCounter = 0;
@@ -102,7 +102,8 @@ bool C5Database::open()
             fQuery = new QSqlQuery(fDb);
         } else {
             isOpened = false;
-            fLastError += fDb.lastError().databaseText() + " database: " + fDb.databaseName() + " drivers: " + fDb.drivers().join(',');
+            fLastError += fDb.lastError().databaseText() + " database: " + fDb.databaseName() + " drivers: " +
+                          fDb.drivers().join(',');
             logEvent(fLastError);
         }
     }
@@ -163,15 +164,12 @@ bool C5Database::exec(const QString &sqlQuery, QList<QList<QVariant> > &dbrows, 
         fBindValues.clear();
         return false;
     }
-
-//#define LOGGING 1
-
+    //#define LOGGING 1
 #ifdef QT_DEBUG
     logEvent(fDb.hostName() + " (" + QString::number(fTimerCount) + " ms):" + fDb.databaseName() + " " + lastQuery(fQuery));
 #elif  LOGGING
     logEvent(fDb.hostName() + " (" + QString::number(fTimerCount) + " ms):" + fDb.databaseName() + " " + lastQuery(fQuery));
 #endif
-
     fBindValues.clear();
     if (isSelect) {
         fCursorPos = -1;
@@ -197,18 +195,15 @@ bool C5Database::exec(const QString &sqlQuery, QMap<QString, QList<QVariant> > &
 {
     bool isSelect = true;
     bool result = true;
-
     if (!exec(sqlQuery, isSelect)) {
         fBindValues.clear();
         return false;
     }
-
 #ifdef QT_DEBUG
     logEvent(fDb.hostName() + ":" + fDb.databaseName() + " " + lastQuery(fQuery));
 #elif LOGGING
     logEvent(fDb.hostName() + ":" + fDb.databaseName() + " " + lastQuery(fQuery));
 #endif
-
     fBindValues.clear();
     if (isSelect) {
         fCursorPos = -1;
@@ -269,9 +264,9 @@ QByteArray C5Database::uuid_getbin(QString u)
     QByteArray b;
     u.replace("-", "");
     bool ok = true;
-    for (int i = 0; i < u.length(); i+= 2) {
+    for (int i = 0; i < u.length(); i += 2) {
         QString t = u.mid(i, 2);
-        b.append(t.toUInt(&ok, 16));
+        b.append(t.toUInt( &ok, 16));
     }
     return b;
 }
@@ -448,8 +443,7 @@ void C5Database::init()
         return;
     }
     fIsReady = true;
-
-    QMutexLocker ml(&fMutex);
+    QMutexLocker ml( &fMutex);
     ++fCounter;
     fDbName = getDbNumber("DB1");
     fDb = QSqlDatabase::addDatabase(_DBDRIVER_, fDbName);
@@ -465,7 +459,8 @@ bool C5Database::isReady()
     return fIsReady;
 }
 
-void C5Database::configureDatabase(QSqlDatabase &cn, const QString &host, const QString &db, const QString &user, const QString &password)
+void C5Database::configureDatabase(QSqlDatabase &cn, const QString &host, const QString &db, const QString &user,
+                                   const QString &password)
 {
     cn.setHostName(host);
     cn.setDatabaseName(db);
@@ -492,34 +487,34 @@ void C5Database::logEvent(const QString &event, const QString &file)
 QString C5Database::lastQuery(QSqlQuery *q)
 {
     QString sql = q->lastQuery();
-    QMapIterator<QString, QVariant> it(q->boundValues());
-    while (it.hasNext()) {
-        it.next();
-        QVariant value = it.value();
-        switch (it.value().type()) {
-        case QVariant::String:
-            value = QString("'%1'").arg(value.toString().replace("'", "''"));
-            break;
-        case QVariant::Date:
-            value = QString("'%1'").arg(value.toDate().toString("yyyy-MM-dd"));
-            break;
-        case QVariant::DateTime:
-            value = QString("'%1'").arg(value.toDateTime().toString("yyyy-MM-dd HH:mm:ss"));
-            break;
-        case QVariant::Double:
-            value = QString("%1").arg(value.toDouble());
-            break;
-        case QVariant::Int:
-            value = QString("%1").arg(value.toInt());
-            break;
-        case QVariant::Time:
-            value = QString("'%1'").arg(value.toTime().toString("HH:mm:ss"));
-            break;
-        default:
-            break;
-        }
-        sql.replace(QRegExp(it.key() + "\\b"), value.toString());
-    }
+    // QMapIterator<QString, QVariant> it(q->boundValues());
+    // while (it.hasNext()) {
+    //     it.next();
+    //     QVariant value = it.value();
+    //     switch (it.value().type()) {
+    //         case QVariant::String:
+    //             value = QString("'%1'").arg(value.toString().replace("'", "''"));
+    //             break;
+    //         case QVariant::Date:
+    //             value = QString("'%1'").arg(value.toDate().toString("yyyy-MM-dd"));
+    //             break;
+    //         case QVariant::DateTime:
+    //             value = QString("'%1'").arg(value.toDateTime().toString("yyyy-MM-dd HH:mm:ss"));
+    //             break;
+    //         case QVariant::Double:
+    //             value = QString("%1").arg(value.toDouble());
+    //             break;
+    //         case QVariant::Int:
+    //             value = QString("%1").arg(value.toInt());
+    //             break;
+    //         case QVariant::Time:
+    //             value = QString("'%1'").arg(value.toTime().toString("HH:mm:ss"));
+    //             break;
+    //         default:
+    //             break;
+    //     }
+    //     sql.replace(QRegularExpression(it.key() + "\\b"), value.toString());
+    // }
     return sql;
 }
 

@@ -17,6 +17,8 @@ public:
 
     void execQuery(const QString &query);
 
+    void execQuery(C5Database &db, const QString &query);
+
     void setCheckboxes(bool v);
 
     void setSingleCheckBoxSelection(bool v);

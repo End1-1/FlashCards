@@ -32,13 +32,12 @@ C5Printing::~C5Printing()
     }
 }
 
-void C5Printing::setSceneParams(qreal width, qreal height, QPrinter::Orientation orientation)
+void C5Printing::setSceneParams(qreal width, qreal height, QPageLayout::Orientation orientation)
 {
     fNormalHeight = height;
     fNormalWidth = width;
     fCanvas->setSceneRect(0, 0, width, height);
     fCanvasOrientation[fCanvas] = orientation;
-
     QJsonObject o;
     o["cmd"] = "scene";
     o["width"] = width;
@@ -51,7 +50,6 @@ void C5Printing::setFont(const QFont &font)
 {
     fFont = font;
     setLineHeight();
-
     QJsonObject o;
     o["cmd"] = "font";
     o["family"] = font.family();
@@ -64,7 +62,6 @@ void C5Printing::setFontBold(bool bold)
 {
     fFont.setBold(bold);
     setLineHeight();
-
     QJsonObject o;
     o["cmd"] = "fontbold";
     o["bold"] = bold;
@@ -75,7 +72,6 @@ void C5Printing::setFontItalic(bool italic)
 {
     fFont.setItalic(italic);
     setLineHeight();
-
     QJsonObject o;
     o["cmd"] = "fontitalic";
     o["italic"] = italic;
@@ -86,7 +82,6 @@ void C5Printing::setFontSize(int size)
 {
     fFont.setPointSize(size);
     setLineHeight();
-
     QJsonObject o;
     o["cmd"] = "fontsize";
     o["size"] = size;
@@ -99,7 +94,6 @@ void C5Printing::line(qreal x1, qreal y1, qreal x2, qreal y2, int lineWidth)
         fLinePen.setWidth(lineWidth);
     }
     fCanvas->addLine(x1, y1, x2, y2, fLinePen);
-
     QJsonObject o;
     o["cmd"] = "line1";
     o["x1"] = x1;
@@ -113,7 +107,6 @@ void C5Printing::line(qreal x1, qreal y1, qreal x2, qreal y2, int lineWidth)
 void C5Printing::line(int lineWidth)
 {
     line(0, fTop, fNormalWidth, fTop, lineWidth);
-
     QJsonObject o;
     o["cmd"] = "line2";
     o["width"] = lineWidth;
@@ -146,7 +139,6 @@ void C5Printing::ltext(const QString &text, qreal x)
     QGraphicsTextItem *item = fCanvas->addText(text, fFont);
     item->moveBy(x, fTop);
     setTemptop(item, -1);
-
     QJsonObject o;
     o["cmd"] = "ltext";
     o["text"] = text;
@@ -162,7 +154,6 @@ void C5Printing::ctext(const QString &text)
     item->document()->setDefaultTextOption(op);
     item->moveBy(0, fTop);
     setTemptop(item, -1);
-
     QJsonObject o;
     o["cmd"] = "ctext";
     o["text"] = text;
@@ -175,7 +166,6 @@ void C5Printing::ctextof(const QString &text, qreal x)
     int textwidth = item->boundingRect().width() / 2;
     item->moveBy(x - textwidth, fTop);
     setTemptop(item, -1);
-
     QJsonObject o;
     o["cmd"] = "ctextof";
     o["text"] = text;
@@ -191,7 +181,6 @@ void C5Printing::rtext(const QString text)
     item->document()->setDefaultTextOption(op);
     item->moveBy(0, fTop);
     setTemptop(item, -1);
-
     QJsonObject o;
     o["cmd"] = "rtext";
     o["text"] = text;
@@ -212,16 +201,16 @@ void C5Printing::image(const QPixmap &image, Qt::Alignment align)
     QGraphicsPixmapItem *pi = fCanvas->addPixmap(p);
     QPointF pos = pi->pos();
     switch (align) {
-    case Qt::AlignLeft:
-        break;
-    case Qt::AlignRight:
-        pos.setX(fNormalWidth - p.width() - 1);
-        break;
-    case Qt::AlignHCenter:
-        pos.setX((fNormalWidth / 2) - (p.width() / 2));
-        break;
-    default:
-        break;
+        case Qt::AlignLeft:
+            break;
+        case Qt::AlignRight:
+            pos.setX(fNormalWidth - p.width() - 1);
+            break;
+        case Qt::AlignHCenter:
+            pos.setX((fNormalWidth / 2) - (p.width() / 2));
+            break;
+        default:
+            break;
     }
     pos.setY(fTop);
     pi->setPos(pos);
@@ -233,17 +222,14 @@ bool C5Printing::br(qreal height)
     o["cmd"] = "br";
     o["height"] = height;
     fJsonData.append(o);
-
     if (height == 0) {
         height = fLineHeight;
     }
-
     fTop += height + (fTempTop > 0 ? fTempTop - fLineHeight : 0);
     fTempTop = 0;
-
     if (fTop > fNormalHeight) {
         fTop = 0;
-        QPrinter::Orientation o = fCanvasOrientation[fCanvas];
+        QPageLayout::Orientation o = fCanvasOrientation[fCanvas];
         fCanvas = new QGraphicsScene();
         fCanvasList.append(fCanvas);
         setSceneParams(fNormalWidth, fNormalHeight, o);
@@ -273,45 +259,13 @@ int C5Printing::pageCount()
     return fCanvasList.count();
 }
 
-QPrinter::Orientation C5Printing::orientation(int index)
+QPageLayout::Orientation C5Printing::orientation(int index)
 {
     return fCanvasOrientation[fCanvasList.at(index)];
 }
 
-void C5Printing::print(const QString &printername, QPrinter::PageSize pageSize)
+void C5Printing::print(const QString &printername, QPageSize pageSize)
 {
-    if (printername.contains("print://", Qt::CaseInsensitive)) {
-        QRegExp re("(print:\\/\\/)(.*):(\\d*)\\/(.*)", Qt::CaseInsensitive);
-        re.indexIn(printername);
-        if (re.captureCount() > 0) {
-            QStringList l = re.capturedTexts();
-            QString addr = l.at(2);
-            QString prt = l.at(3);
-            QString prn = l.at(4);
-            QJsonObject jobj;
-            jobj["data"] = fJsonData;
-            jobj["cmd"] = 1;
-            jobj["printer"] = prn;
-            jobj["pagesize"] = pageSize;
-            QJsonDocument jdoc(jobj);
-            QTcpSocket ts;
-            ts.connectToHost(addr, prt.toInt());
-            if (ts.waitForConnected(5000)) {
-                QByteArray out = jdoc.toJson();
-                int datasize = out.length();
-                ts.write(reinterpret_cast<const char *>(&datasize), sizeof(datasize));
-                int cmd = 1;
-                ts.write(reinterpret_cast<const char *>(&cmd), sizeof(cmd));
-                ts.write(out, out.length());
-                ts.waitForBytesWritten();
-                ts.waitForReadyRead(60000);
-                ts.disconnectFromHost();
-            } else {
-
-            }
-        }
-        return;
-    }
     QPrinterInfo pi;
     if (!pi.availablePrinterNames().contains(printername, Qt::CaseInsensitive)) {
         return;
@@ -319,17 +273,17 @@ void C5Printing::print(const QString &printername, QPrinter::PageSize pageSize)
     if (fCanvasList.count() > 0) {
         QPrinter printer(QPrinter::PrinterResolution);
         printer.setPrinterName(printername);
-        QPrinter::Orientation o = fCanvasOrientation[fCanvasList.at(0)];
-        printer.setOrientation(o);
+        QPageLayout::Orientation o = fCanvasOrientation[fCanvasList.at(0)];
+        printer.setPageOrientation(o);
         printer.setPageSize(pageSize);
-        QPainter painter(&printer);
+        QPainter painter( &printer);
         for (int i = 0; i < fCanvasList.count(); i++) {
             if (i > 0) {
                 o = fCanvasOrientation[fCanvasList.at(i)];
-                printer.setOrientation(o);
+                printer.setPageOrientation(o);
                 printer.newPage();
             }
-            fCanvasList.at(i)->render(&painter);
+            fCanvasList.at(i)->render( &painter);
         }
     }
 }

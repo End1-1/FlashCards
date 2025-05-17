@@ -39,9 +39,10 @@ void Login::on_btnOK_clicked()
     getdb();
     db[":fusername"] = ui->leUsername->text();
     db[":fpassword"] = ui->lePassword->text();
-    db.exec("select fid from users where fusername=:fusername and fpassword=:fpassword");
+    db.exec("select fid, frole from users where fusername=:fusername and fpassword=md5(:fpassword)");
     if (db.nextRow()) {
         __userid = db.getInt(0);
+        __userrole = db.getInt(1);
     }
     if (__userid > 0) {
         accept();

@@ -7,3 +7,4 @@ QString __dbusername;
 QString __dbpassword;
 int __appFontSize = 10;
 int __userid = 0;
+int __userrole = 0;

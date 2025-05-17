@@ -12,6 +12,11 @@ AutoinputDoc::AutoinputDoc() :
     ui->setupUi(this);
     ui->wc->enumLineEdit();
     ui->tbl->setColumnWidths(ui->tbl->columnCount(), 0, 0, 300, 80, 120, 120);
+    if (__userrole == 2) {
+        ui->btnRemove->setEnabled(false);
+        ui->btnWrite->setEnabled(false);
+        ui->btnWriteDraft->setEnabled(false);
+    }
 }
 
 AutoinputDoc::~AutoinputDoc()

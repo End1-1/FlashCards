@@ -20,7 +20,7 @@ bool C5FilterValues::filterValues(QStringList &values)
     QListWidget *lv = fv->ui->lst;
     for (QStringList::const_iterator it = values.begin(); it != values.end(); it++) {
         QListWidgetItem *item = new QListWidgetItem(lv);
-        QCheckBox *c = new QCheckBox(*it);
+        QCheckBox *c = new QCheckBox( *it);
         lv->addItem(item);
         lv->setItemWidget(item, c);
     }
@@ -28,7 +28,7 @@ bool C5FilterValues::filterValues(QStringList &values)
     if (fv->exec() == QDialog::Accepted) {
         values.clear();
         for (int i = 0; i < lv->count(); i++) {
-            QCheckBox *c = static_cast<QCheckBox*>(lv->itemWidget(lv->item(i)));
+            QCheckBox *c = static_cast<QCheckBox *>(lv->itemWidget(lv->item(i)));
             if (c->checkState() == Qt::Checked) {
                 values << c->text();
             }
@@ -43,9 +43,9 @@ void C5FilterValues::on_leFilter_textChanged(const QString &arg1)
 {
     QListWidget *l = ui->lst;
     for (int i = 0, count = l->count(); i < count; i++) {
-        QCheckBox *c = static_cast<QCheckBox*>(ui->lst->itemWidget(ui->lst->item(i)));
+        QCheckBox *c = static_cast<QCheckBox *>(ui->lst->itemWidget(ui->lst->item(i)));
         bool hidden = !c->text().contains(arg1, Qt::CaseInsensitive);
-        l->setItemHidden(l->item(i), hidden);
+        l->item(i)->setHidden(hidden);
     }
 }
 

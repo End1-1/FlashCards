@@ -19,6 +19,7 @@
 #include "config.h"
 #include "autoinputdoc.h"
 #include "registerticketdialog.h"
+#include "wdttotalreport.h"
 #include "passticketsdialog.h"
 #include "registeruseddialog.h"
 #include "wdtdebts.h"
@@ -28,12 +29,20 @@
 #include "wdtamount3.h"
 #include "wdtrangemovement.h"
 #include "wdtdebtshistory.h"
+#include "dlgpassword.h"
 
 WdtHome::WdtHome(const QIcon &icon, const QString &label, QWidget *parent) :
     WdtWidget(icon, label, parent),
     ui(new Ui::WdtHome)
 {
     ui->setupUi(this);
+    if (__userrole == 2) {
+        ui->btnRegister->setEnabled(false);
+        ui->btnRegisterUsed->setEnabled(false);
+        ui->btnInputFuel->setEnabled(false);
+        ui->btnOutputFlash->setEnabled(false);
+        ui->btnPassTickets->setEnabled(false);
+    }
 }
 
 WdtHome::~WdtHome()
@@ -195,4 +204,14 @@ void WdtHome::on_btnMoney3_clicked()
 void WdtHome::on_btnRange1_clicked()
 {
     __parent->addWidget<WdtRangeMovement>(static_cast<QToolButton *>(sender()));
+}
+
+void WdtHome::on_btnChangePassword_clicked()
+{
+    DlgPassword(this).exec();
+}
+
+void WdtHome::on_btnTotalReport_clicked()
+{
+    __parent->addWidget<WdtTotalReport>(static_cast<QToolButton *>(sender()));
 }

@@ -13,7 +13,9 @@ WdtDebts::WdtDebts(const QIcon &icon, const QString &label, QWidget *parent) :
     fFilterWidget = new FilterDebts();
     fFilterWidget->restoreFilter(fFilterWidget);
     fFilterDebts = static_cast<FilterDebts*>(fFilterWidget);
-    addAction(fEditActions, ":/res/edit.png", tr("Debt repayment"), this, SLOT(editDoc()));
+    if (__userrole != 2) {
+        addAction(fEditActions, ":/res/edit.png", tr("Debt repayment"), this, SLOT(editDoc()));
+    }
     addAction(fReportActions, ":/res/filter.png", tr("Filter"), this, SLOT(setSearchParameters()));
     buildReport("debts");
 }

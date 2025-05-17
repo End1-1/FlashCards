@@ -1,7 +1,6 @@
 #include "homewindows.h"
 #include "config.h"
 #include "c5connection.h"
-#include "download.h"
 #include <QFile>
 #include <QApplication>
 #include <QTranslator>
@@ -17,8 +16,9 @@ int main(int argc, char *argv[])
         a.setStyleSheet(styleSheet.readAll());
     }
     QTranslator t;
-    t.load(":/FlashCards.qm");
-    a.installTranslator(&t);
+    if ( t.load(":/FlashCards.qm")) {
+        a.installTranslator( &t);
+    }
     QStringList params;
     C5Connection::readParams(params);
     if (params.count() > 3) {
@@ -31,13 +31,10 @@ int main(int argc, char *argv[])
     QFont font = a.font();
     font.setPointSize(__appFontSize);
     a.setFont(font);
-
     HomeWindows w;
     __parent = &w;
     w.showMaximized();
     a.processEvents();
     w.login();
-
-
     return a.exec();
 }
